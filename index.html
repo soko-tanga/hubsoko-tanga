@@ -11,6 +11,13 @@ header{background:#0f172a;color:white;padding:14px;border-radius:16px;display:fl
 header img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid white}
 header b{font-size:17px;line-height:1.2}
 header small{font-size:12px;opacity:.8}
+.soko-card{background:white;border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.soko-card img{width:100%;height:150px;object-fit:cover}
+.soko-card-body{padding:14px;text-align:center}
+.soko-card-body h2{font-size:19px}
+.soko-card-body p{font-size:13px;color:#64748b;margin:6px 0 10px}
+.btn-ingia{width:100%;padding:14px;border:none;border-radius:10px;font-weight:bold;font-size:16px;color:white;cursor:pointer}
+.btn-rudi{background:#64748b;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:bold;cursor:pointer;margin-bottom:12px}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
 .menu button{padding:16px;border:none;border-radius:14px;font-weight:bold;font-size:16px;color:white;cursor:pointer}
 .btn-uza{background:#16a34a}
@@ -19,7 +26,7 @@ header small{font-size:12px;opacity:.8}
 .btn-maduka{background:#7c3aed}
 .box{background:white;padding:15px;border-radius:14px;margin-bottom:14px;display:none}
 .box.active{display:block}
-.box input,.box select,.box textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:9px}
+.box input,.box select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:9px}
 .box button{width:100%;padding:13px;border:none;border-radius:10px;background:#16a34a;color:white;font-weight:bold;font-size:16px;cursor:pointer}
 .card{background:white;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .card img{width:100%;height:180px;object-fit:cover}
@@ -29,9 +36,6 @@ header small{font-size:12px;opacity:.8}
 .btn-call{flex:1;background:#16a34a;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold}
 .btn-wa{width:52px;background:#25D366;display:flex;align-items:center;justify-content:center;border-radius:10px}
 .btn-wa img{width:28px;height:28px}
-.filter{display:flex;gap:8px;margin-bottom:12px}
-.filter button{flex:1;padding:10px;border:1px solid #ddd;background:white;border-radius:20px;font-weight:bold}
-.filter button.active{background:#0f172a;color:white}
 .small-btns{display:flex;gap:8px;margin-top:8px}
 .small-btns button{flex:1;padding:8px;border:none;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer}
 .btn-ripoti{background:#fee2e2;color:#dc2626}
@@ -55,7 +59,32 @@ header small{font-size:12px;opacity:.8}
 </div>
 <div class="admin-bar">⚠️ Uko kama ADMIN - Unaweza kufuta chochote. <button onclick="tokaAdmin()" style="background:#dc2626;color:white;border:none;padding:4px 10px;border-radius:6px">Toka</button></div>
 
-<!-- MENU KUU 4 -->
+<!-- UKURASA WA KWANZA - MASOKO 2 TU, HAKUNA FOMU HAPA -->
+<div id="ukurasa-masoko">
+<div class="soko-card">
+<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800">
+<div class="soko-card-body">
+<h2>🐄 Soko la Mifugo</h2>
+<p>Ng'ombe • Mbuzi • Kondoo • Kuku</p>
+<button class="btn-ingia" style="background:#16a34a" onclick="ingiaSokoni('Mifugo')">Ingia Ndani ya Soko →</button>
+</div>
+</div>
+
+<div class="soko-card">
+<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800">
+<div class="soko-card-body">
+<h2>🐟 Soko la Mazao ya Uvuvi</h2>
+<p>Samaki • Dagaa • Kamba • Sato</p>
+<button class="btn-ingia" style="background:#2563eb" onclick="ingiaSokoni('Uvuvi')">Ingia Ndani ya Soko →</button>
+</div>
+</div>
+</div>
+
+<!-- NDANI YA SOKO -->
+<div id="ndani-soko" style="display:none">
+<button class="btn-rudi" onclick="rudiNyuma()">← Rudi kwenye Masoko</button>
+<h2 id="jina-soko" style="text-align:center;margin-bottom:10px"></h2>
+
 <div class="menu">
 <button class="btn-uza" onclick="fungua('uza')">🛒 UZA</button>
 <button class="btn-nunua" onclick="fungua('nunua')">🛍️ NUNUA</button>
@@ -63,11 +92,8 @@ header small{font-size:12px;opacity:.8}
 <button class="btn-maduka" onclick="fungua('maduka')">🏪 MADUKA</button>
 </div>
 
-<!-- 1. UZA -->
 <div id="uza" class="box active">
 <h3>🛒 UZA - Tangaza Bidhaa Yako</h3>
-<p style="font-size:13px;color:#64748b">Wewe ni muuzaji? Jaza hapa watu wakuone.</p>
-<select id="aina"><option value="Mifugo">Mifugo - Ng'ombe, Mbuzi, Kuku</option><option value="Uvuvi">Mazao ya Uvuvi - Samaki, Dagaa, Kamba</option></select>
 <input id="jina-bidhaa" placeholder="Jina la bidhaa - Mf: Ng'ombe wa maziwa">
 <input id="bei" placeholder="Bei - Mf: 850,000">
 <input id="eneo" placeholder="Eneo - Mf: Tanga Mjini">
@@ -76,43 +102,34 @@ header small{font-size:12px;opacity:.8}
 <button onclick="tangaza()">Tangaza Sasa</button>
 </div>
 
-<!-- 2. NUNUA -->
-<div id="nunua" class="box active">
-<h3>🛍️ NUNUA - Bidhaa Zilizopo Sokoni</h3>
-<div class="filter">
-<button class="active" onclick="chagua('Zote',this)">Zote</button>
-<button onclick="chagua('Mifugo',this)">Mifugo</button>
-<button onclick="chagua('Uvuvi',this)">Mazao ya Uvuvi</button>
-</div>
+<div id="nunua" class="box">
+<h3>🛍️ NUNUA - Bidhaa za Soko Hili</h3>
 <div id="matangazo"></div>
 </div>
 
-<!-- 3. WEKA ODA -->
 <div id="oda" class="box">
 <h3>📝 WEKA ODA YAKO</h3>
-<p style="font-size:13px;color:#64748b">Hukuona ulichotaka? Weka oda, wauzaji watakupigia.</p>
 <input id="oda-jina" placeholder="Jina lako">
-<input id="oda-bidhaa" placeholder="Unataka nini? Mf: Ng'ombe 5, Samaki kilo 20">
+<input id="oda-bidhaa" placeholder="Unataka nini? Mf: Ng'ombe 5">
 <input id="oda-simu" placeholder="Namba yako ya simu">
 <button onclick="wekaOda()">Tuma Oda</button>
 <hr style="margin:15px 0">
-<h3>👀 Oda Zilizowekwa</h3>
-<button onclick="onyeshaOda()" style="background:#0f172a">Angalia Oda Zote</button>
-<div id="lista-oda" style="margin-top:10px">Bonyeza Angalia Oda kuona...</div>
+<h3>👀 Oda za Soko Hili</h3>
+<div id="lista-oda"></div>
 </div>
 
-<!-- 4. MADUKA -->
 <div id="maduka" class="box">
 <h3>🏪 MADUKA - Sajili Duka Lako</h3>
-<input id="duka-jina" placeholder="Jina la Duka - Mf: Duka la Samaki Tanga">
+<input id="duka-jina" placeholder="Jina la Duka">
 <input id="duka-mwenyewe" placeholder="Jina la Mwenye Duka">
-<input id="duka-eneo" placeholder="Eneo la Duka - Mf: Soko Kuu Tanga">
+<input id="duka-eneo" placeholder="Eneo la Duka">
 <input id="duka-simu" placeholder="Namba ya simu ya Duka">
-<input id="duka-bidhaa" placeholder="Unauza nini? Mf: Samaki, Dagaa, Kamba">
+<input id="duka-bidhaa" placeholder="Unauza nini?">
 <button onclick="sajiliDuka()" style="background:#7c3aed">Sajili Duka Langu</button>
 <hr style="margin:15px 0">
-<h3>🏪 Maduka Yaliyopo</h3>
+<h3>🏪 Maduka ya Soko Hili</h3>
 <div id="lista-maduka"></div>
+</div>
 </div>
 
 <script>
@@ -124,23 +141,32 @@ matangazo=[
 ];
 localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
 }
-let filter='Zote'; let niAdmin=false;
+let sokoLililopo='Mifugo'; let niAdmin=false;
+function ingiaSokoni(aina){
+sokoLililopo=aina;
+document.getElementById('ukurasa-masoko').style.display='none';
+document.getElementById('ndani-soko').style.display='block';
+document.getElementById('jina-soko').innerText = aina=='Mifugo' ? '🐄 Soko la Mifugo' : '🐟 Soko la Mazao ya Uvuvi';
+fungua('uza');
+}
+function rudiNyuma(){
+document.getElementById('ndani-soko').style.display='none';
+document.getElementById('ukurasa-masoko').style.display='block';
+}
 function fungua(id){
-document.querySelectorAll('.box').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('#ndani-soko .box').forEach(b=>b.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 if(id=='nunua') onyeshaMatangazo();
 if(id=='maduka') onyeshaMaduka();
 if(id=='oda') onyeshaOda();
-window.scrollTo({top:0,behavior:'smooth'});
 }
 function safishaSimu(s){ s=s.replace(/[^0-9]/g,''); if(s.startsWith('0')) s='255'+s.slice(1); return s; }
-function chagua(f,btn){ filter=f; document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); onyeshaMatangazo(); }
 function ingiaAdmin(){let p=prompt('Weka Password ya Admin:'); if(p=='1234'){niAdmin=true;document.body.classList.add('admin-on');alert('Karibu Admin!');onyeshaMatangazo();onyeshaMaduka();} else if(p!=null){alert('Password si sahihi');}}
 function tokaAdmin(){niAdmin=false;document.body.classList.remove('admin-on');onyeshaMatangazo();}
 function onyeshaMatangazo(){
 let d=document.getElementById('matangazo');
-let list=matangazo.filter(m=>filter=='Zote'||m.aina==filter);
-if(list.length==0){d.innerHTML='<p style="text-align:center;padding:20px">Hakuna bidhaa hapa bado</p>';return;}
+let list=matangazo.filter(m=>m.aina==sokoLililopo);
+if(list.length==0){d.innerHTML='<p style="text-align:center;padding:20px">Hakuna bidhaa kwenye soko hili bado</p>';return;}
 d.innerHTML=list.map((m)=>`
 <div class="card">
 <img src="${m.picha}">
@@ -150,7 +176,7 @@ d.innerHTML=list.map((m)=>`
 <div class="price">${m.bei}</div>
 <div class="contact">
 <a href="tel:${m.simu}" class="btn-call">📞 Piga Simu</a>
-<a href="https://wa.me/${safishaSimu(m.simu)}?text=Nimeona%20bidhaa%20yako%20kwenye%20Soko%20Mifugo%20na%20Mazao%20ya%20Uvuvi" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
+<a href="https://wa.me/${safishaSimu(m.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
 </div>
 <div class="small-btns">
 <button class="btn-ripoti" onclick="ripoti(${matangazo.indexOf(m)})">🚨 Ripoti Tukio Baya</button>
@@ -162,16 +188,15 @@ d.innerHTML=list.map((m)=>`
 function futaTangazo(idx){if(!niAdmin){alert('Ni Admin tu');return;} if(confirm('Futa tangazo hili?')){matangazo.splice(idx,1);localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));onyeshaMatangazo();}}
 function ripoti(idx){let s=prompt('Eleza tukio baya:'); if(s){alert('Asante! Ripoti imetumwa kwa Admin.');}}
 function tangaza(){
-let aina=document.getElementById('aina').value;
 let jina=document.getElementById('jina-bidhaa').value;
 let bei=document.getElementById('bei').value;
 let eneo=document.getElementById('eneo').value;
 let simu=document.getElementById('simu-muuzaji').value;
-let picha=document.getElementById('picha').value || (aina=='Mifugo'?'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600':'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600');
+let picha=document.getElementById('picha').value || (sokoLililopo=='Mifugo'?'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600':'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600');
 if(!jina||!bei||!eneo||!simu){alert('Jaza kila kitu kwanza');return;}
-matangazo.unshift({aina:aina,jina:jina,bei:bei,eneo:eneo,simu:simu,picha:picha});
+matangazo.unshift({aina:sokoLililopo,jina:jina,bei:bei,eneo:eneo,simu:simu,picha:picha});
 localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
-alert('Hongera! Bidhaa yako imetangazwa. Bonyeza NUNUA kuiona.');
+alert('Hongera! Bidhaa imetangazwa kwenye '+sokoLililopo);
 fungua('nunua');
 }
 function wekaOda(){
@@ -180,17 +205,16 @@ let bidhaa=document.getElementById('oda-bidhaa').value;
 let simu=document.getElementById('oda-simu').value;
 if(!jina||!bidhaa||!simu){alert('Jaza kila kitu kwanza');return;}
 let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
-oda.unshift({jina:jina,bidhaa:bidhaa,simu:simu,tarehe:new Date().toLocaleDateString()});
+oda.unshift({soko:sokoLililopo,jina:jina,bidhaa:bidhaa,simu:simu,tarehe:new Date().toLocaleDateString()});
 localStorage.setItem('odaSoko',JSON.stringify(oda));
 alert('Oda imetumwa!'); onyeshaOda();
 }
 function onyeshaOda(){
-let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]').filter(o=>o.soko==sokoLililopo);
 let d=document.getElementById('lista-oda');
-if(oda.length==0){d.innerHTML='Hakuna oda bado...';return;}
-d.innerHTML=oda.map((o,idx)=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin-bottom:8px"><b>${o.bidhaa}</b><br><small>Mteja: ${o.jina} • ${o.tarehe}</small><div class="contact"><a href="tel:${o.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(o.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div><div class="small-btns"><button class="btn-ripoti" onclick="alert('Ripoti imetumwa kwa Admin')">🚨 Ripoti</button>${niAdmin?`<button class="btn-admin-del" style="display:block" onclick="futaOda(${idx})">🗑️ Futa - Admin</button>`:''}</div></div>`).join('');
+if(oda.length==0){d.innerHTML='Hakuna oda kwenye soko hili bado...';return;}
+d.innerHTML=oda.map((o,idx)=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin-bottom:8px"><b>${o.bidhaa}</b><br><small>Mteja: ${o.jina} • ${o.tarehe}</small><div class="contact"><a href="tel:${o.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(o.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div></div>`).join('');
 }
-function futaOda(idx){if(confirm('Futa oda hii?')){let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');oda.splice(idx,1);localStorage.setItem('odaSoko',JSON.stringify(oda));onyeshaOda();}}
 function sajiliDuka(){
 let jina=document.getElementById('duka-jina').value;
 let mwenyewe=document.getElementById('duka-mwenyewe').value;
@@ -199,18 +223,17 @@ let simu=document.getElementById('duka-simu').value;
 let bidhaa=document.getElementById('duka-bidhaa').value;
 if(!jina||!mwenyewe||!eneo||!simu){alert('Jaza kila kitu kwanza');return;}
 let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');
-maduka.unshift({jina:jina,mwenyewe:mwenyewe,eneo:eneo,simu:simu,bidhaa:bidhaa});
+maduka.unshift({soko:sokoLililopo,jina:jina,mwenyewe:mwenyewe,eneo:eneo,simu:simu,bidhaa:bidhaa});
 localStorage.setItem('madukaSoko',JSON.stringify(maduka));
 alert('Duka limesajiliwa!'); onyeshaMaduka();
 }
 function onyeshaMaduka(){
-let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');
+let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]').filter(m=>m.soko==sokoLililopo);
 let d=document.getElementById('lista-maduka');
-if(maduka.length==0){d.innerHTML='<p>Hakuna duka lililosajiliwa bado. Kuwa wa kwanza!</p>';return;}
+if(maduka.length==0){d.innerHTML='<p>Hakuna duka kwenye soko hili bado.</p>';return;}
 d.innerHTML=maduka.map((mk,idx)=>`<div class="duka"><b>🏪 ${mk.jina}</b><br><small>Mwenyewe: ${mk.mwenyewe} • ${mk.eneo}</small><br><small>Anauza: ${mk.bidhaa}</small><div class="contact"><a href="tel:${mk.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(mk.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div>${niAdmin?`<button class="btn-admin-del" style="display:block;margin-top:8px;padding:8px" onclick="futaDuka(${idx})">🗑️ Futa Duka - Admin</button>`:''}</div>`).join('');
 }
-function futaDuka(idx){if(confirm('Futa duka hili?')){let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');maduka.splice(idx,1);localStorage.setItem('madukaSoko',JSON.stringify(maduka));onyeshaMaduka();}}
-onyeshaMatangazo(); onyeshaMaduka();
+function futaDuka(idx){let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');let filtered=maduka.filter(m=>m.soko==sokoLililopo);let toDelete=filtered[idx];let realIdx=maduka.indexOf(toDelete);maduka.splice(realIdx,1);localStorage.setItem('madukaSoko',JSON.stringify(maduka));onyeshaMaduka();}
 </script>
 </body>
 </html>
