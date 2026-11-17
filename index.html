@@ -3,119 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hub Soko - Tanga</title>
+<title>Soko Mifugo na Mazao ya Uvuvi</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
-body{background:#f6f7f9;color:#111}
-header{background:#0b7a3e;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center}
-header b{font-size:19px}
-header button{background:#fff;color:#0b7a3e;border:0;padding:7px 12px;border-radius:20px;font-weight:700;cursor:pointer}
-.wrap{max-width:1000px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);margin-bottom:16px}
-.card img{width:100%;height:220px;object-fit:cover;display:block}
-.card .in{padding:14px}
-.card h2{font-size:20px;margin-bottom:6px}
-.card p{color:#555;font-size:14px;margin-bottom:12px}
-.btn{display:block;width:100%;padding:12px;border:0;border-radius:10px;font-weight:800;cursor:pointer;font-size:16px}
-.green{background:#0b7a3e;color:#fff}
-.dark{background:#111;color:#fff}
-.outline{background:#fff;border:2px solid #0b7a3e;color:#0b7a3e}
-.topbar{background:#e8f5ee;border:2px solid #0b7a3e;border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:18px;margin-bottom:12px}
-.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.toolbar button{padding:12px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
-.prod{background:#fff;border-radius:14px;padding:12px;display:flex;gap:12px;align-items:center;margin-bottom:10px}
-.prod img{width:70px;height:70px;object-fit:cover;border-radius:10px}
-.prod b{font-size:15px}
-.prod small{color:#666}
-.price{color:#0b7a3e;font-weight:800}
-input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px;font-size:15px}
-.hidden{display:none}
-.adminBox{background:#fff3cd;border:1px solid #ffcc00;border-radius:12px;padding:12px;margin-top:16px}
-</style>
-</head>
-<body>
-<header><b>🌾 Hub Soko - Tanga</b><button onclick="showHome()">🏠 Nyumbani</button></header>
-<div class="wrap">
-<div id="home">
-<h3 style="margin-bottom:12px">Chagua Soko</h3>
-<div class="card">
-<img id="img-mifugo" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800">
-<div class="in"><h2>🐄 Soko la Mifugo</h2><p>Ng'ombe, Mbuzi, Kondoo, Kuku na bidhaa zote za mifugo kutoka Tanga.</p><button class="btn green" onclick="ingiaSoko('Mifugo')">Ingia Sokoni</button></div>
-</div>
-<div class="card">
-<img id="img-uvuvi" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800">
-<div class="in"><h2>🐟 Soko la Mazao ya Uvuvi</h2><p>Samaki, Dagaa, Kamba, na mazao yote ya uvuvi kutoka Tanga.</p><button class="btn green" onclick="ingiaSoko('Mazao ya Uvuvi')">Ingia Sokoni</button></div>
-</div>
-<div class="adminBox">
-<b>⚙️ Admin - Badilisha Picha za Masoko</b>
-<p style="font-size:13px;margin:6px 0">Bandika link ya picha mpya, halafu bonyeza Badilisha.</p>
-<label>Mifugo - Link ya Picha Mpya</label>
-<input id="newImgMifugo" placeholder="https://...">
-<button class="btn dark" onclick="badilishaPicha('Mifugo')">Badilisha Picha ya Mifugo</button><br><br>
-<label>Mazao ya Uvuvi - Link ya Picha Mpya</label>
-<input id="newImgUvuvi" placeholder="https://...">
-<button class="btn dark" onclick="badilishaPicha('Mazao ya Uvuvi')">Badilisha Picha ya Mazao ya Uvuvi</button>
-</div>
-</div>
-<div id="sokoPage" class="hidden">
-<div class="topbar" id="sokoTitle">Upo ndani ya soko la Mifugo</div>
-<div class="toolbar">
-<button style="background:#0b7a3e;color:#fff" onclick="showSection('uza')">➕ Uza</button>
-<button style="background:#ffcc00" onclick="showSection('oda')">📝 Weka Oda <span id="odaCount">(0)</span></button>
-<button style="background:#111;color:#fff" onclick="showSection('maduka')">🏪 Maduka</button>
-<button style="background:#0b7a3e;color:#fff" onclick="showSection('nunua')">🛒 Nunua <span id="nunuaCount">(0)</span></button>
-</div>
-<div id="sec-nunua"><h3 id="bidhaaTitle" style="margin-bottom:10px">Bidhaa za Soko Hili</h3><div id="bidhaaList"></div></div>
-<div id="sec-uza" class="hidden"><div class="card"><div class="in">
-<h3>Uza Bidhaa - <span class="sokoName"></span></h3><br>
-<input id="jinaBidhaa" placeholder="Jina la Bidhaa - mfano: Ng'ombe / Samaki">
-<input id="beiBidhaa" type="number" placeholder="Bei (TSh)">
-<input id="pichaBidhaa" placeholder="Link ya Picha ya Bidhaa (hiari)">
-<select id="wilaya"><option value="">-- Chagua Wilaya Yako --</option><option>Tanga Mjini</option><option>Mkinga</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option></select>
-<input id="mtaa" placeholder="Mtaa / Kata - mfano: Nguvumali">
-<input id="jinaMuuzaji" placeholder="Jina Lako">
-<input id="simu" placeholder="Namba ya Simu">
-<button class="btn green" onclick="uzaBidhaa()">Weka Bidhaa Sokoni</button>
-</div></div></div>
-<div id="sec-oda" class="hidden"><div class="card"><div class="in">
-<h3>Weka Oda - <span class="sokoName"></span></h3><br>
-<input id="odaBidhaa" placeholder="Unataka kununua nini?">
-<input id="odaIdadi" type="number" placeholder="Idadi">
-<select id="odaWilaya"><option value="">-- Chagua Wilaya Yako --</option><option>Tanga Mjini</option><option>Mkinga</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option></select>
-<input id="odaMtaa" placeholder="Mtaa / Kata">
-<input id="odaSimu" placeholder="Namba ya Simu">
-<button class="btn green" onclick="wekaOda()">Tuma Oda</button>
-<div id="odaList" style="margin-top:12px"></div>
-</div></div></div>
-<div id="sec-maduka" class="hidden"><div class="card"><div class="in">
-<h3>Maduka ya <span class="sokoName"></span></h3>
-<p id="madukaList" style="margin-top:10px">Maduka ya soko hili yataonekana hapa baada ya wauzaji kuuza.</p>
-</div></div></div>
-<button class="btn outline" onclick="showHome()" style="margin-top:12px">⬅️ Rudi Kwenye Masoko</button>
-</div>
-</div>
-<script>
-let sokoLilipo="Mifugo"; let kikapu=0; let oda=0;
-let bidhaa={
-"Mifugo":[
-{jina:"Ng'ombe - Mkinga",bei:850000,picha:"https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400",wilaya:"Mkinga",mtaa:"Mkinga"},
-{jina:"Mbuzi - Muheza",bei:180000,picha:"https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400",wilaya:"Muheza",mtaa:"Muheza"},
-{jina:"Kuku - Tanga Mjini",bei:25000,picha:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400",wilaya:"Tanga Mjini",mtaa:"Nguvumali"}],
-"Mazao ya Uvuvi":[
-{jina:"Samaki Sato - Pangani",bei:15000,picha:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400",wilaya:"Pangani",mtaa:"Pangani"},
-{jina:"Dagaa - Tanga Mjini",bei:8000,picha:"https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=400",wilaya:"Tanga Mjini",mtaa:"Chongoleani"},
-{jina:"Kamba - Muheza",bei:22000,picha:"https://images.unsplash.com/photo-1559742811-822873691df8?w=400",wilaya:"Muheza",mtaa:"Muheza"}]};
-if(localStorage.getItem('img-mifugo')) document.getElementById('img-mifugo').src=localStorage.getItem('img-mifugo');
-if(localStorage.getItem('img-uvuvi')) document.getElementById('img-uvuvi').src=localStorage.getItem('img-uvuvi');
-function showHome(){document.getElementById('home').classList.remove('hidden');document.getElementById('sokoPage').classList.add('hidden');window.scrollTo(0,0);}
-function ingiaSoko(soko){sokoLilipo=soko;document.getElementById('home').classList.add('hidden');document.getElementById('sokoPage').classList.remove('hidden');document.getElementById('sokoTitle').innerText="Upo ndani ya soko la "+soko;document.querySelectorAll('.sokoName').forEach(e=>e.innerText=soko);document.getElementById('bidhaaTitle').innerText="Bidhaa za Soko la "+soko;showSection('nunua');onyeshaBidhaa();window.scrollTo(0,0);}
-function showSection(sec){['nunua','uza','oda','maduka'].forEach(s=>{document.getElementById('sec-'+s).classList.add('hidden');});document.getElementById('sec-'+sec).classList.remove('hidden');}
-function onyeshaBidhaa(){let list=document.getElementById('bidhaaList');list.innerHTML="";bidhaa[sokoLilipo].forEach((b,i)=>{list.innerHTML+=`<div class="prod"><img src="${b.picha}"><div style="flex:1"><b>${b.jina}</b><br><small>${b.wilaya} - ${b.mtaa}</small><br><span class="price">TSh ${b.bei.toLocaleString()}</span></div><button onclick="nunua(${i})" style="background:#0b7a3e;color:#fff;border:0;padding:10px 14px;border-radius:10px;font-weight:800">Nunua</button></div>`;});}
-function nunua(i){kikapu++;document.getElementById('nunuaCount').innerText="("+kikapu+")";alert("Umechagua: "+bidhaa[sokoLilipo][i].jina+"\n\nSasa una Nunua ("+kikapu+")");}
-function uzaBidhaa(){let jina=document.getElementById('jinaBidhaa').value;let bei=parseInt(document.getElementById('beiBidhaa').value||0);let wilaya=document.getElementById('wilaya').value;let mtaa=document.getElementById('mtaa').value;let picha=document.getElementById('pichaBidhaa').value||"https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400";if(!jina||!bei||!wilaya||!mtaa){alert("Jaza Jina, Bei, Wilaya na Mtaa/Kata kwanza");return;}bidhaa[sokoLilipo].push({jina:jina,bei:bei,picha:picha,wilaya:wilaya,mtaa:mtaa});alert("Hongera! Bidhaa yako imeingia kwenye Soko la "+sokoLilipo);showSection('nunua');onyeshaBidhaa();}
-function wekaOda(){let b=document.getElementById('odaBidhaa').value;let idadi=document.getElementById('odaIdadi').value;let wilaya=document.getElementById('odaWilaya').value;let mtaa=document.getElementById('odaMtaa').value;if(!b||!wilaya||!mtaa){alert("Jaza Bidhaa, Wilaya na Mtaa/Kata");return;}oda++;document.getElementById('odaCount').innerText="("+oda+")";document.getElementById('odaList').innerHTML+=`<div style="background:#f0f0f0;padding:10px;border-radius:10px;margin-bottom:8px"><b>${b}</b> - Idadi: ${idadi}<br><small>${wilaya} - ${mtaa}</small></div>`;alert("Oda yako imetumwa! Sasa una Weka Oda ("+oda+")");}
-function badilishaPicha(soko){if(soko==="Mifugo"){let v=document.getElementById('newImgMifugo').value;if(!v) return alert("Weka link ya picha kwanza");document.getElementById('img-mifugo').src=v;localStorage.setItem('img-mifugo',v);alert("Picha ya Mifugo imebadilishwa!");}else{let v=document.getElementById('newImgUvuvi').value;if(!v) return alert("Weka link ya picha kwanza");document.getElementById('img-uvuvi').src=v;localStorage.setItem('img-uvuvi',v);alert("Picha ya Mazao ya Uvuvi imebadilishwa!");}}
-onyeshaBidhaa();
-</script>
-</body>
-</html>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{background:#f1f5f9;padding:12px}
+header{background:#0f172a;color:white;padding:14px;border-radius:16px;display:flex;align-items:center;gap:10px;justify-content:center;text-align:center}
+header img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid white}
+header b{font-size:17px;line-height:1.2}
+header small{font-weight:400;font-size:12px;opacity:.8}
+.top-btns{display:flex;gap:10px;margin:14px 0}
+.top-btns button{flex:1;padding:14px;border:none;border-radius:12px;font-weight:bold;font-size:15px;color:white;cursor:pointer}
+.btn-oda{background:#ea580c}
+.btn-angalia{background:#0f172a}
+.card{background:white;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-body{padding:12px}
+.card-body h3{font-size:17px}
+.price{color:#16a34a;font-weight:bold;font-size:16px}
+.contact{display:flex;gap:8px;margin-top:10px}
+.btn-call{flex:1;background:#16a34a;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold}
+.btn-wa{width:52px;background:#25D366;display:flex;align-items:center;justify-content:center;border-radius:10px}
+.btn-wa img{width:28px;height:28px}
+.box{background:white;padding:15px;border-radius:14px;margin-bottom:14px}
+.box input,.box select,.box textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:9px}
+.box button{width:100%;padding:13px;border:none;border-radius:10px;background:#16a34a;color:white;font-weight:bold;font-size:16px}
+.filter{display:flex;gap:8px;margin-bottom:12px}
+.filter button{flex:1;padding:10px;border:1px solid #ddd;background:white;border-radius:20px;font-weight:bold}
+.filter button.active{background:#0f172a;color:white}
+.small-btns{display:flex;gap:8px;margin-top:8px}
+.small-btns button{flex:1;padding:8px;border:none;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer}
+.btn-ripoti{background:#fee2e2;color:#dc
