@@ -266,4 +266,33 @@ oda.unshift({soko:sokoLililopo,jina:jina,bidhaa:bidhaa,wilaya:wilaya,mtaa:mtaa,s
 localStorage.setItem('odaSoko',JSON.stringify(oda));
 alert('Oda imetumwa!'); onyeshaOda();
 }
-function
+function onyeshaOda(){
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]').filter(o=>o.soko==sokoLililopo);
+let d=document.getElementById('lista-oda');
+if(oda.length==0){d.innerHTML='Hakuna oda kwenye soko hili bado...';return;}
+d.innerHTML=oda.map((o)=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin-bottom:8px"><b>${o.bidhaa}</b><br><small>Mteja: ${o.jina} • ${o.tarehe}</small><br><small>📍 Wilaya: ${o.wilaya||'-'} • Mtaa/Kata: ${o.mtaa||'-'}</small><div class="contact"><a href="tel:${o.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(o.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div></div>`).join('');
+}
+function sajiliDuka(){
+let jina=document.getElementById('duka-jina').value;
+let mwenyewe=document.getElementById('duka-mwenyewe').value;
+let eneo=document.getElementById('duka-eneo').value;
+let wilaya=document.getElementById('duka-wilaya').value;
+let mtaa=document.getElementById('duka-mtaa').value;
+let simu=document.getElementById('duka-simu').value;
+let bidhaa=document.getElementById('duka-bidhaa').value;
+if(!jina||!mwenyewe||!eneo||!simu||!wilaya||!mtaa){alert('Jaza kila kitu - pamoja na Wilaya na Mtaa/Kata');return;}
+let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');
+maduka.unshift({soko:sokoLililopo,jina:jina,mwenyewe:mwenyewe,eneo:eneo,wilaya:wilaya,mtaa:mtaa,simu:simu,bidhaa:bidhaa});
+localStorage.setItem('madukaSoko',JSON.stringify(maduka));
+alert('Duka limefunguliwa!'); funguaDukaSehemu('angalia-duka');
+}
+function onyeshaMaduka(){
+let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]').filter(m=>m.soko==sokoLililopo);
+let d=document.getElementById('lista-maduka');
+if(maduka.length==0){d.innerHTML='<p>Hakuna duka kwenye soko hili bado.</p>';return;}
+d.innerHTML=maduka.map((mk,idx)=>`<div class="duka"><b>🏪 ${mk.jina}</b><br><small>Mwenyewe: ${mk.mwenyewe} • ${mk.eneo}</small><br><small>📍 Wilaya: ${mk.wilaya||'-'} • Mtaa/Kata: ${mk.mtaa||'-'}</small><br><small>Anauza: ${mk.bidhaa}</small><div class="contact"><a href="tel:${mk.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(mk.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div>${niAdmin?`<button class="btn-admin-del" style="display:block;margin-top:8px;padding:8px" onclick="futaDuka(${idx})">🗑️ Futa Duka - Admin</button>`:''}</div>`).join('');
+}
+function futaDuka(idx){let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');let filtered=maduka.filter(m=>m.soko==sokoLililopo);let toDelete=filtered[idx];let realIdx=maduka.indexOf(toDelete);maduka.splice(realIdx,1);localStorage.setItem('madukaSoko',JSON.stringify(maduka));onyeshaMaduka();}
+</script>
+</body>
+</html>
