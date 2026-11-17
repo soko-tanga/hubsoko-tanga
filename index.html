@@ -32,4 +32,155 @@ header small{font-weight:400;font-size:12px;opacity:.8}
 .filter button.active{background:#0f172a;color:white}
 .small-btns{display:flex;gap:8px;margin-top:8px}
 .small-btns button{flex:1;padding:8px;border:none;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer}
-.btn-ripoti{background:#fee2e2;color:#dc
+.btn-ripoti{background:#fee2e2;color:#dc2626}
+.btn-admin-del{background:#dc2626;color:white;display:none}
+.admin-on .btn-admin-del{display:block}
+.admin-bar{background:#fef3c7;padding:10px;border-radius:10px;margin-bottom:12px;display:none;text-align:center;font-size:13px;font-weight:bold}
+.admin-on .admin-bar{display:block}
+</style>
+</head>
+<body>
+
+<header>
+<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=100">
+<div><b>Soko Mifugo na<br>Mazao ya Uvuvi</b><br><small>Tanga - Wafugaji | Wavuvi | Wafanyabiashara</small></div>
+<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=100">
+</header>
+
+<div style="text-align:right;margin-top:8px">
+<button onclick="ingiaAdmin()" style="background:none;border:none;color:#64748b;font-size:12px;text-decoration:underline;cursor:pointer">Admin</button>
+</div>
+
+<div class="admin-bar" id="admin-bar">⚠️ Uko kama ADMIN - Unaweza kufuta tangazo lolote. <button onclick="tokaAdmin()" style="background:#dc2626;color:white;border:none;padding:4px 10px;border-radius:6px;margin-left:5px">Toka</button></div>
+
+<div class="top-btns">
+<button class="btn-oda" onclick="showBox('fomu-oda')">📝 Weka Oda Yako</button>
+<button class="btn-angalia" onclick="showBox('orodha-oda');onyeshaOda()">👀 Angalia Oda</button>
+</div>
+
+<div id="fomu-oda" class="box" style="display:none">
+<h3>Weka Oda Yako</h3>
+<p style="font-size:13px;color:#64748b">Hukuona bidhaa uliyoitaka? Weka oda, wauzaji watakuwasiliana nawe.</p>
+<input id="oda-jina" placeholder="Jina lako">
+<input id="oda-bidhaa" placeholder="Unataka nini? Mf: Ng'ombe 5, Samaki kilo 20">
+<input id="oda-simu" placeholder="Namba yako ya simu">
+<button onclick="wekaOda()">Tuma Oda</button>
+</div>
+
+<div id="orodha-oda" class="box" style="display:none">
+<h3>Oda Zilizowekwa</h3>
+<div id="lista-oda">Hakuna oda bado...</div>
+</div>
+
+<div class="box">
+<h3>📢 Tangaza Bidhaa Yako</h3>
+<select id="aina"><option value="Mifugo">Mifugo - Ng'ombe, Mbuzi, Kuku</option><option value="Uvuvi">Mazao ya Uvuvi - Samaki, Dagaa, Kamba</option></select>
+<input id="jina-bidhaa" placeholder="Jina la bidhaa - Mf: Ng'ombe wa maziwa">
+<input id="bei" placeholder="Bei - Mf: 850,000">
+<input id="eneo" placeholder="Eneo - Mf: Tanga Mjini">
+<input id="simu-muuzaji" placeholder="Namba yako ya simu">
+<input id="picha" placeholder="Link ya picha (hiari)">
+<button onclick="tangaza()">Tangaza Sasa</button>
+</div>
+
+<div class="filter">
+<button class="active" onclick="chagua('Zote',this)">Zote</button>
+<button onclick="chagua('Mifugo',this)">Mifugo</button>
+<button onclick="chagua('Uvuvi',this)">Mazao ya Uvuvi</button>
+</div>
+
+<div id="matangazo"></div>
+
+<script>
+let matangazo = JSON.parse(localStorage.getItem('matangazoSoko')||'[]');
+if(matangazo.length==0){
+matangazo=[
+{aina:'Mifugo',jina:"Ng'ombe wa Nyama",bei:'850,000 TZS',eneo:'Tanga Mjini',simu:'0712345678',picha:'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600'},
+{aina:'Uvuvi',jina:'Samaki Sato Kilo 20',bei:'120,000 TZS',eneo:'Pangani',simu:'0765123456',picha:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600'}
+];
+localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
+}
+let filter='Zote';
+let niAdmin=false;
+function showBox(id){document.getElementById('fomu-oda').style.display='none';document.getElementById('orodha-oda').style.display='none';document.getElementById(id).style.display='block';}
+function safishaSimu(s){ s=s.replace(/[^0-9]/g,''); if(s.startsWith('0')) s='255'+s.slice(1); return s; }
+function chagua(f,btn){ filter=f; document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); onyeshaMatangazo(); }
+function ingiaAdmin(){
+let p=prompt('Weka Password ya Admin:');
+if(p=='1234'){niAdmin=true;document.body.classList.add('admin-on');alert('Karibu Admin! Sasa unaweza kufuta tangazo lolote.');onyeshaMatangazo();}
+else if(p!=null){alert('Password si sahihi');}
+}
+function tokaAdmin(){niAdmin=false;document.body.classList.remove('admin-on');onyeshaMatangazo();}
+function onyeshaMatangazo(){
+let d=document.getElementById('matangazo');
+let list=matangazo.filter(m=>filter=='Zote'||m.aina==filter);
+if(list.length==0){d.innerHTML='<p style="text-align:center;padding:20px">Hakuna matangazo hapa bado</p>';return;}
+d.innerHTML=list.map((m,i)=>`
+<div class="card">
+<img src="${m.picha}">
+<div class="card-body">
+<span style="background:#e0f2fe;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold">${m.aina} • ${m.eneo}</span>
+<h3>${m.jina}</h3>
+<div class="price">${m.bei}</div>
+<div class="contact">
+<a href="tel:${m.simu}" class="btn-call">📞 Piga Simu</a>
+<a href="https://wa.me/${safishaSimu(m.simu)}?text=Nimeona%20tangazo%20lako%20kwenye%20Soko%20Mifugo%20na%20Mazao%20ya%20Uvuvi" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
+</div>
+<div class="small-btns">
+<button class="btn-ripoti" onclick="ripoti(${matangazo.indexOf(m)})">🚨 Ripoti Tangazo Baya / Tukio Baya</button>
+<button class="btn-admin-del" onclick="futaTangazo(${matangazo.indexOf(m)})">🗑️ Futa - Admin</button>
+</div>
+</div>
+</div>`).join('');
+}
+function futaTangazo(idx){
+if(!niAdmin){alert('Ni Admin tu anayeweza kufuta');return;}
+if(confirm('Admin, una uhakika unataka kufuta tangazo hili?')){
+matangazo.splice(idx,1);
+localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
+onyeshaMatangazo();
+}
+}
+function ripoti(idx){
+let sababu=prompt('Eleza tukio baya / tatizo la tangazo hili:');
+if(!sababu) return;
+let ripotiZilizopo=JSON.parse(localStorage.getItem('ripotiSoko')||'[]');
+ripotiZilizopo.unshift({tangazo:matangazo[idx].jina,sababu:sababu,tarehe:new Date().toLocaleString()});
+localStorage.setItem('ripotiSoko',JSON.stringify(ripotiZilizopo));
+alert('Asante! Ripoti yako imetumwa kwa Admin. Admin ataichunguza na kuifuta kama ni mbaya.');
+}
+function tangaza(){
+let aina=document.getElementById('aina').value;
+let jina=document.getElementById('jina-bidhaa').value;
+let bei=document.getElementById('bei').value;
+let eneo=document.getElementById('eneo').value;
+let simu=document.getElementById('simu-muuzaji').value;
+let picha=document.getElementById('picha').value || (aina=='Mifugo'?'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600':'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600');
+if(!jina||!bei||!eneo||!simu){alert('Jaza kila kitu kwanza');return;}
+matangazo.unshift({aina:aina,jina:jina,bei:bei,eneo:eneo,simu:simu,picha:picha});
+localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
+onyeshaMatangazo(); alert('Tangazo lako limetumwa!');
+}
+function wekaOda(){
+let jina=document.getElementById('oda-jina').value;
+let bidhaa=document.getElementById('oda-bidhaa').value;
+let simu=document.getElementById('oda-simu').value;
+if(!jina||!bidhaa||!simu){alert('Jaza kila kitu kwanza');return;}
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
+oda.unshift({jina:jina,bidhaa:bidhaa,simu:simu,tarehe:new Date().toLocaleDateString()});
+localStorage.setItem('odaSoko',JSON.stringify(oda));
+alert('Oda yako imetumwa! Wauzaji wataona na kukupigia.');
+document.getElementById('fomu-oda').style.display='none';
+}
+function onyeshaOda(){
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
+let d=document.getElementById('lista-oda');
+if(oda.length==0){d.innerHTML='Hakuna oda bado...';return;}
+d.innerHTML=oda.map((o,idx)=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin-bottom:8px"><b>${o.bidhaa}</b><br><small>Mteja: ${o.jina} • ${o.tarehe}</small><div class="contact"><a href="tel:${o.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(o.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div><div class="small-btns"><button class="btn-ripoti" onclick="ripotiOda(${idx})">🚨 Ripoti Oda Mbaya</button>${niAdmin?`<button class="btn-admin-del" style="display:block" onclick="futaOda(${idx})">🗑️ Futa - Admin</button>`:''}</div></div>`).join('');
+}
+function ripotiOda(idx){let s=prompt('Eleza tatizo la oda hii:');if(s){alert('Ripoti imetumwa kwa Admin. Asante!');}}
+function futaOda(idx){if(confirm('Futa oda hii?')){let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');oda.splice(idx,1);localStorage.setItem('odaSoko',JSON.stringify(oda));onyeshaOda();}}
+onyeshaMatangazo();
+</script>
+</body>
+</html>
