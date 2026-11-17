@@ -168,4 +168,49 @@ let bei=document.getElementById('bei').value;
 let eneo=document.getElementById('eneo').value;
 let simu=document.getElementById('simu-muuzaji').value;
 let picha=document.getElementById('picha').value || (aina=='Mifugo'?'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600':'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600');
-if(!j
+if(!jina||!bei||!eneo||!simu){alert('Jaza kila kitu kwanza');return;}
+matangazo.unshift({aina:aina,jina:jina,bei:bei,eneo:eneo,simu:simu,picha:picha});
+localStorage.setItem('matangazoSoko',JSON.stringify(matangazo));
+alert('Hongera! Bidhaa yako imetangazwa. Bonyeza NUNUA kuiona.');
+fungua('nunua');
+}
+function wekaOda(){
+let jina=document.getElementById('oda-jina').value;
+let bidhaa=document.getElementById('oda-bidhaa').value;
+let simu=document.getElementById('oda-simu').value;
+if(!jina||!bidhaa||!simu){alert('Jaza kila kitu kwanza');return;}
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
+oda.unshift({jina:jina,bidhaa:bidhaa,simu:simu,tarehe:new Date().toLocaleDateString()});
+localStorage.setItem('odaSoko',JSON.stringify(oda));
+alert('Oda imetumwa!'); onyeshaOda();
+}
+function onyeshaOda(){
+let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');
+let d=document.getElementById('lista-oda');
+if(oda.length==0){d.innerHTML='Hakuna oda bado...';return;}
+d.innerHTML=oda.map((o,idx)=>`<div style="border:1px solid #eee;padding:10px;border-radius:10px;margin-bottom:8px"><b>${o.bidhaa}</b><br><small>Mteja: ${o.jina} • ${o.tarehe}</small><div class="contact"><a href="tel:${o.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(o.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div><div class="small-btns"><button class="btn-ripoti" onclick="alert('Ripoti imetumwa kwa Admin')">🚨 Ripoti</button>${niAdmin?`<button class="btn-admin-del" style="display:block" onclick="futaOda(${idx})">🗑️ Futa - Admin</button>`:''}</div></div>`).join('');
+}
+function futaOda(idx){if(confirm('Futa oda hii?')){let oda=JSON.parse(localStorage.getItem('odaSoko')||'[]');oda.splice(idx,1);localStorage.setItem('odaSoko',JSON.stringify(oda));onyeshaOda();}}
+function sajiliDuka(){
+let jina=document.getElementById('duka-jina').value;
+let mwenyewe=document.getElementById('duka-mwenyewe').value;
+let eneo=document.getElementById('duka-eneo').value;
+let simu=document.getElementById('duka-simu').value;
+let bidhaa=document.getElementById('duka-bidhaa').value;
+if(!jina||!mwenyewe||!eneo||!simu){alert('Jaza kila kitu kwanza');return;}
+let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');
+maduka.unshift({jina:jina,mwenyewe:mwenyewe,eneo:eneo,simu:simu,bidhaa:bidhaa});
+localStorage.setItem('madukaSoko',JSON.stringify(maduka));
+alert('Duka limesajiliwa!'); onyeshaMaduka();
+}
+function onyeshaMaduka(){
+let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');
+let d=document.getElementById('lista-maduka');
+if(maduka.length==0){d.innerHTML='<p>Hakuna duka lililosajiliwa bado. Kuwa wa kwanza!</p>';return;}
+d.innerHTML=maduka.map((mk,idx)=>`<div class="duka"><b>🏪 ${mk.jina}</b><br><small>Mwenyewe: ${mk.mwenyewe} • ${mk.eneo}</small><br><small>Anauza: ${mk.bidhaa}</small><div class="contact"><a href="tel:${mk.simu}" class="btn-call">📞 Piga Simu</a><a href="https://wa.me/${safishaSimu(mk.simu)}" class="btn-wa"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a></div>${niAdmin?`<button class="btn-admin-del" style="display:block;margin-top:8px;padding:8px" onclick="futaDuka(${idx})">🗑️ Futa Duka - Admin</button>`:''}</div>`).join('');
+}
+function futaDuka(idx){if(confirm('Futa duka hili?')){let maduka=JSON.parse(localStorage.getItem('madukaSoko')||'[]');maduka.splice(idx,1);localStorage.setItem('madukaSoko',JSON.stringify(maduka));onyeshaMaduka();}}
+onyeshaMatangazo(); onyeshaMaduka();
+</script>
+</body>
+</html>
