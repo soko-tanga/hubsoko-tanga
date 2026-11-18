@@ -41,6 +41,7 @@ textarea{height:70px}
 <p>Mahali ambapo Wafugaji, Wavuvi na Wafanyabiashara wanakutana. Uza, Nunua, Weka Oda na Fungua Duka Lako - bure kabisa, hapa Tanga.</p>
 <p id="userStatus" style="font-weight:bold;color:#0a7a42">Hujajingia - Fungua Akaunti ili uuze</p>
 <button class="btn btn-dark" onclick="funguaAkaunti()">FUNGUA / INGA KWENYE AKAUNTI YAKO</button>
+<button id="btnToka" class="btn btn-red" style="display:none" onclick="toka()">TOKA KWENYE AKAUNTI</button>
 </div>
 
 <!-- AKAUNTI MODAL -->
@@ -57,32 +58,36 @@ textarea{height:70px}
 </div>
 
 <div id="boxSignup" style="display:none">
-<h3 style="text-align:center;color:#0a7a42">FUNGUA AKAUNTI YA MUUZAJI</h3>
-<label>Jina Kamili *</label><input id="sJina" placeholder="Mfano: Doka Juma">
+<h3 style="text-align:center;color:#0a7a42">SAJILI DUKA LAKO - FUNGUA AKAUNTI</h3>
+<label>Jina la Mwenye Duka *</label><input id="sJina" placeholder="Mfano: Doka Juma">
+<label>Jina la Duka *</label><input id="sDuka" placeholder="Mfano: Duka la Mbuzi Handeni">
 <label>Namba ya Simu / WhatsApp *</label><input id="sSimu" placeholder="0755 123 456">
 <label>Wilaya *</label><select id="sWilaya"><option>Tanga Mjini</option><option>Handeni</option><option>Korogwe</option><option>Muheza</option><option>Pangani</option><option>Lushoto</option><option>Kilindi</option><option>Mkinga</option></select>
+<label>Aina ya Duka *</label><select id="sAina"><option>Mifugo</option><option>Samaki / Mazao ya Uvuvi</option><option>Mifugo na Uvuvi</option></select>
 <label>Tengeneza Neno la Siri *</label><input id="sPass" type="password" placeholder="Chagua password">
 <label>Rudia Neno la Siri *</label><input id="sPass2" type="password" placeholder="Rudia password">
 <label>Swali la Siri - Kwa kukusaidia ukisahau Password *</label>
 <select id="sSwali"><option>Jina la mama yako mzazi ni nani?</option><option>Shule yako ya kwanza ilikuwa ipi?</option><option>Mnyama unayempenda ni yupi?</option></select>
 <label>Jibu la Swali la Siri *</label><input id="sJibu" placeholder="Andika jibu utakalokumbuka">
-<button class="btn" onclick="sajili()">FUNGUA AKAUNTI</button>
+<button class="btn" onclick="sajili()">SAJILI DUKA LANGU</button>
 <span class="link" onclick="onyeshaLogin()">Tayari una Akaunti? Ingia Hapa</span>
 <button class="btn btn-gray" onclick="fungaModals()">FUNGA</button>
 </div>
 
 <div id="boxForgot" style="display:none">
 <h3 style="text-align:center;color:#c0392b">UMESAHAU NENO LA SIRI?</h3>
-<p class="small">Weka namba yako, jibu swali la siri, kisha weka password mpya.</p>
+<p class="small">Weka namba yako, jibu swali la siri, kisha tengeneza password mpya.</p>
 <label>Namba ya Simu uliyosajili</label><input id="fSimu" placeholder="0755 123 456">
 <button class="btn btn-dark" onclick="tafutaAkaunti()">TAFUTA AKAUNTI YANGU</button>
 <div id="forgotStep2" style="display:none">
 <label>Swali lako la Siri:</label><p id="forgotSwali" style="font-weight:bold"></p>
 <label>Jibu lako</label><input id="fJibu" placeholder="Andika jibu lako">
 <label>Password Mpya</label><input id="fPassMpya" type="password" placeholder="Password mpya">
-<button class="btn" onclick="badiliPassword()">BADILISHA PASSWORD</button>
+<label>Rudia Password Mpya</label><input id="fPassMpya2" type="password" placeholder="Rudia password mpya">
+<button class="btn" onclick="badiliPassword()">TENGENEZA PASSWORD MPYA</button>
 </div>
 <span class="link" onclick="onyeshaLogin()">Rudi Kuingia</span>
+<button class="btn btn-gray" onclick="fungaModals()">FUNGA</button>
 </div>
 </div>
 </div>
@@ -104,7 +109,7 @@ textarea{height:70px}
 
 <div class="card"><h3>🏪 MADUKA - MIFUGO</h3><p id="hakuna">Hakuna duka bado.</p><div id="orodha"></div></div>
 
-<!-- ADMIN - SIRI TU -->
+<!-- ADMIN - SIRI TU, HAKUNA MANENO KWENYE NEMBO -->
 <div class="modal" id="adminModal"><div class="modal-box">
 <h3 style="text-align:center">🛡️ ADMIN</h3>
 <div id="loginAdmin"><label>Password ya Admin</label><input id="pass" type="password"><button class="btn" onclick="ingiaAdmin()">INGIA</button><button class="btn btn-red" onclick="fungaModals()">FUNGA</button></div>
@@ -124,24 +129,26 @@ function fungaModals(){document.querySelectorAll('.modal').forEach(m=>m.style.di
 function funguaAkaunti(){document.getElementById('akauntiModal').style.display='block';onyeshaLogin();}
 function onyeshaLogin(){boxLogin.style.display='block';boxSignup.style.display='none';boxForgot.style.display='none';}
 function onyeshaSignup(){boxLogin.style.display='none';boxSignup.style.display='block';boxForgot.style.display='none';}
-function onyeshaForgot(){boxLogin.style.display='none';boxSignup.style.display='none';boxForgot.style.display='block';}
+function onyeshaForgot(){boxLogin.style.display='none';boxSignup.style.display='none';boxForgot.style.display='block';forgotStep2.style.display='none';}
 function sajili(){
  let simu=sSimu.value.trim(),pass=sPass.value;
- if(!sJina.value||!simu||!pass||!sJibu.value) return alert('Jaza sehemu zote muhimu!');
- if(pass!==sPass2.value) return alert('Password hazifanani!');
+ if(!sJina.value||!sDuka.value||!simu||!pass||!sJibu.value) return alert('Jaza sehemu zote zenye *');
+ if(pass!==sPass2.value) return alert('Password mbili hazifanani! Rudia vizuri.');
  if(users.find(u=>u.simu===simu)) return alert('Namba hii tayari ina akaunti! Ingia tu.');
- users.push({jina:sJina.value,simu,wilaya:sWilaya.value,pass,swali:sSwali.value,jibu:sJibu.value.toLowerCase().trim()});
+ users.push({jina:sJina.value,duka:sDuka.value,simu,wilaya:sWilaya.value,ainaDuka:sAina.value,pass,swali:sSwali.value,jibu:sJibu.value.toLowerCase().trim()});
  localStorage.setItem('users',JSON.stringify(users));
- alert('Akaunti imefunguliwa! Sasa Ingia.'); onyeshaLogin();
+ alert('Hongera! Duka lako '+sDuka.value+' limesajiliwa. Sasa Ingia.'); onyeshaLogin();
 }
 function ingia(){
  let u=users.find(x=>x.simu===loginSimu.value.trim()&&x.pass===loginPass.value);
  if(!u) return alert('Namba au Password si sahihi! Kama umesahau, bonyeza Umesahau Neno la Siri?');
  currentUser=u; localStorage.setItem('currentUser',JSON.stringify(u));
- sasishaStatus(); fungaModals(); alert('Karibu '+u.jina+'!');
+ sasishaStatus(); fungaModals(); alert('Karibu '+u.jina+' wa '+u.duka+'!');
 }
+function toka(){currentUser=null;localStorage.removeItem('currentUser');sasishaStatus();alert('Umetoka kwenye akaunti.');}
 function sasishaStatus(){
- if(currentUser){userStatus.innerText='Umeingia kama: '+currentUser.jina+' ('+currentUser.simu+') | '+currentUser.wilaya; tahadhari.innerText='Uko tayari kuweka tangazo, '+currentUser.jina+'.';}
+ if(currentUser){userStatus.innerText='Umeingia kama: '+currentUser.jina+' | Duka: '+currentUser.duka; tahadhari.innerText='Uko tayari, '+currentUser.jina+' wa '+currentUser.duka+'. Weka tangazo lako.'; btnToka.style.display='block';}
+ else{userStatus.innerText='Hujajingia - Fungua Akaunti ili uuze'; tahadhari.innerText='Lazima uingie kwenye akaunti yako kwanza ili uweke tangazo.'; btnToka.style.display='none';}
 }
 let userKurekebisha=null;
 function tafutaAkaunti(){
@@ -153,21 +160,22 @@ function badiliPassword(){
  if(!userKurekebisha) return;
  if(fJibu.value.toLowerCase().trim()!==userKurekebisha.jibu) return alert('Jibu la swali la siri si sahihi!');
  if(!fPassMpya.value) return alert('Weka password mpya!');
+ if(fPassMpya.value!==fPassMpya2.value) return alert('Password mpya hazifanani! Rudia vizuri.');
  userKurekebisha.pass=fPassMpya.value;
  localStorage.setItem('users',JSON.stringify(users));
- alert('Password imebadilishwa! Sasa ingia na password mpya.'); onyeshaLogin();
+ alert('Hongera! Password mpya imetengenezwa. Sasa ingia na password mpya.'); onyeshaLogin();
 }
 function wekaTangazo(){
  if(!currentUser) {alert('Lazima uingie kwenye akaunti yako kwanza!'); funguaAkaunti(); return;}
  if(!jina.value||!bei.value) return alert('Jaza Jina na Bei!');
- let d={jina:jina.value,aina:aina.value,wilaya:wilaya.value,bei:bei.value,idadi:idadi.value,maelezo:maelezo.value,hali:hali.value,muuzaji:currentUser.jina,simu:currentUser.simu,mmiliki:currentUser.simu};
+ let d={jina:jina.value,aina:aina.value,wilaya:wilaya.value,bei:bei.value,idadi:idadi.value,maelezo:maelezo.value,hali:hali.value,muuzaji:currentUser.jina,duka:currentUser.duka,simu:currentUser.simu,mmiliki:currentUser.simu};
  let f=picha.files[0];
  if(f){let r=new FileReader();r.onload=e=>{d.picha=e.target.result;maliza(d);};r.readAsDataURL(f);} else maliza(d);
 }
-function maliza(d){matangazo.push(d);localStorage.setItem('soko',JSON.stringify(matangazo));onyesha();alert('Tangazo limewekwa na '+currentUser.jina+'!');}
+function maliza(d){matangazo.push(d);localStorage.setItem('soko',JSON.stringify(matangazo));onyesha();alert('Tangazo limewekwa na '+currentUser.duka+'!');}
 function onyesha(){
  let box=orodha; box.innerHTML=''; hakuna.style.display=matangazo.length?'none':'block';
- matangazo.forEach(m=>{box.innerHTML+=`<div class="item">${m.picha?`<img src="${m.picha}" style="width:100%;border-radius:10px">`:''}<b>${m.jina} - ${m.aina}</b><p>📍 ${m.wilaya} | 🏪 ${m.muuzaji}</p><p>💰 Tsh ${m.bei} | 📦 Idadi: ${m.idadi}</p><p>${m.maelezo||''}</p><span class="badge">${m.hali}</span><br><a href="https://wa.me/255${m.simu.replace(/\D/g,'').slice(-9)}" target="_blank" style="display:block;text-align:center;background:#25D366;color:#fff;padding:10px;border-radius:8px;margin-top:8px;text-decoration:none;font-weight:bold">WhatsApp Muuzaji</a></div>`;});
+ matangazo.forEach(m=>{box.innerHTML+=`<div class="item">${m.picha?`<img src="${m.picha}" style="width:100%;border-radius:10px">`:''}<b>${m.jina} - ${m.aina}</b><p>📍 ${m.wilaya} | 🏪 ${m.duka||m.muuzaji}</p><p>💰 Tsh ${m.bei} | 📦 Idadi: ${m.idadi}</p><p>${m.maelezo||''}</p><span class="badge">${m.hali}</span><br><a href="https://wa.me/255${m.simu.replace(/\D/g,'').slice(-9)}" target="_blank" style="display:block;text-align:center;background:#25D366;color:#fff;padding:10px;border-radius:8px;margin-top:8px;text-decoration:none;font-weight:bold">WhatsApp Muuzaji</a></div>`;});
 }
 function ingiaAdmin(){if(pass.value==='Tanga2026'){loginAdmin.style.display='none';adminBox.style.display='block';onyeshaAdmin();}else alert('Password si sahihi!');}
 function badiliLogo(){let f=logoFile.files[0];if(!f)return alert('Chagua logo');let r=new FileReader();r.onload=e=>{logoImg.src=e.target.result;localStorage.setItem('logo',e.target.result);alert('Logo imebadilishwa!');};r.readAsDataURL(f);}
