@@ -1,230 +1,57 @@
-<!DOCTYPE html>
-<html lang="sw">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soko la Mifugo na Mazao ya Uvuvi</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
-body{background:#f1f5f9;padding:12px;padding-bottom:30px}
-header{background:#0f172a;color:white;padding:14px;border-radius:16px;display:flex;align-items:center;gap:10px;justify-content:center;text-align:center}
-header img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid white}
-header b{font-size:17px;line-height:1.2}
-header small{font-size:12px;opacity:.8}
-.soko-card{background:white;border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.soko-card img{width:100%;height:150px;object-fit:cover}
-.soko-card-body{padding:14px;text-align:center}
-.btn-ingia{width:100%;padding:14px;border:none;border-radius:10px;font-weight:bold;font-size:16px;color:white;cursor:pointer}
-.btn-rudi{background:#64748b;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:bold;cursor:pointer;margin-bottom:12px}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.menu button{padding:16px;border:none;border-radius:14px;font-weight:bold;font-size:16px;color:white;cursor:pointer}
-.btn-uza{background:#16a34a}.btn-nunua{background:#2563eb}.btn-oda{background:#ea580c}.btn-maduka{background:#7c3aed}
-.box{background:white;padding:15px;border-radius:14px;margin-bottom:14px;display:none}
-.box.active{display:block}
-.box input,.box select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:9px}
-.box button{width:100%;padding:13px;border:none;border-radius:10px;background:#16a34a;color:white;font-weight:bold;font-size:16px;cursor:pointer}
-.fomu-kichwa{margin-bottom:12px}
-.fomu-kichwa h3{font-size:16px;margin-bottom:8px}
-.btn-funga{width:100% !important;background:#fee2e2 !important;color:#dc2626 !important;padding:8px !important;font-size:13px !important;border-radius:8px !important}
-.sub-btns{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
-.sub-btns button{flex:1;padding:12px;border:none;border-radius:10px;font-weight:bold;color:white;cursor:pointer;min-width:110px}
-.card{background:white;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-body{padding:12px}
-.price{color:#16a34a;font-weight:bold;font-size:16px}
-.contact{display:flex;gap:8px;margin-top:10px}
-.btn-call{flex:1;background:#16a34a;color:white;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold}
-.btn-wa{width:52px;background:#25D366;display:flex;align-items:center;justify-content:center;border-radius:10px}
-.btn-wa img{width:28px;height:28px}
-.small-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-.small-btns button{flex:1;padding:8px;border:none;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer;min-width:100px}
-.btn-ripoti{background:#fee2e2;color:#dc2626}
-.btn-edit{background:#fef3c7;color:#92400e}
-.btn-admin-del{background:#dc2626;color:white;display:none}
-.admin-on .btn-admin-del{display:block}
-.admin-bar{background:#fef3c7;padding:10px;border-radius:10px;margin-bottom:12px;display:none;text-align:center;font-size:13px;font-weight:bold}
-.admin-on .admin-bar{display:block}
-.duka{border:1px solid #e2e8f0;padding:12px;border-radius:12px;margin-bottom:10px;background:#f8fafc}
-.duka-logo{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #7c3aed}
-label{font-size:12px;font-weight:bold;color:#334155}
-.hali-wazi{background:#dcfce7;color:#166534;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
-.hali-funga{background:#fee2e2;color:#991b1b;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
-.hali-likizo{background:#fef9c3;color:#854d0e;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
-.upload-box{border:2px dashed #cbd5e1;padding:12px;border-radius:10px;text-align:center;margin:6px 0;background:#f8fafc}
-.preview-img{width:100%;height:140px;object-fit:cover;border-radius:10px;display:none;margin-top:8px}
-</style>
-</head>
-<body>
+<!DOCTYPE html><html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Soko la Mifugo na Mazao ya Uvuvi</title><style>*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}body{background:#f1f5f9;padding:12px}header{background:#0f172a;color:#fff;padding:14px;border-radius:16px;text-align:center}header b{font-size:18px}.card2{background:#fff;border-radius:16px;overflow:hidden;margin:12px 0}.card2 img{width:100%;height:140px;object-fit:cover}.card2 div{padding:12px;text-align:center}.btn{width:100%;padding:14px;border:0;border-radius:10px;font-weight:700;color:#fff;font-size:16px}.box{background:#fff;padding:14px;border-radius:14px;margin:10px 0;display:none}.box.on{display:block}.box input,.box select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:8px}.box button{width:100%;padding:12px;border:0;border-radius:9px;background:#16a34a;color:#fff;font-weight:700}.menu{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.menu button{padding:15px;border:0;border-radius:12px;color:#fff;font-weight:700}.funga{width:100%!important;background:#fee2e2!important;color:#c00!important;padding:8px!important;margin-bottom:8px}.duka{border:1px solid #ddd;padding:10px;border-radius:10px;margin:8px 0;background:#f8fafc}.tcard{background:#fff;border-radius:12px;overflow:hidden;margin:10px 0}.tcard img{width:100%;height:170px;object-fit:cover}.tcard div{padding:10px}.call{display:block;background:#16a34a;color:#fff;text-align:center;padding:11px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:8px}.wa{display:block;background:#25D366;color:#fff;text-align:center;padding:11px;border-radius:9px;text-decoration:none;font-weight:700;margin-top:6px}</style></head><body>
+<header><b>Soko la Mifugo na<br>Mazao ya Uvuvi</b><br><small>Tanga - Wafugaji | Wavuvi | Wafanyabiashara</small></header>
+<div style="text-align:right;margin:6px 0"><button onclick="admin()" style="border:0;background:none;color:#666;text-decoration:underline">Admin</button></div>
 
-<header>
-<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=100">
-<div><b>Soko la Mifugo na<br>Mazao ya Uvuvi</b><br><small>Tanga - Wafugaji | Wavuvi | Wafanyabiashara</small></div>
-<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=100">
-</header>
-
-<div style="text-align:right;margin-top:8px">
-<button onclick="ingiaAdmin()" style="background:none;border:none;color:#64748b;font-size:12px;text-decoration:underline;cursor:pointer">Admin</button>
-</div>
-<div class="admin-bar">⚠️ Uko kama ADMIN - Unaweza kufuta chochote. <button onclick="tokaAdmin()" style="background:#dc2626;color:white;border:none;padding:4px 10px;border-radius:6px">Toka</button></div>
-
-<!-- MASOKO 2 -->
-<div id="ukurasa-masoko">
-<div class="soko-card">
-<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800">
-<div class="soko-card-body"><h2>🐄 Soko la Mifugo</h2><p>Ngombe • Mbuzi • Kondoo • Kuku</p><button class="btn-ingia" style="background:#16a34a" onclick="ingiaSokoni('Mifugo')">Ingia Ndani ya Soko →</button></div>
-</div>
-<div class="soko-card">
-<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800">
-<div class="soko-card-body"><h2>🐟 Soko la Mazao ya Uvuvi</h2><p>Samaki • Dagaa • Kamba • Sato</p><button class="btn-ingia" style="background:#2563eb" onclick="ingiaSokoni('Uvuvi')">Ingia Ndani ya Soko →</button></div>
-</div>
+<div id="mwanzo">
+<div class="card2"><img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800"><div><h2>🐄 Soko la Mifugo</h2><p>Ng'ombe • Mbuzi • Kondoo • Kuku</p><button class="btn" style="background:#16a34a" onclick="ingia('Mifugo')">Ingia Ndani ya Soko →</button></div></div>
+<div class="card2"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800"><div><h2>🐟 Soko la Mazao ya Uvuvi</h2><p>Samaki • Dagaa • Kamba • Sato</p><button class="btn" style="background:#2563eb" onclick="ingia('Uvuvi')">Ingia Ndani ya Soko →</button></div></div>
 </div>
 
-<!-- NDANI YA SOKO -->
-<div id="ndani-soko" style="display:none">
-<button class="btn-rudi" onclick="rudiNyuma()">← Rudi kwenye Masoko</button>
-<h2 id="jina-soko" style="text-align:center;margin-bottom:10px"></h2>
-<div class="menu">
-<button class="btn-uza" onclick="fungua('uza')">🛒 UZA</button>
-<button class="btn-nunua" onclick="fungua('nunua')">🛍️ NUNUA</button>
-<button class="btn-oda" onclick="fungua('oda')">📝 WEKA ODA</button>
-<button class="btn-maduka" onclick="fungua('maduka')">🏪 MADUKA</button>
-</div>
+<div id="ndani" style="display:none">
+<button onclick="rudi()" style="padding:9px 14px;border:0;border-radius:8px;background:#64748b;color:#fff;font-weight:700">← Rudi kwenye Masoko</button>
+<h2 id="jinaSoko" style="text-align:center;margin:10px 0"></h2>
+<div class="menu"><button style="background:#16a34a" onclick="fungua('uza')">🛒 UZA</button><button style="background:#2563eb" onclick="fungua('nunua')">🛍️ NUNUA</button><button style="background:#ea580c" onclick="fungua('oda')">📝 WEKA ODA</button><button style="background:#7c3aed" onclick="fungua('maduka')">🏪 MADUKA</button></div>
 
-<div id="uza" class="box">
-<div class="fomu-kichwa"><h3>🛒 UZA - Tangaza Bidhaa Yako</h3><button class="btn-funga" onclick="fungaBox('uza')">✕ Funga Fomu Hii</button></div>
-<label>Jina la Bidhaa</label><input id="jina-bidhaa" placeholder="Mf: Ngombe wa maziwa">
-<label>Bei</label><input id="bei" placeholder="Mf: 850,000">
-<label>Wilaya - Chagua</label>
-<select id="wilaya-bidhaa"><option value="">-- Chagua Wilaya --</option><option>Tanga Mjini</option><option>Pangani</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Mkinga</option><option>Korogwe Mjini</option><option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option><option>Arusha Mjini</option><option>Moshi Mjini</option><option>Mwanza Mjini</option><option>Morogoro Mjini</option><option>Dodoma Mjini</option><option>Mbeya Mjini</option><option>Bagamoyo</option><option>Kibaha</option><option>Kisarawe</option></select>
-<label>Mtaa / Kata</label><input id="mtaa-bidhaa" placeholder="Mtaa / Kata">
-<label>Eneo</label><input id="eneo" placeholder="Eneo">
-<label>Namba ya Simu</label><input id="simu-muuzaji" placeholder="Namba yako ya simu">
-<label>Pakia Picha ya Bidhaa</label>
-<div class="upload-box">📷 Bonyeza kuchagua Picha<br><input type="file" accept="image/*" onchange="pakiaPicha(this,'preview-uza')"><img id="preview-uza" class="preview-img"></div>
-<button onclick="tangaza()">Tangaza Sasa</button>
-</div>
+<div id="uza" class="box"><button class="funga" onclick="fungaBox('uza')">✕ Funga Fomu Hii</button><h3>🛒 UZA</h3><input id="u_jina" placeholder="Jina la bidhaa"><input id="u_bei" placeholder="Bei"><select id="u_wilaya" class="wilaya"></select><input id="u_mtaa" placeholder="Mtaa / Kata"><input id="u_eneo" placeholder="Eneo"><input id="u_simu" placeholder="Namba ya simu"><label>📷 Pakia Picha</label><input type="file" accept="image/*" onchange="pakia(this,'u_picha')"><button onclick="tangaza()">Tangaza Sasa</button></div>
 
-<div id="nunua" class="box">
-<div class="fomu-kichwa"><h3>🛍️ NUNUA - Bidhaa za Soko Hili</h3><button class="btn-funga" onclick="fungaBox('nunua')">✕ Funga</button></div>
-<div id="matangazo"></div>
-</div>
+<div id="nunua" class="box"><button class="funga" onclick="fungaBox('nunua')">✕ Funga</button><h3>🛍️ NUNUA</h3><div id="listTangazo"></div></div>
 
-<div id="oda" class="box">
-<div class="fomu-kichwa"><h3>📝 WEKA ODA YAKO</h3><button class="btn-funga" onclick="fungaBox('oda')">✕ Funga Fomu Hii</button></div>
-<label>Jina Lako</label><input id="oda-jina" placeholder="Jina lako">
-<label>Unataka Nini?</label><input id="oda-bidhaa" placeholder="Mf: Ngombe 5">
-<label>Wilaya - Chagua</label>
-<select id="oda-wilaya"><option value="">-- Chagua Wilaya --</option><option>Tanga Mjini</option><option>Pangani</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Mkinga</option><option>Korogwe Mjini</option><option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option><option>Arusha Mjini</option><option>Moshi Mjini</option><option>Mwanza Mjini</option><option>Morogoro Mjini</option><option>Dodoma Mjini</option><option>Mbeya Mjini</option><option>Bagamoyo</option><option>Kibaha</option><option>Kisarawe</option></select>
-<label>Mtaa / Kata</label><input id="oda-mtaa" placeholder="Mtaa / Kata">
-<label>Namba ya Simu</label><input id="oda-simu" placeholder="Namba yako ya simu">
-<button onclick="wekaOda()">Tuma Oda</button>
-<hr style="margin:15px 0"><h3>👀 Oda za Soko Hili</h3><div id="lista-oda"></div>
-</div>
+<div id="oda" class="box"><button class="funga" onclick="fungaBox('oda')">✕ Funga</button><h3>📝 WEKA ODA</h3><input id="o_jina" placeholder="Jina lako"><input id="o_bidhaa" placeholder="Unataka nini?"><select id="o_wilaya" class="wilaya"></select><input id="o_mtaa" placeholder="Mtaa / Kata"><input id="o_simu" placeholder="Namba ya simu"><button onclick="wekaOda()">Tuma Oda</button><hr><div id="listOda"></div></div>
 
-<div id="maduka" class="box">
-<div class="fomu-kichwa"><h3>🏪 MADUKA</h3><button class="btn-funga" onclick="fungaBox('maduka')">✕ Funga</button></div>
-<div class="sub-btns">
-<button style="background:#7c3aed" onclick="funguaDukaSehemu('fungua-duka')">🏪 Fungua Duka</button>
-<button style="background:#0f172a" onclick="funguaDukaSehemu('angalia-duka')">👀 Angalia Duka</button>
-<button style="background:#059669" onclick="funguaDukaSehemu('ingia-duka')">🔑 Ingia Dukani Mwangu</button>
-</div>
-
-<div id="fungua-duka" style="display:block">
-<h4>🏪 Fungua Duka - Tengeneza Akaunti</h4>
-<label>Jina la Duka</label><input id="duka-jina" placeholder="Jina la Duka">
-<label>Jina la Mwenye Duka</label><input id="duka-mwenyewe" placeholder="Jina la Mwenye Duka">
-<label>Wilaya - Chagua</label>
-<select id="duka-wilaya"><option value="">-- Chagua Wilaya --</option><option>Tanga Mjini</option><option>Pangani</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Mkinga</option><option>Korogwe Mjini</option><option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option><option>Arusha Mjini</option><option>Moshi Mjini</option><option>Mwanza Mjini</option><option>Morogoro Mjini</option><option>Dodoma Mjini</option><option>Mbeya Mjini</option><option>Bagamoyo</option><option>Kibaha</option><option>Kisarawe</option></select>
-<label>Mtaa / Kata</label><input id="duka-mtaa" placeholder="Mtaa / Kata">
-<label>Eneo la Duka</label><input id="duka-eneo" placeholder="Eneo la Duka">
-<label>Namba ya Simu ya Duka</label><input id="duka-simu" placeholder="Namba ya simu">
-<label>Tengeneza Password</label><input id="duka-password" type="password" placeholder="Password">
-<label>Unauza Nini?</label><input id="duka-bidhaa" placeholder="Unauza nini?">
-<label>Pakia Logo ya Duka</label>
-<div class="upload-box">🏪 Bonyeza kuchagua Logo<br><input type="file" accept="image/*" onchange="pakiaPicha(this,'preview-logo')"><img id="preview-logo" class="preview-img"></div>
-<button onclick="sajiliDuka()" style="background:#7c3aed">Fungua Duka Langu</button>
-</div>
-
-<div id="angalia-duka" style="display:none">
-<h4>👀 Maduka ya Soko Hili</h4>
-<div id="lista-maduka"></div>
-</div>
-
-<div id="ingia-duka" style="display:none">
-<h4>🔑 Ingia Kwenye Akaunti ya Duka Lako</h4>
-<label>Namba ya Simu ya Duka</label><input id="login-simu" placeholder="Namba uliyotumia kufungua duka">
-<label>Password</label><input id="login-password" type="password" placeholder="Password yako">
-<button onclick="ingiaDukani()" style="background:#059669">Ingia Dukani</button>
-<div id="dash-duka" style="display:none;margin-top:15px;border-top:2px solid #059669;padding-top:12px">
-<h4>🏪 Dashboard Yangu - <span id="dash-jina"></span></h4>
-<div style="text-align:center;margin:10px 0"><img id="dash-logo" src="" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #059669"><br><small id="dash-hali"></small></div>
-<label>Badilisha Logo - Pakia Mpya</label>
-<div class="upload-box">📷 Chagua Logo Mpya<br><input type="file" accept="image/*" onchange="pakiaPicha(this,'preview-edit-logo')"><img id="preview-edit-logo" class="preview-img"></div>
-<label>Hali ya Duka</label>
-<select id="edit-hali"><option value="Wazi">🟢 Duka Liko Wazi</option><option value="Limefungwa">🔴 Duka Limefungwa</option><option value="Likizo">🟡 Duka Liko Likizo</option></select>
-<label>Badilisha Unachouza</label><input id="edit-bidhaa-duka" placeholder="Unauza nini?">
-<label>Badilisha Wilaya - Chagua</label>
-<select id="edit-wilaya-duka"><option value="">-- Chagua Wilaya --</option><option>Tanga Mjini</option><option>Pangani</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Mkinga</option><option>Korogwe Mjini</option><option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option><option>Arusha Mjini</option><option>Moshi Mjini</option><option>Mwanza Mjini</option><option>Morogoro Mjini</option><option>Dodoma Mjini</option><option>Mbeya Mjini</option><option>Bagamoyo</option><option>Kibaha</option><option>Kisarawe</option></select>
-<label>Badilisha Mtaa / Kata</label><input id="edit-mtaa-duka" placeholder="Mtaa / Kata">
-<button onclick="saveDuka()" style="background:#059669">Hifadhi Mabadiliko ya Duka</button>
-<hr style="margin:12px 0">
-<h4>🛒 Tangazo Langu Jipya</h4>
-<input id="duka-tangazo-jina" placeholder="Jina la bidhaa">
-<input id="duka-tangazo-bei" placeholder="Bei">
-<label>Pakia Picha ya Tangazo</label>
-<div class="upload-box">📷 Chagua Picha<br><input type="file" accept="image/*" onchange="pakiaPicha(this,'preview-tangazo-duka')"><img id="preview-tangazo-duka" class="preview-img"></div>
-<button onclick="tangazaKutokaDukani()">Weka Tangazo Kama Duka</button>
-<hr style="margin:12px 0">
-<h4>📋 Matangazo Yangu</h4>
-<div id="matangazo-yangu"></div>
-<button onclick="tokaDukani()" style="background:#dc2626;margin-top:10px">Toka Kwenye Akaunti</button>
-<button onclick="futaDukaLangu()" style="background:#7f1d1d;margin-top:8px">🗑️ Futa Duka Langu Kabisa</button>
-</div>
-</div>
-
+<div id="maduka" class="box"><button class="funga" onclick="fungaBox('maduka')">✕ Funga</button><h3>🏪 MADUKA</h3>
+<button onclick="dSehemu('fDuka')" style="background:#7c3aed">🏪 Fungua Duka</button><button onclick="dSehemu('aDuka')" style="background:#0f172a;margin-top:6px">👀 Angalia Duka</button><button onclick="dSehemu('iDuka')" style="background:#059669;margin-top:6px">🔑 Ingia Dukani Mwangu</button>
+<div id="fDuka" style="margin-top:10px"><input id="d_jina" placeholder="Jina la Duka"><input id="d_mwenyewe" placeholder="Jina la Mwenye Duka"><select id="d_wilaya" class="wilaya"></select><input id="d_mtaa" placeholder="Mtaa / Kata"><input id="d_eneo" placeholder="Eneo la Duka"><input id="d_simu" placeholder="Namba ya simu"><input id="d_pass" type="password" placeholder="Tengeneza Password"><input id="d_bidhaa" placeholder="Unauza nini?"><label>🏪 Pakia Logo</label><input type="file" accept="image/*" onchange="pakia(this,'d_logo')"><button onclick="sajiliDuka()" style="background:#7c3aed">Fungua Duka Langu</button></div>
+<div id="aDuka" style="display:none;margin-top:10px"><div id="listMaduka"></div></div>
+<div id="iDuka" style="display:none;margin-top:10px"><input id="l_simu" placeholder="Namba ya Duka"><input id="l_pass" type="password" placeholder="Password"><button onclick="ingiaDukani()" style="background:#059669">Ingia Dukani</button><div id="dash" style="display:none;margin-top:10px"><h4 id="dashJina"></h4><img id="dashLogo" style="width:70px;height:70px;border-radius:50%"><br><span id="dashHali"></span><label>Pakia Logo Mpya</label><input type="file" accept="image/*" onchange="pakia(this,'e_logo')"><select id="e_hali"><option>Wazi</option><option>Limefungwa</option><option>Likizo</option></select><input id="e_bidhaa" placeholder="Unauza nini?"><select id="e_wilaya" class="wilaya"></select><input id="e_mtaa" placeholder="Mtaa / Kata"><button onclick="saveDuka()" style="background:#059669">Hifadhi Mabadiliko</button><hr><input id="dt_jina" placeholder="Jina la bidhaa"><input id="dt_bei" placeholder="Bei"><label>Pakia Picha</label><input type="file" accept="image/*" onchange="pakia(this,'dt_picha')"><button onclick="tangazaDuka()">Weka Tangazo</button><div id="tangazoYangu"></div><button onclick="tokaDuka()" style="background:#dc2626;margin-top:8px">Toka</button><button onclick="futaDukaLangu()" style="background:#7f1d1d;margin-top:6px">Futa Duka Langu</button></div></div>
 </div>
 </div>
 
 <script>
-// KAZI YA KUFUNGUA MASOKO - IMEWEKWA MWANZONI ILI ISIFELI
-var sokoLililopo = 'Mifugo';
-var niAdmin = false;
-var dukaLanguIndex = -1;
-var pichaYaKupakia = '';
-var logoYaKupakia = '';
-var logoEditYaKupakia = '';
-var pichaTangazoDuka = '';
-
-function ingiaSokoni(aina){
-  sokoLililopo = aina;
-  var ukurasa = document.getElementById('ukurasa-masoko');
-  var ndani = document.getElementById('ndani-soko');
-  if(!ukurasa || !ndani){ alert('Tatizo la ukurasa'); return; }
-  ukurasa.style.display = 'none';
-  ndani.style.display = 'block';
-  var jina = document.getElementById('jina-soko');
-  if(jina) jina.innerText = (aina == 'Mifugo' ? '🐄 Soko la Mifugo' : '🐟 Soko la Mazao ya Uvuvi');
-  fungua('uza');
-  window.scrollTo(0,0);
-}
-function rudiNyuma(){
-  document.getElementById('ndani-soko').style.display = 'none';
-  document.getElementById('ukurasa-masoko').style.display = 'block';
-  window.scrollTo(0,0);
-}
-function fungua(id){
-  var boxes = document.querySelectorAll('#ndani-soko .box');
-  for(var i=0;i<boxes.length;i++){ boxes[i].classList.remove('active'); }
-  var el = document.getElementById(id);
-  if(el) el.classList.add('active');
-  if(id=='nunua') onyeshaMatangazo();
-  if(id=='maduka') onyeshaMaduka();
-  if(id=='oda') onyeshaOda();
-}
-function fungaBox(id){ var el=document.getElementById(id); if(el) el.classList.remove('active'); }
-function funguaDukaSehemu(id){
-  var arr = ['fungua-duka','angalia-duka','ingia-duka'];
-  for(var i=0;i<arr.length;i++){ var e=document.getElementById(arr[i]); if(e) e.style.display = (arr[i]==id ? 'block' : 'none'); }
-  if(id=='angalia-duka') onyeshaMaduka();
-}
-function safishaSimu(s){ s=String(s).replace(/[^0-9]/g,''); if(s.index
+var S='Mifugo',adm=false,dIdx=-1,img={};
+var WILAYA=['Tanga Mjini','Pangani','Muheza','Korogwe','Handeni','Kilindi','Lushoto','Mkinga','Korogwe Mjini','Ilala','Kinondoni','Temeke','Ubungo','Kigamboni','Arusha Mjini','Moshi Mjini','Mwanza Mjini','Morogoro Mjini','Dodoma Mjini','Mbeya Mjini','Bagamoyo','Kibaha','Kisarawe'];
+document.querySelectorAll('.wilaya').forEach(function(s){s.innerHTML='<option value="">-- Chagua Wilaya --</option>'+WILAYA.map(function(w){return '<option>'+w+'</option>'}).join('')});
+function ingia(a){S=a;document.getElementById('mwanzo').style.display='none';document.getElementById('ndani').style.display='block';document.getElementById('jinaSoko').innerText=a=='Mifugo'?'🐄 Soko la Mifugo':'🐟 Soko la Mazao ya Uvuvi';fungua('uza');window.scrollTo(0,0)}
+function rudi(){document.getElementById('ndani').style.display='none';document.getElementById('mwanzo').style.display='block'}
+function fungua(id){document.querySelectorAll('#ndani .box').forEach(function(b){b.classList.remove('on')});document.getElementById(id).classList.add('on');if(id=='nunua')onyeshaT();if(id=='maduka')onyeshaD();if(id=='oda')onyeshaO()}
+function fungaBox(id){document.getElementById(id).classList.remove('on')}
+function dSehemu(id){['fDuka','aDuka','iDuka'].forEach(function(x){document.getElementById(x).style.display=x==id?'block':'none'});if(id=='aDuka')onyeshaD()}
+function pakia(inp,k){var r=new FileReader();r.onload=function(e){img[k]=e.target.result};r.readAsDataURL(inp.files[0])}
+function safi(s){s=String(s||'').replace(/[^0-9]/g,'');if(s[0]=='0')s='255'+s.slice(1);return s}
+function soma(k){try{return JSON.parse(localStorage.getItem(k)||'[]')}catch(e){return[]}}
+function weka(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var T=soma('matangazoSoko');if(!T.length){T=[{aina:'Mifugo',jina:'Ngombe wa Nyama',bei:'850,000',eneo:'Tanga Mjini',wilaya:'Tanga Mjini',mtaa:'Nguvumali',simu:'0712345678',picha:'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600'},{aina:'Uvuvi',jina:'Samaki Sato Kilo 20',bei:'120,000',eneo:'Pangani',wilaya:'Pangani',mtaa:'Pangani Mjini',simu:'0765123456',picha:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600'}];weka('matangazoSoko',T)}
+function admin(){var p=prompt('Password ya Admin:');if(p=='1234'){adm=true;alert('Karibu Admin!')}else alert('Password si sahihi')}
+function onyeshaT(){var d=document.getElementById('listTangazo');var L=T.filter(function(m){return m.aina==S});if(!L.length){d.innerHTML='Hakuna bidhaa bado';return}var h='';L.forEach(function(m){var i=T.indexOf(m);h+='<div class="tcard"><img src="'+m.picha+'"><div><b>'+m.jina+'</b><br>Bei: '+m.bei+'<br>📍 '+m.wilaya+' • '+m.mtaa+' • '+m.eneo+(m.dukaJina?'<br>🏪 '+m.dukaJina:'')+'<a class="call" href="tel:'+m.simu+'">📞 Piga Simu</a><a class="wa" href="https://wa.me/'+safi(m.simu)+'">💬 WhatsApp</a>'+(adm?'<button onclick="futaT('+i+')" style="background:#dc2626;margin-top:6px">🗑️ Futa - Admin</button>':'')+'</div></div>'});d.innerHTML=h}
+function futaT(i){T.splice(i,1);weka('matangazoSoko',T);onyeshaT()}
+function tangaza(){var j=document.getElementById('u_jina').value,b=document.getElementById('u_bei').value,w=document.getElementById('u_wilaya').value,mt=document.getElementById('u_mtaa').value,e=document.getElementById('u_eneo').value,s=document.getElementById('u_simu').value;if(!j||!b||!w||!mt||!e||!s){alert('Jaza kila kitu');return}T.unshift({aina:S,jina:j,bei:b,wilaya:w,mtaa:mt,eneo:e,simu:s,picha:img.u_picha||'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600'});weka('matangazoSoko',T);alert('Imetangazwa!');fungua('nunua')}
+function wekaOda(){var j=document.getElementById('o_jina').value,b=document.getElementById('o_bidhaa').value,w=document.getElementById('o_wilaya').value,mt=document.getElementById('o_mtaa').value,s=document.getElementById('o_simu').value;if(!j||!b||!w||!mt||!s){alert('Jaza kila kitu');return}var O=soma('odaSoko');O.unshift({soko:S,jina:j,bidhaa:b,wilaya:w,mtaa:mt,simu:s});weka('odaSoko',O);alert('Oda imetumwa!');onyeshaO()}
+function onyeshaO(){var O=soma('odaSoko').filter(function(o){return o.soko==S});var d=document.getElementById('listOda');if(!O.length){d.innerHTML='Hakuna oda bado';return}d.innerHTML=O.map(function(o){return '<div class="duka"><b>'+o.bidhaa+'</b><br>Mteja: '+o.jina+'<br>📍 '+o.wilaya+' • '+o.mtaa+'<a class="call" href="tel:'+o.simu+'">📞 Piga Simu</a><a class="wa" href="https://wa.me/'+safi(o.simu)+'">💬 WhatsApp</a></div>'}).join('')}
+function sajiliDuka(){var j=document.getElementById('d_jina').value,mw=document.getElementById('d_mwenyewe').value,w=document.getElementById('d_wilaya').value,mt=document.getElementById('d_mtaa').value,e=document.getElementById('d_eneo').value,s=document.getElementById('d_simu').value,p=document.getElementById('d_pass').value,b=document.getElementById('d_bidhaa').value;if(!j||!mw||!w||!mt||!e||!s||!p){alert('Jaza kila kitu');return}var D=soma('madukaSoko');D.unshift({soko:S,jina:j,mwenyewe:mw,wilaya:w,mtaa:mt,eneo:e,simu:s,password:p,bidhaa:b,logo:img.d_logo||'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=100',hali:'Wazi'});weka('madukaSoko',D);alert('Duka limefunguliwa! Sasa ingia.');dSehemu('iDuka')}
+function onyeshaD(){var D=soma('madukaSoko').filter(function(m){return m.soko==S});var d=document.getElementById('listMaduka');if(!D.length){d.innerHTML='Hakuna duka bado';return}d.innerHTML=D.map(function(mk){return '<div class="duka"><img src="'+mk.logo+'" style="width:55px;height:55px;border-radius:50%;object-fit:cover"><b> 🏪 '+mk.jina+'</b> - '+(mk.hali=='Wazi'?'🟢 Wazi':mk.hali=='Limefungwa'?'🔴 Limefungwa':'🟡 Likizo')+'<br>Mwenyewe: '+mk.mwenyewe+' • '+mk.eneo+'<br>📍 '+mk.wilaya+' • '+mk.mtaa+'<br>Anauza: '+mk.bidhaa+'<a class="call" href="tel:'+mk.simu+'">📞 Piga Simu</a><a class="wa" href="https://wa.me/'+safi(mk.simu)+'">💬 WhatsApp</a></div>'}).join('')}
+function ingiaDukani(){var s=document.getElementById('l_simu').value,p=document.getElementById('l_pass').value;var D=soma('madukaSoko');var idx=-1;D.forEach(function(m,i){if(m.simu==s&&m.password==p&&m.soko==S)idx=i});if(idx<0){alert('Namba au Password si sahihi');return}dIdx=idx;var mk=D[idx];document.getElementById('dash').style.display='block';document.getElementById('dashJina').innerText=mk.jina;document.getElementById('dashLogo').src=mk.logo;document.getElementById('dashHali').innerText=mk.hali;document.getElementById('e_bidhaa').value=mk.bidhaa||'';document.getElementById('e_wilaya').value=mk.wilaya||'';document.getElementById('e_mtaa').value=mk.mtaa||'';document.getElementById('e_hali').value=mk.hali;onyeshaYangu();alert('Karibu '+mk.jina)}
+function onyeshaYangu(){var D=soma('madukaSoko');var mk=D[dIdx];if(!mk)return;var L=T.filter(function(m){return m.dukaSimu==mk.simu});var d=document.getElementById('tangazoYangu');if(!L.length){d.innerHTML='Huna tangazo bado';return}d.innerHTML=L.map(function(m){var i=T.indexOf(m);return '<div class="duka"><b>'+m.jina+'</b> - '+m.bei+' <button onclick="futaT('+i+');onyeshaYangu()" style="background:#dc2626;padding:6px;margin-top:4px">Futa</button></div>'}).join('')}
+function saveDuka(){var D=soma('madukaSoko');var mk=D[dIdx];if(img.e_logo)mk.logo=img.e_logo;mk.hali=document.getElementById('e_hali').value;mk.bidhaa=document.getElementById('e_bidhaa').value;mk.wilaya=document.getElementById('e_wilaya').value;mk.mtaa=document.getElementById('e_mtaa').value;D[dIdx]=mk;weka('madukaSoko',D);document.getElementById('dashLogo').src=mk.logo;alert('Imehifadhiwa!');onyeshaD()}
+function tangazaDuka(){var D=soma('madukaSoko');var mk=D[dIdx];var j=document.getElementById('dt_jina').value,b=document.getElementById('dt_bei').value;if(!j||!b){alert('Jaza jina na bei');return}T.unshift({aina:S,jina:j,bei:b,eneo:mk.eneo,wilaya:mk.wilaya,mtaa:mk.mtaa,simu:mk.simu,picha:img.dt_picha||mk.logo,dukaJina:mk.jina,dukaSimu:mk.simu});weka('matangazoSoko',T);onyeshaYangu();alert('Tangazo limetumwa!')}
+function tokaDuka(){dIdx=-1;document.getElementById('dash').style.display='none'}
+function futaDukaLangu(){if(confirm('Futa duka lako?')){var D=soma('madukaSoko');D.splice(dIdx,1);weka('madukaSoko',D);dIdx=-1;document.getElementById('dash').style.display='none';onyeshaD();alert('Duka limefutwa')}}
+</script></body></html>
