@@ -8,7 +8,7 @@
 *{box-sizing:border-box;font-family:Arial,sans-serif}
 body{margin:0;background:#f2f2f2;padding-bottom:80px}
 header{background:#0a1a2e;color:#fff;padding:18px;text-align:center}
-header img{width:75px;height:75px;border-radius:50%;background:#fff;object-fit:cover;cursor:pointer}
+header img{width:80px;height:80px;border-radius:50%;background:#ffcc00;object-fit:cover;cursor:pointer;border:3px solid #fff}
 header h1{font-size:19px;margin:10px 0 2px}
 header p{font-size:13px;margin:0;opacity:.9}
 .hero{background:#fff;margin:12px;padding:15px;border-radius:12px;text-align:center}
@@ -20,7 +20,7 @@ textarea{height:70px}
 .btn{width:100%;background:#0a7a42;color:#fff;border:0;padding:14px;border-radius:10px;font-size:16px;font-weight:bold;margin-top:15px;cursor:pointer}
 .btn-dark{background:#0a1a2e}.btn-red{background:#c0392b}.btn-gray{background:#eee;color:#333}
 .link{color:#0a7a42;text-align:center;display:block;margin-top:12px;font-weight:bold;cursor:pointer;font-size:14px}
-.item{border:1px solid #eee;border-radius:10px;padding:12px;margin-bottom:12px}
+.item{border:1px solid #eee;border-radius:10px;padding:12px;margin-bottom:12px;background:#fff}
 .badge{background:#d4edda;color:#0a7a42;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;overflow:auto}
 .modal-box{background:#fff;margin:20px auto;padding:18px;border-radius:14px;max-width:480px}
@@ -30,7 +30,7 @@ textarea{height:70px}
 <body>
 
 <header>
-<img id="logoImg" src="https://via.placeholder.com/75" alt="Logo">
+<img id="logoImg" src="https://via.placeholder.com/80/ffcc00/0a1a2e?text=SOKO" alt="SOKO">
 <h1>Soko la Mifugo na Mazao ya Uvuvi</h1>
 <p>Tanga Pekee - Wafugaji | Wavuvi | Wafanyabiashara</p>
 </header>
@@ -44,9 +44,7 @@ textarea{height:70px}
 <button id="btnToka" class="btn btn-red" style="display:none" onclick="toka()">TOKA KWENYE AKAUNTI</button>
 </div>
 
-<!-- AKAUNTI MODAL -->
-<div class="modal" id="akauntiModal">
-<div class="modal-box">
+<div class="modal" id="akauntiModal"><div class="modal-box">
 <div id="boxLogin">
 <h3 style="text-align:center;color:#0a7a42">INGIA KWENYE AKAUNTI</h3>
 <label>Namba ya Simu</label><input id="loginSimu" placeholder="0755 123 456">
@@ -66,8 +64,7 @@ textarea{height:70px}
 <label>Aina ya Duka *</label><select id="sAina"><option>Mifugo</option><option>Samaki / Mazao ya Uvuvi</option><option>Mifugo na Uvuvi</option></select>
 <label>Tengeneza Neno la Siri *</label><input id="sPass" type="password" placeholder="Chagua password">
 <label>Rudia Neno la Siri *</label><input id="sPass2" type="password" placeholder="Rudia password">
-<label>Swali la Siri - Kwa kukusaidia ukisahau Password *</label>
-<select id="sSwali"><option>Jina la mama yako mzazi ni nani?</option><option>Shule yako ya kwanza ilikuwa ipi?</option><option>Mnyama unayempenda ni yupi?</option></select>
+<label>Swali la Siri *</label><select id="sSwali"><option>Jina la mama yako mzazi ni nani?</option><option>Shule yako ya kwanza ilikuwa ipi?</option><option>Mnyama unayempenda ni yupi?</option></select>
 <label>Jibu la Swali la Siri *</label><input id="sJibu" placeholder="Andika jibu utakalokumbuka">
 <button class="btn" onclick="sajili()">SAJILI DUKA LANGU</button>
 <span class="link" onclick="onyeshaLogin()">Tayari una Akaunti? Ingia Hapa</span>
@@ -89,10 +86,8 @@ textarea{height:70px}
 <span class="link" onclick="onyeshaLogin()">Rudi Kuingia</span>
 <button class="btn btn-gray" onclick="fungaModals()">FUNGA</button>
 </div>
-</div>
-</div>
+</div></div>
 
-<!-- FOMU YA TANGAZO - ILIYOREKEBISHWA -->
 <div class="card">
 <h3>📝 WEKA TANGAZO / SAJILI DUKA</h3>
 <p class="small" id="tahadhari">Lazima uingie kwenye akaunti yako kwanza ili uweke tangazo.</p>
@@ -107,9 +102,8 @@ textarea{height:70px}
 <button class="btn" onclick="wekaTangazo()">WEKA TANGAZO</button>
 </div>
 
-<div class="card"><h3>🏪 MADUKA - MIFUGO</h3><p id="hakuna">Hakuna duka bado.</p><div id="orodha"></div></div>
+<div class="card"><h3>🏪 MADUKA - MIFUGO NA UVUVI (TANGA)</h3><p id="hakuna">Hakuna duka bado.</p><div id="orodha"></div></div>
 
-<!-- ADMIN - SIRI TU, HAKUNA MANENO KWENYE NEMBO -->
 <div class="modal" id="adminModal"><div class="modal-box">
 <h3 style="text-align:center">🛡️ ADMIN</h3>
 <div id="loginAdmin"><label>Password ya Admin</label><input id="pass" type="password"><button class="btn" onclick="ingiaAdmin()">INGIA</button><button class="btn btn-red" onclick="fungaModals()">FUNGA</button></div>
@@ -122,6 +116,18 @@ textarea{height:70px}
 <script>
 let users=JSON.parse(localStorage.getItem('users')||'[]');
 let matangazo=JSON.parse(localStorage.getItem('soko')||'[]');
+// MASOKO YA MFANO - YATAONEKANA KILA WAKATI SOKO LISIBAKI TUPU
+if(matangazo.length===0){
+ matangazo=[
+  {jina:"Mbuzi wa Kienyeji",aina:"Mbuzi",wilaya:"Tanga Mjini",bei:"180000",idadi:"5",maelezo:"Mbuzi wazuri, wenye afya, tayari kuchinjwa au kufugwa.",hali:"Inapatikana",muuzaji:"Doka Juma",duka:"Duka la Mbuzi Handeni",simu:"0755123456",picha:"https://images.unsplash.com/photo-1524024973431-2ad916746881?w=600"},
+  {jina:"Samaki Mkungu",aina:"Samaki",wilaya:"Pangani",bei:"12000",idadi:"20",maelezo:"Samaki wabichi kutoka Pangani, wamevuliwa leo asubuhi.",hali:"Inapatikana",muuzaji:"Asha Mvuvi",duka:"Duka la Samaki Pangani",simu:"0765123456",picha:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600"},
+  {jina:"Kuku wa Kienyeji",aina:"Kuku",wilaya:"Muheza",bei:"25000",idadi:"10",maelezo:"Kuku wa kienyeji, mayai makubwa, afya njema.",hali:"Inapatikana",muuzaji:"Mama Neema",duka:"Duka la Kuku Muheza",simu:"0715123456",picha:"https://images.unsplash.com/photo-1569396116180-210c182bedb8?w=600"},
+  {jina:"Ng'ombe wa Maziwa",aina:"Ng'ombe",wilaya:"Korogwe",bei:"950000",idadi:"2",maelezo:"Ng'ombe wa maziwa, lita 10 kwa siku.",hali:"Inapatikana",muuzaji:"Baraka Msigwa",duka:"Duka la Ng'ombe Korogwe",simu:"0758123456",picha:"https://images.unsplash.com/photo-1570042225831-d98fa7577f1?w=600"},
+  {jina:"Dagaa - Gunia",aina:"Dagaa",wilaya:"Mkinga",bei:"85000",idadi:"3",maelezo:"Dagaa mkavu mzuri, gunia moja.",hali:"Inapatikana",muuzaji:"Juma Bahari",duka:"Duka la Dagaa Mkinga",simu:"0745123456",picha:"https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=600"},
+  {jina:"Kondoo wa Kuchinja",aina:"Kondoo",wilaya:"Handeni",bei:"220000",idadi:"4",maelezo:"Kondoo wanono, tayari kwa sherehe.",hali:"Inapatikana",muuzaji:"Hassan Ally",duka:"Duka la Kondoo Handeni",simu:"0775123456",picha:"https://images.unsplash.com/photo-1484557985045-edf25e08da73?w=600"}
+ ];
+ localStorage.setItem('soko',JSON.stringify(matangazo));
+}
 let currentUser=JSON.parse(localStorage.getItem('currentUser')||'null');
 let clicks=0;
 document.getElementById('logoImg').onclick=()=>{clicks++;setTimeout(()=>clicks=0,800);if(clicks>=3){clicks=0;document.getElementById('adminModal').style.display='block';}};
@@ -133,7 +139,7 @@ function onyeshaForgot(){boxLogin.style.display='none';boxSignup.style.display='
 function sajili(){
  let simu=sSimu.value.trim(),pass=sPass.value;
  if(!sJina.value||!sDuka.value||!simu||!pass||!sJibu.value) return alert('Jaza sehemu zote zenye *');
- if(pass!==sPass2.value) return alert('Password mbili hazifanani! Rudia vizuri.');
+ if(pass!==sPass2.value) return alert('Password mbili hazifanani!');
  if(users.find(u=>u.simu===simu)) return alert('Namba hii tayari ina akaunti! Ingia tu.');
  users.push({jina:sJina.value,duka:sDuka.value,simu,wilaya:sWilaya.value,ainaDuka:sAina.value,pass,swali:sSwali.value,jibu:sJibu.value.toLowerCase().trim()});
  localStorage.setItem('users',JSON.stringify(users));
@@ -147,7 +153,7 @@ function ingia(){
 }
 function toka(){currentUser=null;localStorage.removeItem('currentUser');sasishaStatus();alert('Umetoka kwenye akaunti.');}
 function sasishaStatus(){
- if(currentUser){userStatus.innerText='Umeingia kama: '+currentUser.jina+' | Duka: '+currentUser.duka; tahadhari.innerText='Uko tayari, '+currentUser.jina+' wa '+currentUser.duka+'. Weka tangazo lako.'; btnToka.style.display='block';}
+ if(currentUser){userStatus.innerText='Umeingia kama: '+currentUser.jina+' | Duka: '+currentUser.duka; tahadhari.innerText='Uko tayari, '+currentUser.jina+' wa '+currentUser.duka+'.'; btnToka.style.display='block';}
  else{userStatus.innerText='Hujajingia - Fungua Akaunti ili uuze'; tahadhari.innerText='Lazima uingie kwenye akaunti yako kwanza ili uweke tangazo.'; btnToka.style.display='none';}
 }
 let userKurekebisha=null;
@@ -160,22 +166,22 @@ function badiliPassword(){
  if(!userKurekebisha) return;
  if(fJibu.value.toLowerCase().trim()!==userKurekebisha.jibu) return alert('Jibu la swali la siri si sahihi!');
  if(!fPassMpya.value) return alert('Weka password mpya!');
- if(fPassMpya.value!==fPassMpya2.value) return alert('Password mpya hazifanani! Rudia vizuri.');
+ if(fPassMpya.value!==fPassMpya2.value) return alert('Password mpya hazifanani!');
  userKurekebisha.pass=fPassMpya.value;
  localStorage.setItem('users',JSON.stringify(users));
  alert('Hongera! Password mpya imetengenezwa. Sasa ingia na password mpya.'); onyeshaLogin();
 }
 function wekaTangazo(){
- if(!currentUser) {alert('Lazima uingie kwenye akaunti yako kwanza!'); funguaAkaunti(); return;}
+ if(!currentUser){alert('Lazima uingie kwenye akaunti yako kwanza!'); funguaAkaunti(); return;}
  if(!jina.value||!bei.value) return alert('Jaza Jina na Bei!');
- let d={jina:jina.value,aina:aina.value,wilaya:wilaya.value,bei:bei.value,idadi:idadi.value,maelezo:maelezo.value,hali:hali.value,muuzaji:currentUser.jina,duka:currentUser.duka,simu:currentUser.simu,mmiliki:currentUser.simu};
+ let d={jina:jina.value,aina:aina.value,wilaya:wilaya.value,bei:bei.value,idadi:idadi.value,maelezo:maelezo.value,hali:hali.value,muuzaji:currentUser.jina,duka:currentUser.duka,simu:currentUser.simu};
  let f=picha.files[0];
  if(f){let r=new FileReader();r.onload=e=>{d.picha=e.target.result;maliza(d);};r.readAsDataURL(f);} else maliza(d);
 }
-function maliza(d){matangazo.push(d);localStorage.setItem('soko',JSON.stringify(matangazo));onyesha();alert('Tangazo limewekwa na '+currentUser.duka+'!');}
+function maliza(d){matangazo.unshift(d);localStorage.setItem('soko',JSON.stringify(matangazo));onyesha();alert('Tangazo limewekwa na '+currentUser.duka+'!');}
 function onyesha(){
  let box=orodha; box.innerHTML=''; hakuna.style.display=matangazo.length?'none':'block';
- matangazo.forEach(m=>{box.innerHTML+=`<div class="item">${m.picha?`<img src="${m.picha}" style="width:100%;border-radius:10px">`:''}<b>${m.jina} - ${m.aina}</b><p>📍 ${m.wilaya} | 🏪 ${m.duka||m.muuzaji}</p><p>💰 Tsh ${m.bei} | 📦 Idadi: ${m.idadi}</p><p>${m.maelezo||''}</p><span class="badge">${m.hali}</span><br><a href="https://wa.me/255${m.simu.replace(/\D/g,'').slice(-9)}" target="_blank" style="display:block;text-align:center;background:#25D366;color:#fff;padding:10px;border-radius:8px;margin-top:8px;text-decoration:none;font-weight:bold">WhatsApp Muuzaji</a></div>`;});
+ matangazo.forEach(m=>{box.innerHTML+=`<div class="item">${m.picha?`<img src="${m.picha}" style="width:100%;height:180px;object-fit:cover;border-radius:10px">`:''}<b style="font-size:16px">${m.jina} - ${m.aina}</b><p>📍 ${m.wilaya} | 🏪 ${m.duka||m.muuzaji}</p><p>💰 Tsh ${Number(m.bei).toLocaleString()} | 📦 Idadi: ${m.idadi}</p><p>${m.maelezo||''}</p><span class="badge">${m.hali}</span><br><a href="https://wa.me/255${m.simu.replace(/\D/g,'').slice(-9)}" target="_blank" style="display:block;text-align:center;background:#25D366;color:#fff;padding:10px;border-radius:8px;margin-top:8px;text-decoration:none;font-weight:bold">WhatsApp Muuzaji</a></div>`;});
 }
 function ingiaAdmin(){if(pass.value==='Tanga2026'){loginAdmin.style.display='none';adminBox.style.display='block';onyeshaAdmin();}else alert('Password si sahihi!');}
 function badiliLogo(){let f=logoFile.files[0];if(!f)return alert('Chagua logo');let r=new FileReader();r.onload=e=>{logoImg.src=e.target.result;localStorage.setItem('logo',e.target.result);alert('Logo imebadilishwa!');};r.readAsDataURL(f);}
