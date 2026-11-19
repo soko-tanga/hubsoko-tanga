@@ -37,8 +37,9 @@ footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{borde
 <button type="button" class="secondary" onclick="show('home')">MWANZO</button>
 <button type="button" class="secondary" onclick="show('shops')">MADUKA YA KUDUMU</button>
 <button type="button" class="secondary" onclick="show('login')">AKAUNTI / WASIFU</button>
-<button type="button" class="secondary" onclick="show('adminLogin')">USIMAMIZI</button>
-</nav>
+<button type="button" onclick="adminLogin()">INGIA DASHIBODI</button>
+<br><br>
+<button type="button" class="secondary" onclick="resetAdmin()">😥 NIMESAHAU NENO LA SIRI NA PIN - RUDISHA ZA MWANZO</button>
 <main>
 <section id="home" class="panel">
 <h2>Karibu Sokoni</h2>
@@ -166,7 +167,13 @@ footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{borde
 </section>
 </main>
 <footer>Jukwaa la wafugaji, wavuvi na wafanyabiashara Tanzania</footer>
-
+function resetAdmin(){
+  if(confirm('Unataka kurudisha Nenosiri kuwa BadiliNenosiriHili na PIN kuwa 123456?')){
+    localStorage.removeItem('sokoSettings');
+    alert('Imesharudishwa! Sasa ingia na:\nNenosiri: BadiliNenosiriHili\nPIN: 123456');
+    location.reload();
+  }
+}
 <script>
 // FIX 1: uid badala ya crypto.randomUUID() - ndiyo iliyokuwa inaua batani
 function uid(){return 'id-'+Date.now()+'-'+Math.floor(Math.random()*1000000)}
