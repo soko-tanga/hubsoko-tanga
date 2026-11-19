@@ -3,59 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HUBSOKO - Soko la Tanga</title>
+<title>HubSoko Tanga</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f0;padding:12px}
-.header{background:#fff;text-align:center;padding:20px 12px;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.08);margin-bottom:14px}
-.header h1{font-size:28px;color:#111}
-.header h1 span{color:#0a7a42}
-.header p{color:#666;margin-top:6px;font-size:14px}
+body{background:#f2f2ee;padding:12px}
+.top{background:#fff;text-align:center;padding:20px 10px;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.top h1{font-size:30px}
+.top h1 span{color:#0a7a42}
+.top p{color:#666;font-size:14px;margin-top:6px}
 .card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.card img{width:100%;height:200px;object-fit:cover;display:block}
-.card-body{padding:16px;text-align:center}
-.card-body h2{font-size:21px;margin-bottom:8px}
-.card-body p{color:#555;font-size:15px;margin-bottom:12px}
-.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;color:#fff;font-weight:bold;font-size:16px;cursor:pointer;text-decoration:none}
-.btn-green{background:#0a7a42}
-.btn-blue{background:#1a4d8f}
-#adminBox{display:none;background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08);text-align:center}
-#adminBox input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.box{padding:16px;text-align:center}
+.box h2{font-size:21px;margin-bottom:8px}
+.box p{color:#666;font-size:15px;margin-bottom:14px}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;color:#fff;font-weight:bold;font-size:16px;text-decoration:none}
+.green{background:#0a7a42}
+.blue{background:#1a4d8f}
+.list{margin-top:12px;text-align:left}
+.item{padding:11px;border-radius:10px;margin-bottom:7px;font-size:14px}
+.mifugo{background:#f0fdf4}
+.uvuvi{background:#eff6ff}
+#adminBox{display:none;background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;text-align:center}
+#adminBox input{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
 #adminBox button{width:100%;padding:13px;background:#111;color:#fff;border:none;border-radius:10px;font-weight:bold}
-.footer{text-align:center;color:#888;font-size:12px;padding:10px}
+.footer{text-align:center;color:#999;font-size:12px;padding:10px}
 </style>
 </head>
 <body>
 
-<div class="header">
+<div class="top">
 <h1>🌾 HUB<span>SOKO</span></h1>
 <p>Soko la Kidijitali la Tanga - Mifugo & Uvuvi</p>
-<p style="font-size:12px;color:#0a7a42;font-weight:bold">📍 Tanga, Tanzania | 🕒 Leo: 08:00 - 18:00</p>
+<p style="color:#0a7a42;font-weight:bold;font-size:12px">📍 Tanga, Tanzania | 🕒 Leo: 08:00 - 18:00</p>
 </div>
 
-<!-- SOKO LA MIFUGO - HAKUNA KIPIMO NJE -->
+<!-- 1. SOKO LA MIFUGO -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80" alt="Mifugo">
-<div class="card-body">
+<div class="box">
 <h2>🐐 SOKO LA MIFUGO</h2>
 <p>Mbuzi, Ng'ombe, Kuku, Kondoo</p>
-<a class="btn btn-green" href="mifugo.html">INGIA SOKONI →</a>
-<div id="mifugoList" style="margin-top:12px;text-align:left"></div>
+<a class="btn green" href="#mifugo">INGIA SOKONI →</a>
+<div class="list" id="mifugoList"></div>
 </div>
 </div>
 
-<!-- SOKO LA UVUVI - HAKUNA KIPIMO NJE -->
+<!-- 2. SOKO LA MAZAO YA UVUVI -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80" alt="Samaki">
-<div class="card-body">
+<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80" alt="Uvuvi">
+<div class="box">
 <h2>🐟 SOKO LA MAZAO YA UVUVI</h2>
 <p>Samaki, Dagaa, Kamba, Ngisi</p>
-<a class="btn btn-blue" href="uvuVi.html">INGIA SOKONI →</a>
-<div id="uvuViList" style="margin-top:12px;text-align:left"></div>
+<a class="btn blue" href="#uvuVi">INGIA SOKONI →</a>
+<div class="list" id="uvuViList"></div>
 </div>
 </div>
 
-<!-- ADMIN YA SIRI -->
+<!-- ADMIN YA SIRI - HAIONEKANI -->
 <div id="adminBox">
 <h2>👑 ADMIN</h2>
 <p style="color:#666;font-size:13px">Password ya kwanza: soko1234</p>
@@ -63,21 +67,18 @@ body{background:#f5f5f0;padding:12px}
 <button onclick="login()">INGIA KAMA ADMIN</button>
 <div id="adminPanel" style="display:none;margin-top:14px;text-align:left">
 <hr><br>
-<label>Bidhaa:</label>
-<input id="pName" placeholder="Mf: Mbuzi / Samaki">
-<label>Bei (TZS):</label>
-<input id="pPrice" type="number" placeholder="Mf: 150000">
-<label>Soko:</label>
+<input id="pName" placeholder="Jina la bidhaa: Mf Mbuzi / Samaki">
+<input id="pPrice" type="number" placeholder="Bei: Mf 150000">
 <select id="pSoko" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd">
 <option value="mifugo">Soko la Mifugo</option>
-<option value="uvuVi">Soko la Uvuvi</option>
+<option value="uvuVi">Soko la Mazao ya Uvuvi</option>
 </select><br><br>
 <button onclick="addProduct()" style="background:#0a7a42">ONGEZA BIDHAA ✅</button>
-<div id="adminList" style="margin-top:12px"></div>
+<div id="adminList" style="margin-top:12px;font-size:13px"></div>
 </div>
 </div>
 
-<div class="footer">© 2026 HubSoko Tanga - Soko la Wananchi</div>
+<div class="footer">© 2026 HubSoko Tanga</div>
 
 <script>
 if(window.location.search.includes('admin=1')){
@@ -93,10 +94,10 @@ let products = JSON.parse(localStorage.getItem('hubsoko_products')||'[]');
 function render(){
   let m = products.filter(p=>p.soko==='mifugo');
   let u = products.filter(p=>p.soko==='uvuVi');
-  // VIPIMO NDANI YA MASOKO TU: Mifugo = Idadi, Uvuvi = Kg
-  document.getElementById('mifugoList').innerHTML = m.map((p,i)=>`<div style="background:#f0fdf4;padding:10px;border-radius:10px;margin-bottom:6px">🐐 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Idadi <button onclick="del(${products.indexOf(p)})" style="float:right;border:none;background:none">🗑️</button></div>`).join('') || '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado</p>';
-  document.getElementById('uvuViList').innerHTML = u.map((p,i)=>`<div style="background:#eff6ff;padding:10px;border-radius:10px;margin-bottom:6px">🐟 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Kg <button onclick="del(${products.indexOf(p)})" style="float:right;border:none;background:none">🗑️</button></div>`).join('') || '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado</p>';
-  document.getElementById('adminList').innerHTML = products.map((p,i)=>`<div>${p.name} - ${p.price} (${p.soko})</div>`).join('');
+  // VIPIMO NDANI TU: Mifugo = Idadi, Uvuvi = Kg
+  document.getElementById('mifugoList').innerHTML = m.length ? m.map(p=>`<div class="item mifugo">🐐 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Idadi</div>`).join('') : '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado - Ingia sokoni</p>';
+  document.getElementById('uvuViList').innerHTML = u.length ? u.map(p=>`<div class="item uvuvi">🐟 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Kg</div>`).join('') : '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado - Ingia sokoni</p>';
+  document.getElementById('adminList').innerHTML = products.map((p,i)=>`<div>${p.name} - ${p.price} (${p.soko}) <button onclick="del(${i})">Futa</button></div>`).join('');
 }
 function addProduct(){
   let n=document.getElementById('pName').value;
