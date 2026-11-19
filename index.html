@@ -3,114 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HubSoko Tanga</title>
+<title>Soko Moja - Mifugo & Uvuvi</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f2f2ee;padding:12px}
-.top{background:#fff;text-align:center;padding:20px 10px;border-radius:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.top h1{font-size:30px}
-.top h1 span{color:#0a7a42}
-.top p{color:#666;font-size:14px;margin-top:6px}
-.card{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.card img{width:100%;height:210px;object-fit:cover;display:block}
-.box{padding:16px;text-align:center}
-.box h2{font-size:21px;margin-bottom:8px}
-.box p{color:#666;font-size:15px;margin-bottom:14px}
-.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;color:#fff;font-weight:bold;font-size:16px;text-decoration:none}
-.green{background:#0a7a42}
-.blue{background:#1a4d8f}
-.list{margin-top:12px;text-align:left}
-.item{padding:11px;border-radius:10px;margin-bottom:7px;font-size:14px}
-.mifugo{background:#f0fdf4}
-.uvuvi{background:#eff6ff}
-#adminBox{display:none;background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;text-align:center}
-#adminBox input{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
-#adminBox button{width:100%;padding:13px;background:#111;color:#fff;border:none;border-radius:10px;font-weight:bold}
-.footer{text-align:center;color:#999;font-size:12px;padding:10px}
+*{box-sizing:border-box;font-family:system-ui,Arial} body{margin:0;background:#f2f5f2;color:#222}
+header{background:#0b6e3a;color:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:22px;cursor:pointer} header p{margin:4px 0 0;opacity:.9;font-size:13px}
+.container{max-width:520px;margin:auto;padding:12px;padding-bottom:90px}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+h2{margin:0 0 8px} h3{margin:10px 0 6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{border:0;border-radius:12px;padding:13px;font-weight:700;cursor:pointer;width:100%;font-size:15px}
+.btn-green{background:#0b6e3a;color:#fff}.btn-blue{background:#0a6aa8;color:#fff}.btn-orange{background:#ef7d00;color:#fff}.btn-purple{background:#6a2fb5;color:#fff}.btn-gray{background:#e9ece9;color:#222}.btn-red{background:#c62828;color:#fff}.btn-dark{background:#222;color:#fff}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px;margin:6px 0;font-size:15px}
+label{font-size:13px;font-weight:700}
+.listing{border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:10px}
+.listing img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+.badge{display:inline-block;background:#e8f5e9;color:#0b6e3a;padding:3px 8px;border-radius:20px;font-size:12px;font-weight:700}
+.flex{display:flex;gap:8px} .flex button{flex:1}
+.small{font-size:12px;color:#666} .hidden{display:none!important}
+.topbar{display:flex;gap:8px;margin-bottom:10px} .topbar button{padding:10px}
+img.logo{width:70px;height:70px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #fff}
 </style>
 </head>
 <body>
+<header>
+  <img id="mainLogo" class="logo" src="https://via.placeholder.com/70?text=SOKO" onclick="logoClick()">
+  <h1 id="appName" onclick="logoClick()">SOKO MOJA</h1>
+  <p>Mifugo • Mazao ya Uvuvi</p>
+  <input id="searchInput" placeholder="Tafuta... (andika admin kuingia Admin)" oninput="handleSearch(this.value)">
+</header>
 
-<div class="top">
-<h1>🌾 HUB<span>SOKO</span></h1>
-<p>Soko la Kidijitali la Tanga - Mifugo & Uvuvi</p>
-<p style="color:#0a7a42;font-weight:bold;font-size:12px">📍 Tanga, Tanzania | 🕒 Leo: 08:00 - 18:00</p>
-</div>
-
-<!-- 1. SOKO LA MIFUGO -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80" alt="Mifugo">
-<div class="box">
-<h2>🐐 SOKO LA MIFUGO</h2>
-<p>Mbuzi, Ng'ombe, Kuku, Kondoo</p>
-<a class="btn green" href="#mifugo">INGIA SOKONI →</a>
-<div class="list" id="mifugoList"></div>
-</div>
-</div>
-
-<!-- 2. SOKO LA MAZAO YA UVUVI -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80" alt="Uvuvi">
-<div class="box">
-<h2>🐟 SOKO LA MAZAO YA UVUVI</h2>
-<p>Samaki, Dagaa, Kamba, Ngisi</p>
-<a class="btn blue" href="#uvuVi">INGIA SOKONI →</a>
-<div class="list" id="uvuViList"></div>
-</div>
-</div>
-
-<!-- ADMIN YA SIRI - HAIONEKANI -->
-<div id="adminBox">
-<h2>👑 ADMIN</h2>
-<p style="color:#666;font-size:13px">Password ya kwanza: soko1234</p>
-<input type="password" id="pass" placeholder="Weka Password">
-<button onclick="login()">INGIA KAMA ADMIN</button>
-<div id="adminPanel" style="display:none;margin-top:14px;text-align:left">
-<hr><br>
-<input id="pName" placeholder="Jina la bidhaa: Mf Mbuzi / Samaki">
-<input id="pPrice" type="number" placeholder="Bei: Mf 150000">
-<select id="pSoko" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd">
-<option value="mifugo">Soko la Mifugo</option>
-<option value="uvuVi">Soko la Mazao ya Uvuvi</option>
-</select><br><br>
-<button onclick="addProduct()" style="background:#0a7a42">ONGEZA BIDHAA ✅</button>
-<div id="adminList" style="margin-top:12px;font-size:13px"></div>
-</div>
-</div>
-
-<div class="footer">© 2026 HubSoko Tanga</div>
+<div class="container" id="app"></div>
 
 <script>
-if(window.location.search.includes('admin=1')){
-  document.getElementById('adminBox').style.display='block';
+// ===== DATA =====
+let DB = JSON.parse(localStorage.getItem('sokoDB')||'{"listings":[],"orders":[],"shops":[],"adminPass":"1234","logo":"https://via.placeholder.com/70?text=SOKO","appName":"SOKO MOJA"}');
+function save(){ localStorage.setItem('sokoDB', JSON.stringify(DB)); }
+let currentMarket = ''; // 'mifugo' | 'uvuvi'
+let currentShop = JSON.parse(localStorage.getItem('currentShop')||'null');
+let logoClicks = 0;
+let editingId = null;
+
+function handleSearch(v){ if(v.trim().toLowerCase()==='admin'){ showAdminLogin(); } }
+function logoClick(){ logoClicks++; if(logoClicks>=5){ logoClicks=0; showAdminLogin(); } setTimeout(()=>logoClicks=0,2000); }
+
+// ===== NAV =====
+function home(){
+  document.getElementById('app').innerHTML = `
+  <div class="card" style="text-align:center"><h2>Karibu ${DB.appName}</h2><p>Chagua soko unalotaka kuingia</p></div>
+  <div class="card" onclick="enterMarket('mifugo')" style="cursor:pointer;border:2px solid #0b6e3a"><h2>🐄 Soko la Mifugo</h2><p>Ng'ombe, Mbuzi, Kondoo, Kuku n.k - Kipimo: <b>Idadi</b></p><button class="btn-green">Ingia Sokoni →</button></div>
+  <div class="card" onclick="enterMarket('uvuvi')" style="cursor:pointer;border:2px solid #0a6aa8"><h2>🐟 Soko la Mazao ya Uvuvi</h2><p>Samaki, Dagaa, Kamba n.k - Kipimo: <b>Kilograms (kg)</b></p><button class="btn-blue">Ingia Sokoni →</button></div>
+  <div class="card"><h3>Maduka Yote</h3><button class="btn-purple" onclick="viewShops()">Angalia Maduka Yote</button></div>`;
 }
-function login(){
-  if(document.getElementById('pass').value==='soko1234'){
-    document.getElementById('adminPanel').style.display='block';
-    alert('Karibu Admin!');
-  } else { alert('Password si sahihi'); }
+function enterMarket(m){
+  currentMarket=m;
+  let title = m==='mifugo'?'🐄 Soko la Mifugo':'🐟 Soko la Mazao ya Uvuvi';
+  let unit = m==='mifugo'?'Idadi':'Kilograms (kg)';
+  document.getElementById('app').innerHTML=`
+  <div class="topbar"><button class="btn-gray" onclick="home()">← Nyumbani</button><button class="btn-gray" onclick="enterMarket('${m}')">🔄 Onyesha Upya</button></div>
+  <div class="card"><h2>${title}</h2><p class="small">Kipimo kinachotumika hapa: <b>${unit}</b></p></div>
+  <div class="grid">
+    <button class="btn-green" onclick="showSellForm()">📤 UZA<br><small>Tangaza Bidhaa</small></button>
+    <button class="btn-blue" onclick="showBuy()">🛒 NUNUA<br><small>Ona Bidhaa Zote</small></button>
+    <button class="btn-orange" onclick="showOrderForm()">📝 WEKA ODA<br><small>Agiza Unachotaka</small></button>
+    <button class="btn-purple" onclick="showOrders()">👀 ANGALIA ODA<br><small>Oda Zilizotumwa</small></button>
+  </div>
+  <div class="card"><h3>🏪 Maduka</h3><div class="flex"><button class="btn-green" onclick="showShopRegister()">Sajili Duka</button><button class="btn-blue" onclick="viewShops()">Angalia Duka</button></div>
+  ${currentShop?`<p class="small">Umeingia kama: <b>${currentShop.shopName}</b> <button onclick="shopLogout()" style="width:auto;padding:5px 10px">Toka</button> <button onclick="myShop()" style="width:auto;padding:5px 10px">Duka Langu</button></p>`:''}
+  </div>
+  <div id="marketContent"></div>`;
+  showBuy(true);
 }
-let products = JSON.parse(localStorage.getItem('hubsoko_products')||'[]');
-function render(){
-  let m = products.filter(p=>p.soko==='mifugo');
-  let u = products.filter(p=>p.soko==='uvuVi');
-  // VIPIMO NDANI TU: Mifugo = Idadi, Uvuvi = Kg
-  document.getElementById('mifugoList').innerHTML = m.length ? m.map(p=>`<div class="item mifugo">🐐 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Idadi</div>`).join('') : '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado - Ingia sokoni</p>';
-  document.getElementById('uvuViList').innerHTML = u.length ? u.map(p=>`<div class="item uvuvi">🐟 <b>${p.name}</b> - TZS ${Number(p.price).toLocaleString()} / Kg</div>`).join('') : '<p style="text-align:center;color:#999;font-size:13px">Hakuna bidhaa bado - Ingia sokoni</p>';
-  document.getElementById('adminList').innerHTML = products.map((p,i)=>`<div>${p.name} - ${p.price} (${p.soko}) <button onclick="del(${i})">Futa</button></div>`).join('');
+
+// ===== UZA =====
+function showSellForm(){
+  let isMifugo = currentMarket==='mifugo';
+  document.getElementById('marketContent').innerHTML=`
+  <div class="card"><h3>📤 Uza - ${isMifugo?'Mifugo':'Mazao ya Uvuvi'}</h3>
+  <label>Jina la Bidhaa *</label><input id="f_name" placeholder="${isMifugo?'Mf. Ng\'ombe wa Maziwa':'Mf. Samaki Sato'}">
+  <label>${isMifugo?'Idadi *':'Uzito (kg) *'}</label><input id="f_qty" type="number" placeholder="${isMifugo?'Mf. 5':'Mf. 50'}">
+  <label>Bei (TZS) *</label><input id="f_price" type="number" placeholder="Mf. 500000">
+  <label>Mahali / Kijiji *</label><input id="f_loc" placeholder="Mf. Dar es Salaam">
+  <label>Jina Lako *</label><input id="f_seller" placeholder="Jina la muuzaji">
+  <label>Namba ya Simu *</label><input id="f_phone" placeholder="075XXXXXXX">
+  <label>Maelezo</label><textarea id="f_desc" placeholder="Eleza bidhaa yako..."></textarea>
+  <label>Picha ya Bidhaa *</label><input id="f_img" type="file" accept="image/*">
+  <button class="btn-green" onclick="submitListing()">Tuma Tangazo</button>
+  <p class="small">Tangazo litaonekana mara moja. Kama ni la dukani, ingia dukani kwanza.</p></div>`;
 }
-function addProduct(){
-  let n=document.getElementById('pName').value;
-  let pr=document.getElementById('pPrice').value;
-  let s=document.getElementById('pSoko').value;
-  if(!n||!pr){alert('Jaza jina na bei');return;}
-  products.push({name:n,price:pr,soko:s});
-  localStorage.setItem('hubsoko_products',JSON.stringify(products));
-  render(); alert('Bidhaa imeongezwa!');
-  document.getElementById('pName').value=''; document.getElementById('pPrice').value='';
+function submitListing(){
+  let imgFile=document.getElementById('f_img').files[0];
+  let data={id:Date.now(),market:currentMarket,name:val('f_name'),qty:val('f_qty'),price:val('f_price'),loc:val('f_loc'),seller:val('f_seller'),phone:val('f_phone'),desc:val('f_desc'),img:'',shopId:currentShop?currentShop.id:null,date:new Date().toLocaleString()};
+  if(!data.name||!data.qty||!data.price||!data.phone){ alert('Jaza sehemu zote muhimu *'); return; }
+  if(imgFile){ let r=new FileReader(); r.onload=e=>{data.img=e.target.result; DB.listings.unshift(data); save(); alert('Tangazo limetumwa!'); showBuy();}; r.readAsDataURL(imgFile); }
+  else{ DB.listings.unshift(data); save(); alert('Tangazo limetumwa bila picha!'); showBuy(); }
 }
-function del(i){ products.splice(i,1); localStorage.setItem('hubsoko_products',JSON.stringify(products)); render(); }
-render();
+function val(id){ return document.getElementById(id).value.trim(); }
+
+// ===== NUNUA =====
+function showBuy(inMarket){
+  let items = DB.listings.filter(x=>x.market===currentMarket);
+  let html = `<div class="card"><h3>🛒 Nunua - Bidhaa ${items.length}</h3><input placeholder="Tafuta bidhaa..." oninput="filterBuy(this.value)"><div id="buyList">`;
+  html+=renderList(items);
+  html+=`</div></div>`;
+  let el=document.getElementById('marketContent'); if(el) el.innerHTML=html; else document.getElementById('app').innerHTML=html;
+}
+function renderList(items){
+  if(!items.length) return '<p>Hakuna bidhaa bado. Kuwa wa kwanza kutangaza!</p>';
+  return items.map(x=>`
+  <div class="listing">
+    ${x.img?`<img src="${x.img}">`:''}
+    <span class="badge">${x.market==='mifugo'?'MIFUGO':'UVUVI'}</span> <span class="small">${x.date}</span>
+    <h3>${x.name}</h3>
+    <p><b>${x.market==='mifugo'?'Idadi':'Uzito'}:</b> ${x.qty} ${x.market==='mifugo'?'':'kg'} | <b>Bei:</b> TZS ${Number(x.price).toLocaleString()}</p>
+    <p>${x.desc||''} • 📍 ${x.loc} • Muuzaji: ${x.seller}</p>
+    <div class="flex">
+      <button class="btn-green" onclick="callSeller('${x.phone}')">📞 Piga Simu</button>
+      <button class="btn-green" style="background:#25D366" onclick="waSeller('${x.phone}','${x.name}')">💬 WhatsApp</button>
+    </div>
+    ${currentShop && x.shopId===currentShop.id?`<div class="flex" style="margin-top:8px"><button class="btn-blue" onclick="editListing(${x.id})">Edit</button><button class="btn-gray" onclick="requestDelete(${x.id})">Omba Admin Afute</button></div>`:''}
+  </div>`).join('');
+}
+function filterBuy(q){ let items=DB.listings.filter(x=>x.market===currentMarket && x.name.toLowerCase().includes(q.toLowerCase())); document.getElementById('buyList').innerHTML=renderList(items); }
+function callSeller(p){ window.location.href='tel:'+p; }
+function waSeller(p,msg){ let clean=p.replace(/[^0-9]/g,''); if(clean.startsWith('0')) clean='255'+clean.slice(1); window.open('https://wa.me/'+clean+'?text='+encodeURIComponent('Habari, naitaka '+msg), '_blank'); }
+
+// ===== ODA =====
+function showOrderForm(){
+  let isMifugo=currentMarket==='mifugo';
+  document.getElementById('marketContent').innerHTML=`
+  <div class="card"><h3>📝 Weka Oda - ${isMifugo?'Mifugo':'Uvuvi'}</h3>
+  <label>Unataka Bidhaa Gani? *</label><input id="o_name" placeholder="${isMifugo?'Mf. Mbuzi 10':'Mf. Dagaa kg 100'}">
+  <label>${isMifugo?'Idadi Unayotaka':'Kiasi (kg) Unachotaka'} *</label><input id="o_qty" type="number">
+  <label>Bei Unayoweza Kulipa (TZS)</label><input id="o_price" type="number">
+  <label>Jina Lako *</label><input id="o_buyer">
+  <label>Namba ya Simu *</label><input id="o_phone" placeholder="075XXXXXXX">
+  <label>Mahali Unapohitaji Kupelekewa</label><input id="o_loc">
+  <button class="btn-orange" onclick="submitOrder()">Tuma Oda</button></div>`;
+}
+function submitOrder(){
+  let o={id:Date.now(),market:currentMarket,name:val('o_name'),qty:val('o_qty'),price:val('o_price'),buyer:val('o_buyer'),phone:val('o_phone'),loc:val('o_loc'),date:new Date().toLocaleString()};
+  if(!o.name||!o.qty||!o.phone){ alert('Jaza jina la bidhaa, kiasi na simu'); return; }
+  DB.orders.unshift(o); save(); alert('Oda imetumwa! Wauzaji watakuwasiliana nawe.'); showOrders();
+}
+function showOrders(){
+  let items=DB.orders.filter(x=>x.market===currentMarket);
+  document.getElementById('marketContent').innerHTML=`<div class="card"><h3>👀 Angalia Oda - ${items.length}</h3>${items.length?items.map(x=>`
+  <div class="listing"><h3>${x.name}</h3><p><b>${x.market==='mifugo'?'Idadi':'Kg'}:</b> ${x.qty} | <b>Bei:</b> ${x.price||'Haijawekwa'} | <b>Mnunuzi:</b> ${x.buyer} • ${x.loc||''} • ${x.date}</p>
+  <div class="flex"><button class="btn-green" onclick="callSeller('${x.phone}')">📞 Piga</button><button style="background:#25D366;color:#fff" onclick="waSeller('${x.phone}','Oda: ${x.name}')">💬 WhatsApp</button></div></div>`).join(''):'<p>Hakuna oda bado.</p>'}</div>`;
+}
+
+// ===== MADUKA =====
+function showShopRegister(){
+  document.getElementById('marketContent').innerHTML=`
+  <div class="card"><h3>🏪 Sajili Duka</h3>
+  <label>Jina la Duka *</label><input id="s_name" placeholder="Mf. Duka la Samaki Kigoma">
+  <label>Jina la Mwenye Duka *</label><input id="s_owner">
+  <label>Simu *</label><input id="s_phone" placeholder="075XXXXXXX">
+  <label>Password *</label><input id="s_pass" type="password">
+  <label>Mahali</label><input id="s_loc">
+  <button class="btn-green" onclick="registerShop()">Sajili Duka</button>
+  <hr><h3>Ingia Dukani</h3>
+  <label>Simu</label><input id="l_phone"><label>Password</label><input id="l_pass" type="password">
+  <button class="btn-blue" onclick="loginShop()">Ingia</button>
+  <button class="btn-gray" onclick="forgotPass()">😥 Nimesahau Password - Tengeneza Mpya</button></div>`;
+}
+function registerShop(){
+  let s={id:Date.now(),shopName:val('s_name'),owner:val('s_owner'),phone:val('s_phone'),pass:val('s_pass'),loc:val('s_loc'),market:currentMarket,img:''};
+  if(!s.shopName||!s.phone||!s.pass){ alert('Jaza jina la duka, simu na password'); return; }
+  if(DB.shops.find(x=>x.phone===s.phone)){ alert('Namba hii tayari imesajiliwa. Ingia badala yake.'); return; }
+  DB.shops.push(s); save(); currentShop=s; localStorage.setItem('currentShop',JSON.stringify(s)); alert('Duka limesajiliwa!'); myShop();
+}
+function loginShop(){ let p=val('l_phone'), pw=val('l_pass'); let s=DB.shops.find(x=>x.phone===p && x.pass===pw); if(!s){ alert('Simu au password si sahihi'); return; } currentShop=s; localStorage.setItem('currentShop',JSON.stringify(s)); alert('Karibu '+s.shopName); myShop(); }
+function forgotPass(){ let phone=prompt('Weka namba yako ya simu uliyosajilia:'); let s=DB.shops.find(x=>x.phone===phone); if(!s){ alert('Duka halikupatikana'); return; } let np=prompt('Weka password MPYA:'); if(np){ s.pass=np; save(); alert('Password imabadilishwa! Sasa ingia na password mpya.'); } }
+function shopLogout(){ currentShop=null; localStorage.removeItem('currentShop'); alert('Umetoka dukani'); enterMarket(currentMarket); }
+function viewShops(){
+  let shops = currentMarket? DB.shops.filter(x=>x.market===currentMarket):DB.shops;
+  let html=`<div class="card"><h3>🏪 Maduka ${currentMarket?'- '+(currentMarket==='mifugo'?'Mifugo':'Uvuvi'):''}</h3>${shops.length?shops.map(s=>`
+  <div class="listing"><h3>${s.shopName}</h3><p>Mwenyewe: ${s.owner} • 📍 ${s.loc||''} • Simu: ${s.phone}</p><div class="flex"><button class="btn-green" onclick="callSeller('${s.phone}')">📞 Piga</button><button style="background:#25D366;color:#fff" onclick="waSeller('${s.phone}','Habari '+s.shopName)">💬 WhatsApp</button></div></div>`).join(''):'<p>Hakuna maduka bado.</p>'}
+  <button class="btn-gray" onclick="home()">← Rudi</button></div>`;
+  if(document.getElementById('marketContent')) document.getElementById('marketContent').innerHTML=html; else document.getElementById('app').innerHTML=html;
+}
+function myShop(){
+  if(!currentShop) return showShopRegister();
+  let myItems=DB.listings.filter(x=>x.shopId===currentShop.id);
+  document.getElementById('marketContent').innerHTML=`
+  <div class="card"><h3>Duka Langu: ${currentShop.shopName}</h3><p>${currentShop.owner} • ${currentShop.phone}</p>
+  <label>Badilisha Jina la Duka</label><input id="editShopName" value="${currentShop.shopName}">
+  <button class="btn-blue" onclick="updateShop()">Hifadhi Mabadiliko ya Duka</button>
+  <h3>Matangazo Yangu (${myItems.length})</h3>${myItems.map(x=>`<div class="listing"><b>${x.name}</b> - ${x.qty} ${x.market==='mifugo'?'':'kg'} - TZS ${x.price}<div class="flex" style="margin-top:6px"><button class="btn-blue" onclick="editListing(${x.id})">Edit Picha / Tangazo</button><button class="btn-gray" onclick="requestDelete(${x.id})">Omba Admin Afute</button></div></div>`).join('')||'<p>Huna matangazo bado</p>'}
+  </div>`;
+}
+function updateShop(){ let s=DB.shops.find(x=>x.id===currentShop.id); s.shopName=val('editShopName'); currentShop=s; save(); localStorage.setItem('currentShop',JSON.stringify(s)); alert('Duka limebadilishwa'); myShop(); }
+function editListing(id){
+  let x=DB.listings.find(i=>i.id===id); if(!x) return;
+  let np=prompt('Badilisha Bei (sasa '+x.price+'):', x.price); let nq=prompt('Badilisha '+(x.market==='mifugo'?'Idadi':'Kg')+' (sasa '+x.qty+'):', x.qty);
+  if(np) x.price=np; if(nq) x.qty=nq;
+  let changeImg=confirm('Unataka kubadilisha picha?'); if(changeImg){ let inp=document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.onchange=e=>{ let r=new FileReader(); r.onload=ev=>{x.img=ev.target.result; save(); alert('Tangazo limebadilishwa!'); myShop();}; r.readAsDataURL(e.target.files[0]); }; inp.click(); } else { save(); alert('Tangazo limebadilishwa!'); myShop(); }
+}
+function requestDelete(id){ if(confirm('Tangazo likishakuwa hewani huwezi kulifuta mwenyewe. Tuma ombi kwa Admin alifute?')){ alert('Ombi limetumwa kwa Admin. Admin atalifuta tangazo lako.'); } }
+
+// ===== ADMIN (SIRI) =====
+function showAdminLogin(){
+  let p=prompt('ADMIN - Weka Password ya Siri (default: 1234):'); if(p===DB.adminPass){ showAdmin(); } else if(p!==null) alert('Password si sahihi');
+}
+function showAdmin(){
+  document.getElementById('app').innerHTML=`
+  <div class="card" style="border:2px solid red"><h2>🔐 ADMIN PANEL (Siri)</h2>
+  <label>Badilisha Jina la App</label><input id="a_name" value="${DB.appName}">
+  <label>Badilisha Nembo / Logo (URL ya picha)</label><input id="a_logo" value="${DB.logo}">
+  <label>Badilisha Password ya Admin</label><input id="a_pass" value="${DB.adminPass}">
+  <button class="btn-dark" onclick="saveAdmin()">Hifadhi Mabadiliko ya Admin</button>
+  <h3>Matangazo Yote (${DB.listings.length}) - Futa Lolote</h3>
+  ${DB.listings.map(x=>`<div class="listing"><b>${x.name}</b> - ${x.market} - TZS ${x.price} <button class="btn-red" onclick="adminDeleteListing(${x.id})">Futa Tangazo</button> <button class="btn-blue" onclick="adminEditListing(${x.id})">Edit Picha</button></div>`).join('')||'<p>Hakuna matangazo</p>'}
+  <h3>Oda Zote (${DB.orders.length})</h3>
+  ${DB.orders.map(x=>`<div class="listing"><b>${x.name}</b> - ${x.buyer} <button class="btn-red" onclick="adminDeleteOrder(${x.id})">Futa Oda</button></div>`).join('')}
+  <h3>Maduka Yote (${DB.shops.length})</h3>
+  ${DB.shops.map(s=>`<div class="listing"><b>${s.shopName}</b> - ${s.phone} <button class="btn-red" onclick="adminDeleteShop(${s.id})">Futa Duka</button></div>`).join('')}
+  <button class="btn-gray" onclick="home()">← Toka Admin</button></div>`;
+}
+function saveAdmin(){ DB.appName=val('a_name'); DB.logo=val('a_logo'); DB.adminPass=val('a_pass'); save(); document.getElementById('mainLogo').src=DB.logo; document.getElementById('appName').innerText=DB.appName; alert('Mabadiliko ya Admin yamehifadhiwa!'); }
+function adminDeleteListing(id){ if(confirm('Futa tangazo hili?')){ DB.listings=DB.listings.filter(x=>x.id!==id); save(); showAdmin(); } }
+function adminDeleteOrder(id){ DB.orders=DB.orders.filter(x=>x.id!==id); save(); showAdmin(); }
+function adminDeleteShop(id){ if(confirm('Futa duka hili?')){ DB.shops=DB.shops.filter(x=>x.id!==id); save(); showAdmin(); } }
+function adminEditListing(id){ let x=DB.listings.find(i=>i.id===id); let inp=document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.onchange=e=>{ let r=new FileReader(); r.onload=ev=>{x.img=ev.target.result; save(); alert('Picha imebadilishwa na Admin'); showAdmin();}; r.readAsDataURL(e.target.files[0]); }; inp.click(); }
+
+document.getElementById('mainLogo').src=DB.logo; document.getElementById('appName').innerText=DB.appName;
+home();
 </script>
 </body>
 </html>
