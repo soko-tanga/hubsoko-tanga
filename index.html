@@ -37,9 +37,8 @@ footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{borde
 <button type="button" class="secondary" onclick="show('home')">MWANZO</button>
 <button type="button" class="secondary" onclick="show('shops')">MADUKA YA KUDUMU</button>
 <button type="button" class="secondary" onclick="show('login')">AKAUNTI / WASIFU</button>
-<button type="button" onclick="adminLogin()">INGIA DASHIBODI</button>
-<br><br>
-<button type="button" class="secondary" onclick="resetAdmin()">😥 NIMESAHAU NENO LA SIRI NA PIN - RUDISHA ZA MWANZO</button>
+<button type="button" class="secondary" onclick="show('adminLogin')">USIMAMIZI</button>
+</nav>
 <main>
 <section id="home" class="panel">
 <h2>Karibu Sokoni</h2>
@@ -141,7 +140,10 @@ footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{borde
 <label>Nenosiri la Admin</label><input id="adminPassword" type="password">
 <label>PIN ya siri</label><input id="adminPin" type="password" maxlength="6">
 <button type="button" onclick="adminLogin()">INGIA DASHIBODI</button>
+<br><br>
+<button type="button" class="secondary" onclick="resetAdmin()">😥 NIMESAHAU NENO LA SIRI NA PIN - RUDISHA ZA MWANZO</button>
 <p id="adminStatus" class="muted"></p>
+<p class="muted">Za mwanzo: Nenosiri: BadiliNenosiriHili | PIN: 123456</p>
 </section>
 
 <section id="admin" class="panel hidden">
@@ -167,19 +169,9 @@ footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{borde
 </section>
 </main>
 <footer>Jukwaa la wafugaji, wavuvi na wafanyabiashara Tanzania</footer>
-function resetAdmin(){
-  if(confirm('Unataka kurudisha Nenosiri kuwa BadiliNenosiriHili na PIN kuwa 123456?')){
-    localStorage.removeItem('sokoSettings');
-    alert('Imesharudishwa! Sasa ingia na:\nNenosiri: BadiliNenosiriHili\nPIN: 123456');
-    location.reload();
-  }
-}
-<script>
-// FIX 1: uid badala ya crypto.randomUUID() - ndiyo iliyokuwa inaua batani
-function uid(){return 'id-'+Date.now()+'-'+Math.floor(Math.random()*1000000)}
-// FIX 2: Onyesha error kama kuna kosa
-window.onerror=function(m){console.log('ERROR: '+m)};
 
+<script>
+function uid(){return 'id-'+Date.now()+'-'+Math.floor(Math.random()*1000000)}
 const DISTRICTS=['Tanga','Muheza','Pangani','Mkinga','Lushoto','Korogwe','Korogwe Mjini','Handeni','Handeni Mjini','Kilindi'];
 const CATS={mifugo:['Mbuzi','Ng’ombe','Kondoo','Kuku','Wanyama Wengine'],uvuvi:['Samaki','Dagaa','Pweza','Ngisi','Kaa','Kamba','Mwani','Mazao Mengine']};
 const $=id=>document.getElementById(id);
@@ -199,26 +191,12 @@ function updateQtyUI(){let m=$('listingMarket').value;$('qtyLabel').textContent=
 function updateOrderQtyUI(){let m=$('orderMarket').value;$('orderQtyLabel').textContent=m==='mifugo'?'Idadi Unayotaka *':'Kiasi (kg) Unachotaka *';$('orderQty').placeholder=m==='mifugo'?'Mf. 10':'Mf. 100'}
 function openMarket(m){currentMarket=m;$('marketTitle').textContent=m==='mifugo'?'SOKO LA MIFUGO':'SOKO LA MAZAO YA UVUVI';$('marketUnitInfo').textContent='Kipimo kinachotumika hapa: '+unitFor(m);fillCategories(m,'categoryFilter');$('listingMarket').value=m;fillCategories(m,'listingCategory');$('orderMarket').value=m;updateQtyUI();updateOrderQtyUI();$('searchFilter').value='';showMarketList();show('market')}
 function showMarketList(){$('buySection').classList.remove('hidden');$('ordersSection').classList.add('hidden');renderListings()}
-function showOrders(){
-  $('buySection').classList.add('hidden');$('ordersSection').classList.remove('hidden');
-  let data=orders.filter(o=>o.market===currentMarket);
-  $('ordersGrid').innerHTML=data.map(o=>'<div class="card"><h3>'+esc(o.product)+'</h3><p><b>'+unitFor(o.market)+':</b> '+esc(o.qty)+' '+unitShort(o.market)+' • '+esc(o.district||'')+' '+esc(o.location||'')+'</p><p>'+esc(o.notes||'')+'</p><p>Mnunuzi: '+esc(o.phone)+'</p><div class="actions"><button type="button" class="good" onclick="callNum(\''+o.phone+'\')">📞 PIGA SIMU</button><button type="button" class="wa" onclick="contactSeller(\''+o.phone+'\')">💬 WHATSAPP</button></div></div>').join('')||'<p>Hakuna oda bado kwenye soko hili.</p>';
-  show('market');
-}
+function showOrders(){$('buySection').classList.add('hidden');$('ordersSection').classList.remove('hidden');let data=orders.filter(o=>o.market===currentMarket);$('ordersGrid').innerHTML=data.map(o=>'<div class="card"><h3>'+esc(o.product)+'</h3><p><b>'+unitFor(o.market)+':</b> '+esc(o.qty)+' '+unitShort(o.market)+' • '+esc(o.district||'')+' '+esc(o.location||'')+'</p><p>'+esc(o.notes||'')+'</p><p>Mnunuzi: '+esc(o.phone)+'</p><div class="actions"><button type="button" class="good" onclick="callNum(\''+o.phone+'\')">📞 PIGA SIMU</button><button type="button" class="wa" onclick="contactSeller(\''+o.phone+'\')">💬 WHATSAPP</button></div></div>').join('')||'<p>Hakuna oda bado kwenye soko hili.</p>';show('market')}
 function requireLogin(target){if(!currentUser){alert('Tafadhali ingia au jisajili kwanza.');show('login');return}editingShop=null;$('shopFormEl').reset();show(target)}
 function login(){const name=$('userName').value.trim(),phone=$('userPhone').value.trim();if(!name||!phone){alert('Jaza jina na simu');return}currentUser={name,phone};put('sokoUser',currentUser);$('loginStatus').textContent='Umeingia kama '+name;alert('Umeingia.');show('home')}
 function readImage(input){return new Promise(resolve=>{const f=input.files[0];if(!f){resolve('');return}if(f.size>1500000){alert('Picha iwe chini ya 1.5MB.');resolve('');return}const r=new FileReader();r.onload=()=>resolve(r.result);r.readAsDataURL(f)})}
-// Tumia addEventListener badala ya kutegemea onclick tu
-document.addEventListener('DOMContentLoaded',function(){
-  fillDistricts();fillCategories('mifugo','categoryFilter');fillCategories('mifugo','listingCategory');renderShops();applySettings();
-  var lm=$('listingMarket');if(lm)lm.addEventListener('change',function(){fillCategories(lm.value,'listingCategory');updateQtyUI()});
-  var om=$('orderMarket');if(om)om.addEventListener('change',updateOrderQtyUI);
-  var sf=$('shopFormEl');if(sf)sf.addEventListener('submit',async function(e){e.preventDefault();if(!currentUser){show('login');return}const old=shops.find(s=>s.id===editingShop);const img=await readImage($('shopImage'));const shop={id:editingShop||uid(),owner:currentUser.phone,ownerName:currentUser.name,name:$('shopName').value,type:$('shopType').value,district:$('shopDistrict').value,ward:$('shopWard').value,street:$('shopStreet').value,phone:$('shopPhone').value,pass:$('shopPass').value||(old&&old.pass)||'',desc:$('shopDesc').value,image:img||(old&&old.image)||'',products:(old&&old.products)||[],updated:new Date().toISOString()};if(old)shops=shops.map(s=>s.id===old.id?shop:s);else shops.push(shop);saveAll();alert('Duka limehifadhiwa.');show('shops')});
-  var lf=$('listingForm');if(lf)lf.addEventListener('submit',async function(e){e.preventDefault();if(!currentUser){alert('Ingia kwanza ili kuweka tangazo.');show('login');return}const old=listings.find(x=>x.id===editingListing),img=await readImage($('listingImage'));const a={id:editingListing||uid(),owner:currentUser.phone,ownerName:currentUser.name,market:$('listingMarket').value,category:$('listingCategory').value,name:$('listingName').value,price:$('listingPrice').value,qty:$('listingQty').value,district:$('listingDistrict').value,ward:$('listingWard').value,street:$('listingStreet').value,phone:$('listingPhone').value,desc:$('listingDesc').value,image:img||(old&&old.image)||'',status:$('listingStatus').value,hiddenBy:(old&&old.hiddenBy)||[],created:(old&&old.created)||new Date().toISOString()};if(old)listings=listings.map(x=>x.id===old.id?a:x);else listings.push(a);editingListing=null;saveAll();alert('Tangazo limehifadhiwa.');openMarket(a.market)});
-  var of=$('orderForm');if(of)of.addEventListener('submit',function(e){e.preventDefault();orders.push({id:uid(),market:$('orderMarket').value,product:$('orderProduct').value,qty:$('orderQty').value,district:$('orderDistrict').value,location:$('orderLocation').value,phone:$('orderPhone').value,notes:$('orderNotes').value,date:new Date().toISOString()});saveAll();alert('Oda imetumwa! Wauzaji wataiona kwenye ANGALIA ODA.');e.target.reset();showOrders();});
-  var alf=$('adminLogoFile');if(alf)alf.addEventListener('change',async function(e){let img=await readImage(e.target);if(img){settings.logo=img;$('adminLogoUrl').value=img;saveAll();applySettings();alert('Logo imebadilishwa!')}});
-});
 function forgotShopPass(){let phone=prompt('Weka namba ya simu ya duka:');let s=shops.find(x=>x.phone===phone);if(!s){alert('Duka halikupatikana');return}let np=prompt('Weka password MPYA ya duka:');if(np){s.pass=np;saveAll();alert('Password ya duka imebadilishwa!')}}
+function resetAdmin(){if(confirm('Rudisha Nenosiri kuwa BadiliNenosiriHili na PIN kuwa 123456?')){localStorage.removeItem('sokoSettings');alert('Imesharudishwa! Sasa ingia na:\nNenosiri: BadiliNenosiriHili\nPIN: 123456');location.reload()}}
 function renderShops(){$('shopGrid').innerHTML=shops.map(s=>'<div class="card">'+(s.image?'<img src="'+s.image+'">':'')+'<h3>'+esc(s.name)+'</h3><p>'+esc(s.type)+' • '+esc(s.district)+'</p><p>'+esc(s.ward)+', '+esc(s.street)+'</p><button type="button" onclick="viewShop(\''+s.id+'\')">INGIA DUKANI</button></div>').join('')||'<p>Hakuna duka lililosajiliwa bado.</p>'}
 function viewShop(id){activeShop=shops.find(s=>s.id===id);if(!activeShop)return;const own=currentUser&&currentUser.phone===activeShop.owner;$('shopDetailContent').innerHTML='<h2>'+esc(activeShop.name)+'</h2>'+(activeShop.image?'<img style="max-width:100%;max-height:240px;border-radius:9px" src="'+activeShop.image+'">':'')+'<p>'+esc(activeShop.desc||'')+'</p><p>'+esc(activeShop.district)+', '+esc(activeShop.ward)+', '+esc(activeShop.street)+'</p><p>Simu: '+esc(activeShop.phone)+'</p>'+(own?'<div class="actions"><button type="button" onclick="editShop(\''+id+'\')">HARIRI DUKA</button><button type="button" class="secondary" onclick="addShopProduct(\''+id+'\')">ONGEZA BIDHAA</button><button type="button" class="danger" onclick="requestShopDelete(\''+id+'\')">OMBA KUFUTA DUKA</button></div>':'')+'<hr><h3>Bidhaa za duka</h3><div class="grid">'+(activeShop.products||[]).map(p=>'<div class="card">'+(p.image?'<img src="'+p.image+'">':'')+'<b>'+esc(p.name)+'</b><p>'+esc(p.price||'Bei haijawekwa')+' TSh</p><span class="tag '+(p.status==='inapatikana'?'available':p.status==='imeisha'?'out':'wait')+'">'+statusText(p.status)+'</span>'+(own?'<div class="actions"><button type="button" onclick="editShopProduct(\''+id+'\',\''+p.id+'\')">HARIRI</button><button type="button" class="danger" onclick="deleteShopProduct(\''+id+'\',\''+p.id+'\')">FUTA</button></div>':'')+'</div>').join('')+'</div><button type="button" class="secondary" onclick="show(\'shops\')">RUDI MADUKANI</button>';show('shopDetail')}
 function editShop(id){const s=shops.find(x=>x.id===id);if(!s||!currentUser||s.owner!==currentUser.phone)return;editingShop=id;$('shopName').value=s.name;$('shopType').value=s.type;$('shopDistrict').value=s.district;$('shopWard').value=s.ward;$('shopStreet').value=s.street;$('shopPhone').value=s.phone;$('shopDesc').value=s.desc;show('shopForm')}
@@ -239,17 +217,4 @@ function renderAdmin(){$('shopCount').textContent=shops.length;$('listingCount')
 $('adminReports').innerHTML=reports.filter(r=>r.status==='pending').map(r=>'<div class="card"><b>'+esc(r.listingName)+'</b><p>Muuzaji: '+esc(r.owner)+' • Ripoti: '+esc(r.reporter)+'</p><div class="actions"><button type="button" class="good" onclick="adminKeep(\''+r.id+'\')">ACHA TANGAZO</button><button type="button" class="danger" onclick="adminDeleteListing(\''+r.id+'\')">FUTA TANGAZO</button></div></div>').join('')||'<p>Hakuna ripoti mpya.</p>';
 $('adminDeleteRequests').innerHTML=deleteRequests.filter(r=>r.status==='pending').map(r=>'<div class="card"><b>'+esc(r.shopName)+'</b><p>Mmiliki: '+esc(r.owner)+'</p><div class="actions"><button type="button" class="danger" onclick="approveShopDelete(\''+r.id+'\')">KUBALI KUFUTA</button><button type="button" class="secondary" onclick="rejectShopDelete(\''+r.id+'\')">KATAA OMBI</button></div></div>').join('')||'<p>Hakuna maombi mapya.</p>';
 $('adminShops').innerHTML=shops.map(s=>'<div class="card"><b>'+esc(s.name)+'</b> — '+esc(s.district)+' <button type="button" class="danger" onclick="adminRemoveShop(\''+s.id+'\')">FUTA DUKA</button></div>').join('')||'<p>Hakuna maduka.</p>';
-$('adminListings').innerHTML=listings.map(a=>'<div class="card"><b>'+esc(a.name)+'</b> — '+esc(a.market)+' / '+esc(a.category)+' • '+esc(a.qty)+' '+unitShort(a.market)+' <button type="button" class="danger" onclick="adminDeleteDirect(\''+a.id+'\')">FUTA</button> <button type="button" onclick="adminEditListingImg(\''+a.id+'\')">EDIT PICHA</button></div>').join('')||'<p>Hakuna matangazo.</p>';
-$('adminOrders').innerHTML=orders.map(o=>'<div class="card"><b>'+esc(o.product)+'</b> — '+esc(o.qty)+' '+unitShort(o.market)+' • '+esc(o.phone)+' <button type="button" class="danger" onclick="adminDeleteOrder(\''+o.id+'\')">FUTA ODA</button></div>').join('')||'<p>Hakuna oda.</p>'}
-function adminKeep(rid){const r=reports.find(x=>x.id===rid);if(!r)return;const a=listings.find(x=>x.id===r.listingId);if(a){a.hiddenBy=[]}r.status='kept';saveAll();renderAdmin()}
-function adminDeleteListing(rid){const r=reports.find(x=>x.id===rid);if(!r)return;listings=listings.filter(a=>a.id!==r.listingId);r.status='deleted';saveAll();renderAdmin()}
-function approveShopDelete(rid){const r=deleteRequests.find(x=>x.id===rid);if(!r)return;shops=shops.filter(s=>s.id!==r.shopId);r.status='approved';saveAll();renderAdmin()}
-function rejectShopDelete(rid){const r=deleteRequests.find(x=>x.id===rid);if(!r)return;r.status='rejected';saveAll();renderAdmin()}
-function adminRemoveShop(id){if(!confirm('Futa duka hili kama Admin?'))return;shops=shops.filter(s=>s.id!==id);saveAll();renderAdmin()}
-function adminDeleteDirect(id){if(!confirm('Futa tangazo hili?'))return;listings=listings.filter(a=>a.id!==id);saveAll();renderAdmin()}
-function adminDeleteOrder(id){if(!confirm('Futa oda hii?'))return;orders=orders.filter(o=>o.id!==id);saveAll();renderAdmin()}
-function adminEditListingImg(id){let inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=async e=>{let img=await readImage(inp);let a=listings.find(x=>x.id===id);if(img&&a){a.image=img;saveAll();alert('Picha imebadilishwa na Admin');renderAdmin()}};inp.click()}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-</script>
-</body>
-</html>
+$('adminListings').innerHTML=listings.map(a=>'<div class="card"><b>'+esc(a.name)+'</b>
