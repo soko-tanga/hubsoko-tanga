@@ -3,212 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soko la Tanga - Mifugo & Uvuvi</title>
+<title>Soko la Tanga - Uza Nunua</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
-body{background:#f1f5f9;padding-bottom:90px}
-header{background:#16a34a;color:white;padding:16px;text-align:center;position:sticky;top:0;z-index:10}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
+body{background:#f1f5f9;padding-bottom:95px}
+header{background:#16a34a;color:white;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
 header h1{font-size:22px}
-header p{font-size:13px;opacity:.9}
+.top-menu{background:white;display:flex;gap:6px;padding:8px;overflow-x:auto;position:sticky;top:58px;z-index:9;border-bottom:1px solid #eee}
+.top-menu button{white-space:nowrap;border:1px solid #ddd;background:#f8fafc;padding:9px 14px;border-radius:20px;font-weight:bold;font-size:13px}
 .container{max-width:480px;margin:auto;padding:12px}
 .search{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:10px 0;font-size:15px}
 .market-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);margin-bottom:16px;cursor:pointer}
-.market-img{width:100%;height:180px;object-fit:cover;display:block}
+.market-img{width:100%;height:170px;object-fit:cover;display:block}
 .market-body{padding:14px}
-.market-body h3{font-size:18px;margin-bottom:4px}
-.market-body p{color:#64748b;font-size:14px;margin-bottom:10px}
 .btn{width:100%;border:none;padding:12px;border-radius:10px;color:white;font-weight:bold;font-size:15px;cursor:pointer}
-.btn-green{background:#16a34a}
-.btn-blue{background:#0284c7}
-.btn-dark{background:#0f172a}
+.btn-green{background:#16a34a}.btn-blue{background:#0284c7}.btn-orange{background:#ea580c}.btn-dark{background:#0f172a}
 .product{background:white;border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.08);display:flex;gap:12px}
 .product img{width:90px;height:90px;object-fit:cover;border-radius:10px;background:#eee}
-.product-info{flex:1}
-.product-info b{font-size:16px}
-.product-info small{color:#64748b;display:block;margin:3px 0}
-.price{color:#16a34a;font-weight:bold;font-size:16px}
+.product-info{flex:1}.price{color:#16a34a;font-weight:bold;font-size:16px}
 .add-btn{background:#16a34a;color:white;border:none;padding:8px 12px;border-radius:8px;margin-top:6px}
 .back{color:#16a34a;font-weight:bold;margin:8px 0;display:inline-block;cursor:pointer}
 .hidden{display:none}
 input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0;font-size:15px}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;border-top:1px solid #eee;max-width:480px;margin:auto;z-index:20}
-.bottom-nav button{flex:1;padding:12px 0;border:none;background:white;font-size:13px;font-weight:bold}
+.bottom-nav button{flex:1;padding:11px 0;border:none;background:white;font-size:12px;font-weight:bold}
 .cart-bar{position:fixed;bottom:52px;left:0;right:0;max-width:480px;margin:auto;background:#0f172a;color:white;padding:12px;text-align:center;font-weight:bold;cursor:pointer;z-index:20}
-.admin-box{background:#fff7ed;border:1px dashed #fb923c;padding:12px;border-radius:12px;margin:12px 0}
+.section-title{font-size:18px;margin:14px 0 8px}
+.shop-card{background:white;border-radius:14px;padding:12px;margin-bottom:10px;display:flex;gap:10px;align-items:center;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+.shop-card img{width:60px;height:60px;border-radius:50%;object-fit:cover}
 </style>
 </head>
 <body>
-
-<header>
-<h1>🛒 SOKO LA TANGA</h1>
-<p>Mifugo • Samaki • Dagaa • Kamba - Bei za Jumla na Rejareja</p>
-</header>
-
+<header><h1>🛒 SOKO LA TANGA</h1><p>Mifugo • Samaki • Dagaa • Kamba</p></header>
+<div class="top-menu">
+<button onclick="showPage('home')">🏠 NYUMBANI</button>
+<button onclick="showPage('shops')">🏪 MADUKA</button>
+<button onclick="showPage('add')">📢 UZA</button>
+<button onclick="showPage('cart')">🛒 NUNUA / WEKA ODA</button>
+<button onclick="openMarket('mifugo')">🐐 MIFUGO</button>
+<button onclick="openMarket('uvuzi')">🐟 UVUVI</button>
+</div>
 <div class="container">
-
-<!-- ======= MWANZO / HOME ======= -->
 <div id="page-home">
 <input class="search" placeholder="🔍 Tafuta mbuzi, samaki, dagaa..." oninput="searchHome(this.value)">
-
-<!-- SOKO LA MIFUGO - PICHA NZURI -->
+<h3 class="section-title">🏪 MADUKA / MASOKO YETU</h3>
 <div class="market-card" onclick="openMarket('mifugo')">
-<img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img" alt="Soko la Mifugo">
-<div class="market-body">
-<h3>🐐 SOKO LA MIFUGO</h3>
-<p>Mbuzi, Ng'ombe, Kondoo, Kuku • Wafugaji wa Tanga</p>
-<p style="font-size:13px;color:#16a34a;font-weight:bold;">⭐ Bidhaa 12 • Wauzaji 8 • Delivery ipo</p>
-<button class="btn btn-green">INGIA SOKONI →</button>
+<img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img">
+<div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku</p><button class="btn btn-green">INGIA SOKONI →</button></div>
 </div>
-</div>
-
-<!-- SOKO LA UVUVI - PICHA NZURI -->
 <div class="market-card" onclick="openMarket('uvuzi')">
-<img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img" alt="Soko la Uvuvi">
-<div class="market-body">
-<h3>🐟 SOKO LA MAZAO YA UVUVI</h3>
-<p>Samaki Wabichi, Dagaa, Kamba, Sangara • Kutoka Baharini</p>
-<p style="font-size:13px;color:#0284c7;font-weight:bold;">⭐ Bidhaa 15 • Wavuvi 10 • Fresh Kila Asubuhi</p>
-<button class="btn btn-blue">INGIA SOKONI →</button>
+<img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img">
+<div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba, Sangara</p><button class="btn btn-blue">INGIA SOKONI →</button></div>
 </div>
+<div style="display:flex;gap:8px;margin:10px 0">
+<button class="btn btn-orange" style="flex:1" onclick="showPage('add')">📢 UZA SASA</button>
+<button class="btn btn-dark" style="flex:1" onclick="showPage('cart')">🛒 WEKA ODA</button>
 </div>
-
-<div style="background:white;padding:14px;border-radius:14px;margin-top:4px">
-<h3 style="margin-bottom:8px">🔥 Bidhaa Zinazouzwa Sana Leo</h3>
+<div style="background:#dcfce7;padding:12px;border-radius:12px;text-align:center"><b>🛒 NUNUA:</b> Chagua bidhaa → Weka Kikapu → Weka Oda</div>
+<h3 class="section-title">🔥 NUNUA SASA - Bidhaa Zinazouzwa Sana</h3>
 <div id="home-products"></div>
+<div style="background:white;padding:14px;border-radius:14px;margin-top:10px;text-align:center">
+<b>🏪 MADUKA YETU</b><br><br><button class="btn btn-green" onclick="showPage('shops')">ONA MADUKA YOTE →</button>
 </div>
-
-<div class="admin-box">
-<b>👨‍💼 WEWE NI MUUZAJI?</b><br>
-<small>Uza bidhaa yako hapa bure. Bonyeza chini kuweka bidhaa.</small><br><br>
-<button class="btn btn-dark" onclick="showPage('add')">+ WEKA BIDHAA YAKO</button>
 </div>
-
-<p style="text-align:center;color:#94a3b8;font-size:12px;margin-top:14px">📍 Tanga, Tanzania • 📞 0755 000 000<br>Malipo: M-Pesa • Tigo Pesa • Airtel Money</p>
+<div id="page-shops" class="hidden">
+<span class="back" onclick="showPage('home')">← Rudi Nyumbani</span>
+<h2 style="margin:8px 0">🏪 MADUKA YOTE</h2>
+<div id="shops-list"></div>
 </div>
-
-<!-- ======= SOKO NDANI ======= -->
 <div id="page-market" class="hidden">
 <span class="back" onclick="showPage('home')">← Rudi Nyumbani</span>
 <h2 id="market-title" style="margin:6px 0">Soko</h2>
 <input class="search" placeholder="Tafuta kwenye soko hili..." oninput="searchMarket(this.value)">
 <div id="market-products"></div>
 </div>
-
-<!-- ======= WEKA BIDHAA ======= -->
 <div id="page-add" class="hidden">
 <span class="back" onclick="showPage('home')">← Rudi</span>
-<h2 style="margin:8px 0">+ Weka Bidhaa Mpya</h2>
-<select id="f-market">
-<option value="mifugo">🐐 Soko la Mifugo</option>
-<option value="uvuzi">🐟 Soko la Uvuvi</option>
-</select>
+<h2 style="margin:8px 0">📢 UZA - Weka Bidhaa Yako</h2>
+<select id="f-market"><option value="mifugo">🐐 Soko la Mifugo</option><option value="uvuzi">🐟 Soko la Uvuvi</option></select>
 <input id="f-name" placeholder="Jina la bidhaa - mf: Mbuzi wa Kuchinja">
 <input id="f-price" type="number" placeholder="Bei - mf: 180000">
-<input id="f-seller" placeholder="Jina lako / Jina la biashara">
+<input id="f-seller" placeholder="Jina lako / Jina la duka lako">
 <input id="f-phone" placeholder="Namba ya simu - mf: 0755000000">
 <input id="f-img" placeholder="Link ya picha (si lazima)">
-<textarea id="f-desc" placeholder="Maelezo - mf: Mbuzi mnene, ana miaka 2, yupo Tanga Mjini"></textarea>
-<button class="btn btn-green" onclick="addProduct()">WEKA SOKONI ✅</button>
-<p style="font-size:12px;color:#64748b;margin-top:8px">Ukishaweka, bidhaa itaonekana kwa wote mara moja.</p>
+<textarea id="f-desc" placeholder="Maelezo"></textarea>
+<button class="btn btn-orange" onclick="addProduct()">WEKA SOKONI - UZA SASA ✅</button>
 </div>
-
-<!-- ======= KIKAPU ======= -->
 <div id="page-cart" class="hidden">
 <span class="back" onclick="showPage('home')">← Rudi</span>
-<h2 style="margin:8px 0">🛒 Kikapu Changu</h2>
+<h2 style="margin:8px 0">🛒 NUNUA / WEKA ODA</h2>
 <div id="cart-items"></div>
 <div id="cart-total" style="font-weight:bold;font-size:18px;margin:10px 0"></div>
+<h3 style="margin-top:10px">📝 Taarifa za Oda</h3>
 <input id="cust-name" placeholder="Jina lako">
 <input id="cust-phone" placeholder="Namba yako ya simu">
-<input id="cust-loc" placeholder="Mahali unapopatikana - mf: Tanga Mjini, Ngamiani">
-<button class="btn btn-green" onclick="checkout()">TUMA ODA KWA WHATSAPP ✅</button>
+<input id="cust-loc" placeholder="Mahali unapopatikana - mf: Tanga Mjini">
+<button class="btn btn-green" onclick="checkout()">WEKA ODA KWA WHATSAPP ✅</button>
 </div>
-
 </div>
-
-<div id="cart-bar" class="cart-bar hidden" onclick="showPage('cart')">🛒 Ona Kikapu (<span id="cart-count">0</span>) →</div>
-
+<div id="cart-bar" class="cart-bar hidden" onclick="showPage('cart')">🛒 NUNUA SASA - Ona Kikapu (<span id="cart-count">0</span>) →</div>
 <div class="bottom-nav">
 <button onclick="showPage('home')">🏠 Nyumbani</button>
-<button onclick="openMarket('mifugo')">🐐 Mifugo</button>
-<button onclick="openMarket('uvuzi')">🐟 Uvuvi</button>
-<button onclick="showPage('cart')">🛒 Kikapu</button>
+<button onclick="showPage('shops')">🏪 Maduka</button>
+<button onclick="showPage('add')">📢 Uza</button>
+<button onclick="showPage('cart')">🛒 Oda</button>
 </div>
-
 <script>
 let products = JSON.parse(localStorage.getItem('soko_products') || 'null') || [
 {name:"Mbuzi wa Kuchinja", price:180000, market:"mifugo", seller:"Juma Mfugaji", phone:"0755000000", desc:"Mbuzi mnene, ana miaka 2", img:"https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400"},
 {name:"Ng'ombe wa Nyama", price:950000, market:"mifugo", seller:"Mama Neema", phone:"0755000001", desc:"Ng'ombe mkubwa, Tanga", img:"https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=400"},
 {name:"Kuku wa Kienyeji (Jozi)", price:35000, market:"mifugo", seller:"Kuku Bora", phone:"0755000002", desc:"Kuku 2, wabichi", img:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400"},
-{name:"Samaki Sangara 1kg", price:15000, market:"uvuzi", seller:"Mvuvi Hassan", phone:"0755000003", desc:"Fresh kutoka baharini asubuhi", img:"https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400"},
+{name:"Samaki Sangara 1kg", price:15000, market:"uvuzi", seller:"Mvuvi Hassan", phone:"0755000003", desc:"Fresh kutoka baharini", img:"https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400"},
 {name:"Dagaa 1kg", price:8000, market:"uvuzi", seller:"Dagaa Fresh", phone:"0755000004", desc:"Dagaa mkavu, safi", img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400"},
 {name:"Kamba 1kg", price:25000, market:"uvuzi", seller:"Bahari Foods", phone:"0755000005", desc:"Kamba wabichi", img:"https://images.unsplash.com/photo-1559742811-822873691df8?w=400"},
 ];
 let cart = JSON.parse(localStorage.getItem('soko_cart') || '[]');
-let currentMarket = 'mifugo';
-let currentFilter = '';
-
+let currentMarket='mifugo'; let currentFilter='';
 function save(){ localStorage.setItem('soko_products', JSON.stringify(products)); localStorage.setItem('soko_cart', JSON.stringify(cart)); }
 function fmt(n){ return n.toLocaleString('en-US') + ' TSh'; }
-
-function renderHome(){
-  let list = products.filter(p => !currentFilter || p.name.toLowerCase().includes(currentFilter));
-  document.getElementById('home-products').innerHTML = list.slice(0,6).map((p,i)=>productHTML(p, products.indexOf(p))).join('') || 'Hakuna bidhaa';
-  updateCartBar();
-}
-function productHTML(p, idx){
-  return `<div class="product">
-    <img src="${p.img || 'https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400'}">
-    <div class="product-info"><b>${p.name}</b><small>${p.seller} • ${p.desc||''}</small><div class="price">${fmt(p.price)}</div><button class="add-btn" onclick="addToCart(${idx})">+ Weka Kikapu</button></div>
-  </div>`;
-}
-function openMarket(m){
-  currentMarket = m;
-  document.getElementById('market-title').innerText = m==='mifugo' ? '🐐 SOKO LA MIFUGO' : '🐟 SOKO LA MAZAO YA UVUVI';
-  showPage('market');
-  renderMarket('');
-}
-function renderMarket(q){
-  let list = products.filter(p=>p.market===currentMarket && (!q || p.name.toLowerCase().includes(q.toLowerCase())));
-  document.getElementById('market-products').innerHTML = list.map(p=>productHTML(p, products.indexOf(p))).join('') || 'Hakuna bidhaa hapa bado.';
-}
-function searchMarket(v){ renderMarket(v); }
-function searchHome(v){ currentFilter=v.toLowerCase(); renderHome(); }
-function showPage(page){
-  ['home','market','add','cart'].forEach(p=>document.getElementById('page-'+p).classList.add('hidden'));
-  document.getElementById('page-'+page).classList.remove('hidden');
-  window.scrollTo(0,0);
-  if(page==='home') renderHome();
-  if(page==='cart') renderCart();
-}
-function addProduct(){
-  let name=document.getElementById('f-name').value;
-  let price=parseInt(document.getElementById('f-price').value);
-  if(!name||!price){ alert('Weka jina na bei!'); return; }
-  products.unshift({name, price, market:document.getElementById('f-market').value, seller:document.getElementById('f-seller').value||'Muuzaji', phone:document.getElementById('f-phone').value||'0755000000', desc:document.getElementById('f-desc').value, img:document.getElementById('f-img').value || (document.getElementById('f-market').value==='mifugo' ? 'https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400' : 'https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400')});
-  save(); alert('Bidhaa imewekwa sokoni! ✅'); showPage('home');
-}
+function productHTML(p, idx){ return `<div class="product"><img src="${p.img}"><div class="product-info"><b>${p.name}</b><small>${p.seller} • ${p.desc||''}</small><div class="price">${fmt(p.price)}</div><button class="add-btn" onclick="addToCart(${idx})">+ NUNUA - Weka Kikapu</button></div></div>`; }
+function renderHome(){ let list=products.filter(p=>!currentFilter||p.name.toLowerCase().includes(currentFilter)); document.getElementById('home-products').innerHTML=list.slice(0,8).map(p=>productHTML(p, products.indexOf(p))).join('')||'Hakuna bidhaa'; renderShops(); updateCartBar(); }
+function renderShops(){ let sellers={}; products.forEach(p=>{ if(!sellers[p.seller]) sellers[p.seller]={name:p.seller, phone:p.phone, count:0, img:p.img}; sellers[p.seller].count++; }); document.getElementById('shops-list').innerHTML = Object.values(sellers).map(s=>`<div class="shop-card" onclick="showPage('home')"><img src="${s.img}"><div style="flex:1"><b>🏪 ${s.name}</b><br><small>${s.count} bidhaa • ${s.phone}</small></div></div>`).join(''); }
+function openMarket(m){ currentMarket=m; document.getElementById('market-title').innerText=m==='mifugo'?'🐐 SOKO LA MIFUGO':'🐟 SOKO LA MAZAO YA UVUVI'; showPage('market'); renderMarket(''); }
+function renderMarket(q){ let list=products.filter(p=>p.market===currentMarket && (!q||p.name.toLowerCase().includes(q.toLowerCase()))); document.getElementById('market-products').innerHTML=list.map(p=>productHTML(p, products.indexOf(p))).join('')||'Hakuna bidhaa hapa bado.'; }
+function searchMarket(v){ renderMarket(v); } function searchHome(v){ currentFilter=v.toLowerCase(); renderHome(); }
+function showPage(page){ ['home','market','add','cart','shops'].forEach(p=>document.getElementById('page-'+p).classList.add('hidden')); document.getElementById('page-'+page).classList.remove('hidden'); window.scrollTo(0,0); if(page==='home') renderHome(); if(page==='cart') renderCart(); if(page==='shops') renderShops(); }
+function addProduct(){ let name=document.getElementById('f-name').value; let price=parseInt(document.getElementById('f-price').value); if(!name||!price){ alert('Weka jina na bei!'); return; } products.unshift({name, price, market:document.getElementById('f-market').value, seller:document.getElementById('f-seller').value||'Muuzaji', phone:document.getElementById('f-phone').value||'0755000000', desc:document.getElementById('f-desc').value, img:document.getElementById('f-img').value || (document.getElementById('f-market').value==='mifugo'?'https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400':'https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400')}); save(); alert('Hongera! Bidhaa imewekwa - UMEUZA ✅'); showPage('home'); }
 function addToCart(idx){ cart.push(products[idx]); save(); updateCartBar(); alert(products[idx].name+' imewekwa kikapuni ✅'); }
-function updateCartBar(){
-  document.getElementById('cart-count').innerText = cart.length;
-  document.getElementById('cart-bar').classList.toggle('hidden', cart.length===0);
-}
-function renderCart(){
-  if(cart.length===0){ document.getElementById('cart-items').innerHTML='Kikapu kiko wazi.'; document.getElementById('cart-total').innerText=''; return; }
-  let total=0;
-  document.getElementById('cart-items').innerHTML = cart.map((p,i)=>{ total+=p.price; return `<div class="product"><div class="product-info"><b>${p.name}</b><div class="price">${fmt(p.price)}</div><button onclick="removeCart(${i})" style="color:red;background:none;border:none">Ondoa ❌</button></div></div>`}).join('');
-  document.getElementById('cart-total').innerText = 'Jumla: '+fmt(total);
-}
+function updateCartBar(){ document.getElementById('cart-count').innerText=cart.length; document.getElementById('cart-bar').classList.toggle('hidden', cart.length===0); }
+function renderCart(){ if(cart.length===0){ document.getElementById('cart-items').innerHTML='Kikapu kiko wazi. Nenda NUNUA kwanza.'; document.getElementById('cart-total').innerText=''; return; } let total=0; document.getElementById('cart-items').innerHTML=cart.map((p,i)=>{ total+=p.price; return `<div class="product"><div class="product-info"><b>${p.name}</b><div class="price">${fmt(p.price)}</div><button onclick="removeCart(${i})" style="color:red;background:none;border:none">Ondoa ❌</button></div></div>`}).join(''); document.getElementById('cart-total').innerText='Jumla ya Oda: '+fmt(total); }
 function removeCart(i){ cart.splice(i,1); save(); renderCart(); updateCartBar(); }
-function checkout(){
-  if(cart.length===0){ alert('Kikapu kiko wazi'); return; }
-  let name=document.getElementById('cust-name').value||'Mteja';
-  let loc=document.getElementById('cust-loc').value||'';
-  let msg = `Habari! Naomba ODA - SOKO LA TANGA%0A%0A`;
-  cart.forEach(p=>{ msg += `• ${p.name} - ${fmt(p.price)} (Muuzaji: ${p.seller} ${p.phone})%0A`; });
-  msg += `%0AMteja: ${name}%0AMahali: ${loc}`;
-  window.open('https://wa.me/255755000000?text='+msg, '_blank');
-}
+function checkout(){ if(cart.length===0){ alert('Kikapu kiko wazi'); return; } let name=document.getElementById('cust-name').value||'Mteja'; let loc=document.getElementById('cust-loc').value||''; let msg=`Habari! Naomba ODA - SOKO LA TANGA%0A%0A`; cart.forEach(p=>{ msg+=`• ${p.name} - ${fmt(p.price)} (Muuzaji: ${p.seller} ${p.phone})%0A`; }); msg+=`%0AMteja: ${name}%0AMahali: ${loc}`; window.open('https://wa.me/255755000000?text='+msg,'_blank'); }
 renderHome();
 </script>
 </body>
