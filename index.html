@@ -46,7 +46,18 @@ label{font-size:13px;font-weight:bold;color:#334155}
 .page.active{display:block}
 .menu-box{background:white;padding:10px;border-radius:12px;margin-bottom:10px}
 .menu-row{display:flex;gap:6px;margin-bottom:6px}
-.menu-row a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block}
+.menu-row a{flex:1;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;text-align:center;display:block}
+/* MFUMO WA RANGI - SASA */
+.same-mifugo{background:#16a34a;color:white;border:2px solid #16a34a}
+.same-mifugo-oda{background:#ea580c;color:white;border:2px solid #ea580c}
+.same-mifugo-view{background:#0d9488;color:white;border:2px solid #0d9488}
+.same-uvuzi{background:#0284c7;color:white;border:2px solid #0284c7}
+.same-uvuzi-oda{background:#ea580c;color:white;border:2px solid #ea580c}
+.same-uvuzi-view{background:#0d9488;color:white;border:2px solid #0d9488}
+.same-shops{background:#7c3aed;color:white;border:2px solid #7c3aed}
+.other{background:#f1f5f9;color:#64748b;border:1px solid #cbd5e1}
+.other-home{background:#e2e8f0;color:#334155;border:1px solid #cbd5e1}
+.legend{background:white;padding:10px;border-radius:10px;font-size:12px;margin-bottom:10px;line-height:1.8}
 .pin-box{background:#fffbeb;border:2px solid #facc15;padding:14px;border-radius:12px;margin:12px 0}
 </style>
 </head>
@@ -59,23 +70,29 @@ label{font-size:13px;font-weight:bold;color:#334155}
 </header>
 <div class="container">
 <div id="page-home" class="page active">
-<div class="nembo-banner"><div class="nembo-big">🛒</div><h2 style="margin:8px 0 2px">SOKO LA TANGA</h2><p style="font-size:13px;color:#64748b">🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu<br><b>Karibu Soko la Tanga</b></p></div>
-<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, kila soko lina vitufe vyake.</small></div>
+<div class="nembo-banner"><div class="nembo-big">🛒</div><h2 style="margin:8px 0 2px">SOKO LA TANGA</h2><p style="font-size:13px;color:#64748b">🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
+<div class="legend"><b>🎨 MAANA YA RANGI:</b><br>🟢 <b style="color:#16a34a">KIJANI = MIFUGO</b> • 🔵 <b style="color:#0284c7">BLUU = UVUVI</b> • 🟣 <b style="color:#7c3aed">ZAMBARAU = MADUKA YETU</b> • 🟠 <b style="color:#ea580c">CHUNGWA = FOMU YA ODA</b> • 🩵 <b style="color:#0d9488">KIJANI KIBICHI = ANGALIA ODA</b> • ⚪ <b style="color:#64748b">KIJIVU = SIO CHA HAPA - kinakupeleka sehemu nyingine</b></div>
+<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, angalia rangi ya kitufe.</small></div>
 <h3 class="section-title">🏪 MASOKO YETU</h3>
 <div class="market-card"><a href="#soko-mifugo"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><a href="#soko-mifugo" class="btn btn-green">INGIA SOKONI - MIFUGO →</a></div></div>
 <div class="market-card"><a href="#soko-uvuzi"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><a href="#soko-uvuzi" class="btn btn-blue">INGIA SOKONI - UVUVI →</a></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b style="font-size:17px">MADUKA YETU</b><br><small>Maduka ya Wafugaji na Wavuvi wa Tanga - yanajitegemea</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 MADUKA YETU →</a></div>
+<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b style="font-size:17px">MADUKA YETU</b><br><small>Maduka ya Wafugaji na Wavuvi wa Tanga</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 MADUKA YETU →</a></div>
 </div>
 
+<!-- 🐐 MIFUGO - VITUFE VYAKE VIJANI / CHUNGWA / KIBICHI, VINGINE KIJIVU -->
 <div id="soko-mifugo" class="page">
-<div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐<br><small>Vitufe hivi ni vya Mifugo tu</small></div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#mifugo-uza">📢 UZA MIFUGO</a></div><div class="menu-row"><a href="#soko-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form">🙏 ODA YA KUHITAJI MIFUGO</a></div><div class="menu-row"><a href="#mifugo-oda-view">📋 ANGALIA ODA ZA MIFUGO</a></div></div>
+<div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐<br><small>🟢 Kijani = vya Mifugo • ⚪ Kijivu = sio vya hapa</small></div>
+<div class="menu-box">
+<div class="menu-row"><a href="#page-home" class="other-home">🏠 NYUMBANI</a><a href="#page-shops" class="other">🏪 MADUKA YETU</a><a href="#mifugo-uza" class="same-mifugo">📢 UZA MIFUGO</a></div>
+<div class="menu-row"><a href="#soko-mifugo" class="same-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form" class="same-mifugo-oda">🙏 ODA YA KUHITAJI MIFUGO</a></div>
+<div class="menu-row"><a href="#mifugo-oda-view" class="same-mifugo-view">📋 ANGALIA ODA ZA MIFUGO</a></div>
+</div>
 <h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
 <div id="mifugo-oda-form" class="page">
 <div class="uko-ndani-orange">🙏 FOMU YA ODA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo" class="same-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('mifugo');">
 <label>Unahitaji Bidhaa Gani ya Mifugo? *</label><input id="r-need-mifugo" placeholder="mf: Mbuzi 10 wa kuchinja" required>
 <label>Idadi *</label><input id="r-qty-mifugo" placeholder="mf: 10" required>
@@ -90,13 +107,13 @@ label{font-size:13px;font-weight:bold;color:#334155}
 
 <div id="mifugo-oda-view" class="page">
 <div class="uko-ndani-teal">📋 ANGALIA ODA ZA MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#mifugo-oda-form">🙏 JAZA FOMU MPYA</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo" class="same-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#mifugo-oda-form" class="same-mifugo-oda">🙏 JAZA FOMU MPYA</a></div></div>
 <div id="oda-list-mifugo"></div>
 </div>
 
 <div id="mifugo-uza" class="page">
 <div class="uko-ndani-orange">📢 UZA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo" class="same-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box">
 <label>Jina la Bidhaa ya Mifugo</label><input id="f-name-mifugo" placeholder="mf: Mbuzi wa Kuchinja">
 <label>Bei (TSh)</label><input id="f-price-mifugo" type="number" placeholder="180000">
@@ -106,18 +123,19 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <label>Jina lako / Duka lako</label><input id="f-seller-mifugo" placeholder="Jina lako">
 <label>Namba ya Simu</label><input id="f-phone-mifugo" placeholder="0755000000">
 <label>Maelezo</label><textarea id="f-desc-mifugo"></textarea>
-<button class="btn btn-orange" onclick="addProduct('mifugo')">TANGAZA MIFUGO - UZA SASA ✅</button>
+<button class="btn btn-green" onclick="addProduct('mifugo')">TANGAZA MIFUGO - UZA SASA ✅</button>
 </div></div>
 
+<!-- 🐟 UVUVI - VITUFE VYAKE BLUU / CHUNGWA / KIBICHI, VINGINE KIJIVU -->
 <div id="soko-uvuzi" class="page">
-<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟<br><small>Vitufe hivi ni vya Uvuvi tu</small></div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#uvuzi-uza">📢 UZA UVUVI</a></div><div class="menu-row"><a href="#soko-uvuzi">🛒 NUNUA UVUVI</a><a href="#uvuzi-oda-form">🙏 ODA YA KUHITAJI UVUVI</a></div><div class="menu-row"><a href="#uvuzi-oda-view">📋 ANGALIA ODA ZA UVUVI</a></div></div>
+<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟<br><small>🔵 Bluu = vya Uvuvi • ⚪ Kijivu = sio vya hapa</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#page-home" class="other-home">🏠 NYUMBANI</a><a href="#page-shops" class="other">🏪 MADUKA YETU</a><a href="#uvuzi-uza" class="same-uvuzi">📢 UZA UVUVI</a></div><div class="menu-row"><a href="#soko-uvuzi" class="same-uvuzi">🛒 NUNUA UVUVI</a><a href="#uvuzi-oda-form" class="same-uvuzi-oda">🙏 ODA YA KUHITAJI UVUVI</a></div><div class="menu-row"><a href="#uvuzi-oda-view" class="same-uvuzi-view">📋 ANGALIA ODA ZA UVUVI</a></div></div>
 <h2>🐟 SOKO LA MAZAO YA UVUVI</h2><div id="uvuzi-list" style="margin-top:10px"></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
 <div id="uvuzi-oda-form" class="page">
 <div class="uko-ndani-orange">🙏 FOMU YA ODA - UVUVI TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi" class="same-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('uvuzi');">
 <label>Unahitaji Bidhaa Gani ya Uvuvi? *</label><input id="r-need-uvuzi" placeholder="mf: Samaki Sangara 50kg" required>
 <label>Kg *</label><input id="r-qty-uvuzi" placeholder="mf: 50kg" required>
@@ -132,13 +150,13 @@ label{font-size:13px;font-weight:bold;color:#334155}
 
 <div id="uvuzi-oda-view" class="page">
 <div class="uko-ndani-teal">📋 ANGALIA ODA ZA UVUVI TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#uvuzi-oda-form">🙏 JAZA FOMU MPYA</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi" class="same-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#uvuzi-oda-form" class="same-uvuzi-oda">🙏 JAZA FOMU MPYA</a></div></div>
 <div id="oda-list-uvuzi"></div>
 </div>
 
 <div id="uvuzi-uza" class="page">
 <div class="uko-ndani-orange">📢 UZA - UVUVI TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi" class="same-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box">
 <label>Jina la Bidhaa ya Uvuvi</label><input id="f-name-uvuzi" placeholder="mf: Samaki Sangara">
 <label>Bei kwa Kg (TSh)</label><input id="f-price-uvuzi" type="number" placeholder="15000">
@@ -151,15 +169,16 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <button class="btn btn-blue" onclick="addProduct('uvuzi')">TANGAZA UVUVI - UZA SASA ✅</button>
 </div></div>
 
+<!-- 🏪 MADUKA YETU - VITUFE VYAKE ZAMBARAU, VINGINE KIJIVU -->
 <div id="page-shops" class="page">
-<div class="uko-ndani-purple">🏪 UKO KWENYE MADUKA YETU<br><small>Maduka yanajitegemea</small></div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a></div><div class="menu-row"><a href="#page-shops">🏪 MADUKA YETU</a><a href="#shops-register">📝 SAJILI DUKA</a><a href="#shops-mine">🏪 DUKA LANGU</a></div></div>
+<div class="uko-ndani-purple">🏪 UKO KWENYE MADUKA YETU<br><small>🟣 Zambarau = vya Maduka • ⚪ Kijivu = sio vya hapa</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#page-home" class="other-home">🏠 NYUMBANI</a><a href="#soko-mifugo" class="other">🐐 MIFUGO</a><a href="#soko-uvuzi" class="other">🐟 UVUVI</a></div><div class="menu-row"><a href="#page-shops" class="same-shops">🏪 MADUKA YETU</a><a href="#shops-register" class="same-shops">📝 SAJILI DUKA</a><a href="#shops-mine" class="same-shops">🏪 DUKA LANGU</a></div></div>
 <h2>🏪 MADUKA YETU</h2><div id="shops-list"></div><a href="#page-home" class="btn btn-gray">← RUDI NYUMBANI</a>
 </div>
 
 <div id="shops-register" class="page">
 <div class="uko-ndani-purple">📝 SAJILI DUKA - MADUKA YETU</div>
-<div class="menu-box"><div class="menu-row"><a href="#page-shops">← RUDI MADUKA YETU</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#page-shops" class="same-shops">← RUDI MADUKA YETU</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box">
 <label>Jina la Duka</label><input id="s-name" placeholder="mf: Juma Mifugo Bora">
 <label>Jina la Mmiliki</label><input id="s-owner" placeholder="mf: Juma">
@@ -174,59 +193,26 @@ label{font-size:13px;font-weight:bold;color:#334155}
 
 <div id="shops-mine" class="page">
 <div class="uko-ndani-purple">🏪 DUKA LANGU - MADUKA YETU</div>
-<div class="menu-box"><div class="menu-row"><a href="#page-shops">← RUDI MADUKA YETU</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#page-shops" class="same-shops">← RUDI MADUKA YETU</a><a href="#page-home" class="other-home">🏠 NYUMBANI</a></div></div>
 <div id="my-shop-view"></div>
 </div>
 
-<!-- ADMIN - IMEFICHWA + SASA ANAWEZA KUBADILI PIN -->
 <div id="page-admin" class="page">
 <div class="uko-ndani" style="background:#dc2626">⚙️ ADMIN - IMEFICHWA</div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-shops">🏪 MADUKA YETU</a></div></div>
-
-<!-- BADILISHA PIN YA ADMIN -->
-<div class="pin-box">
-<h3>🔐 BADILISHA PIN YA ADMIN</h3>
-<p style="font-size:13px;color:#92400e">PIN ya sasa: <b id="current-pin-show">1234</b> <small>(inaonekana kwako tu ukiwa ndani ya Admin)</small></p>
-<label>PIN ya Zamani *</label><input id="old-pin" type="password" placeholder="Weka PIN ya zamani">
-<label>PIN Mpya *</label><input id="new-pin" type="password" placeholder="Weka PIN mpya - mf: 9876">
-<label>Rudia PIN Mpya *</label><input id="new-pin2" type="password" placeholder="Rudia PIN mpya">
-<button class="btn btn-red" onclick="changeAdminPin()">🔐 BADILISHA PIN SASA</button>
-<p style="font-size:12px;color:#64748b;text-align:center;margin-top:6px">Baada ya kubadili, utaingia Admin kwa PIN mpya. Usisahau!</p>
-</div>
-
+<div class="menu-box"><div class="menu-row"><a href="#page-home" class="other-home">🏠 NYUMBANI</a><a href="#soko-mifugo" class="other">🐐 MIFUGO</a><a href="#soko-uvuzi" class="other">🐟 UVUVI</a><a href="#page-shops" class="other">🏪 MADUKA YETU</a></div></div>
+<div class="pin-box"><h3>🔐 BADILISHA PIN YA ADMIN</h3><p style="font-size:13px;color:#92400e">PIN ya sasa: <b id="current-pin-show">1234</b></p><label>PIN ya Zamani *</label><input id="old-pin" type="password" placeholder="Weka PIN ya zamani"><label>PIN Mpya *</label><input id="new-pin" type="password" placeholder="Weka PIN mpya"><label>Rudia PIN Mpya *</label><input id="new-pin2" type="password" placeholder="Rudia PIN mpya"><button class="btn btn-red" onclick="changeAdminPin()">🔐 BADILISHA PIN SASA</button></div>
 <h2>⚙️ ADMIN (Siri)</h2><div id="admin-products"></div><div id="admin-oda"></div><div id="admin-shops"></div>
 <button class="btn btn-red" onclick="adminClearAll()">FUTA VYOTE</button>
 <button class="btn btn-gray" style="margin-top:8px" onclick="resetAdminPin()">↩️ RUDISHA PIN KUWA 1234</button>
 </div>
 
 </div>
-<div class="bottom-nav" id="bottom-nav" style="display:none"><a href="#page-home">🏠 Nyumbani</a><a href="#soko-mifugo">🐐 Mifugo</a><a href="#soko-uvuzi">🐟 Uvuvi</a><a href="#page-shops">🏪 Maduka Yetu</a></div>
+<div class="bottom-nav" id="bottom-nav" style="display:none"><a href="#page-home" style="background:#e2e8f0">🏠 Nyumbani</a><a href="#soko-mifugo" style="background:#dcfce7">🐐 Mifugo</a><a href="#soko-uvuzi" style="background:#dbeafe">🐟 Uvuvi</a><a href="#page-shops" style="background:#ede9fe">🏪 Maduka Yetu</a></div>
 <script>
-// PIN YA ADMIN - INAHIFADHIWA, INAWEZA KUBADILISHWA
 var ADMIN_PIN="1234";
 try{ var savedPin=localStorage.getItem('soko_admin_pin'); if(savedPin){ ADMIN_PIN=savedPin; } }catch(e){}
-function getAdminPin(){ return ADMIN_PIN; }
-function changeAdminPin(){
-  var oldPin=document.getElementById('old-pin').value;
-  var newPin=document.getElementById('new-pin').value;
-  var newPin2=document.getElementById('new-pin2').value;
-  if(!oldPin||!newPin||!newPin2){ alert('Jaza sehemu zote 3!'); return; }
-  if(oldPin!==ADMIN_PIN){ alert('PIN ya zamani sio sahihi!'); return; }
-  if(newPin.length<4){ alert('PIN mpya lazima iwe angalau 4! mf: 9876'); return; }
-  if(newPin!==newPin2){ alert('PIN mpya hazifanani! Rudia vizuri.'); return; }
-  ADMIN_PIN=newPin;
-  try{ localStorage.setItem('soko_admin_pin', newPin); }catch(e){}
-  document.getElementById('old-pin').value=''; document.getElementById('new-pin').value=''; document.getElementById('new-pin2').value='';
-  var showEl=document.getElementById('current-pin-show'); if(showEl) showEl.innerText=newPin;
-  alert('Hongera! PIN ya Admin imebadilishwa ✅\nPIN mpya: '+newPin+'\nSasa utaingia Admin kwa PIN hii mpya.');
-}
-function resetAdminPin(){
-  if(!confirm('Rudisha PIN kuwa 1234?')) return;
-  ADMIN_PIN="1234";
-  try{ localStorage.setItem('soko_admin_pin', "1234"); }catch(e){}
-  var showEl=document.getElementById('current-pin-show'); if(showEl) showEl.innerText="1234";
-  alert('PIN imerudishwa kuwa 1234 ✅');
-}
+function changeAdminPin(){ var oldPin=document.getElementById('old-pin').value; var newPin=document.getElementById('new-pin').value; var newPin2=document.getElementById('new-pin2').value; if(!oldPin||!newPin||!newPin2){ alert('Jaza sehemu zote 3!'); return; } if(oldPin!==ADMIN_PIN){ alert('PIN ya zamani sio sahihi!'); return; } if(newPin.length<4){ alert('PIN mpya lazima iwe angalau 4!'); return; } if(newPin!==newPin2){ alert('PIN mpya hazifanani!'); return; } ADMIN_PIN=newPin; try{ localStorage.setItem('soko_admin_pin', newPin); }catch(e){} document.getElementById('old-pin').value=''; document.getElementById('new-pin').value=''; document.getElementById('new-pin2').value=''; var showEl=document.getElementById('current-pin-show'); if(showEl) showEl.innerText=newPin; alert('Hongera! PIN imebadilishwa ✅ PIN mpya: '+newPin); }
+function resetAdminPin(){ if(!confirm('Rudisha PIN kuwa 1234?')) return; ADMIN_PIN="1234"; try{ localStorage.setItem('soko_admin_pin', "1234"); }catch(e){} var showEl=document.getElementById('current-pin-show'); if(showEl) showEl.innerText="1234"; alert('PIN imerudishwa kuwa 1234 ✅'); }
 var adminClicks=0; var adminLast=0;
 function secretAdmin(){ var now=Date.now(); if(now-adminLast>1500) adminClicks=0; adminLast=now; adminClicks++; if(adminClicks>=5){ adminClicks=0; var pin=prompt('ADMIN SIRI - Weka PIN:'); if(pin===ADMIN_PIN){ location.hash='#page-admin'; } else if(pin!==null){ alert('PIN sio sahihi!'); } } }
 var products=[
@@ -255,9 +241,4 @@ function renderMyShop(){ if(!currentUser){ document.getElementById('my-shop-view
 function loginShop(){ var phone=document.getElementById('login-phone').value; var pass=document.getElementById('login-pass').value; var found=null; for(var i=0;i<shops.length;i++){ if(shops[i].phone===phone) found=shops[i]; } if(!found){ alert('Hakuna duka!'); return; } if((found.pass||'1234')!==pass){ alert('Password sio sahihi!'); return; } currentUser={phone:phone, name:found.owner}; try{ localStorage.setItem('soko_v113_user', JSON.stringify(currentUser)); }catch(e){} renderMyShop(); }
 function logoutShop(){ currentUser=null; try{ localStorage.removeItem('soko_v113_user'); }catch(e){} renderMyShop(); }
 function adminClearAll(){ if(!confirm('Futa VYOTE?')) return; products=[]; shops=[]; requests=[]; save(); renderMarkets(); renderOda(); }
-function showByHash(){ var h=(location.hash||'#page-home').replace('#',''); if(!h) h='page-home'; var pages=document.querySelectorAll('.page'); for(var i=0;i<pages.length;i++){ pages[i].classList.remove('active'); } var target=document.getElementById(h); if(target) target.classList.add('active'); else document.getElementById('page-home').classList.add('active'); var bottom=document.getElementById('bottom-nav'); if(bottom) bottom.style.display = (h==='page-home') ? 'none' : 'flex'; window.scrollTo(0,0); if(h==='soko-mifugo'||h==='soko-uvuzi') renderMarkets(); if(h==='mifugo-oda-view'||h==='uvuzi-oda-view') renderOda(); if(h==='page-shops') renderShops(); if(h==='shops-mine') renderMyShop(); if(h==='page-admin'){ var showEl=document.getElementById('current-pin-show'); if(showEl) showEl.innerText=ADMIN_PIN; } }
-window.addEventListener('hashchange', showByHash);
-renderMarkets(); renderOda(); renderShops(); showByHash();
-</script>
-</body>
-</html>
+function showByHash(){ var h=(location.hash||'#page-home').replace('#',''); if(!h) h='page-home'; var pages=document.querySelectorAll('.page'); for(var i=0;i<pages.length;i++){ pages[i].classList.remove('active'); } var target=document.getElementById(h); if(target) target.classList.add('active'); else
