@@ -57,7 +57,7 @@ label{font-size:13px;font-weight:bold}
 <div id="m-nunua"><h3>🛒 NUNUA MIFUGO</h3><br><div id="listM"></div></div>
 <div id="m-uza" style="display:none"><div class="box">
 <div class="closeRow"><h3>📢 UZA MIFUGO</h3><button type="button" class="closeBtn" onclick="showM('nunua')">✕ FUNGA</button></div>
-<label>Picha ya Mnyama - Chagua kutoka Simu</label>
+<label>Picha ya Mnyama - Chagua kutoka Laptop / Simu</label>
 <input type="file" id="m-file" accept="image/*" onchange="previewImg(this,'m-prev','M')">
 <img id="m-prev" class="prev">
 <label>Au Chagua Emoji</label><select id="m-emoji"><option>🐐</option><option>🐄</option><option>🐑</option><option>🐔</option><option>🐖</option></select>
@@ -88,7 +88,7 @@ label{font-size:13px;font-weight:bold}
 <div id="u-nunua"><h3>🛒 NUNUA UVUVI</h3><br><div id="listU"></div></div>
 <div id="u-uza" style="display:none"><div class="box">
 <div class="closeRow"><h3>📢 UZA UVUVI</h3><button type="button" class="closeBtn" onclick="showU('nunua')">✕ FUNGA</button></div>
-<label>Picha ya Samaki - Chagua kutoka Simu</label>
+<label>Picha ya Samaki - Chagua kutoka Laptop / Simu</label>
 <input type="file" id="u-file" accept="image/*" onchange="previewImg(this,'u-prev','U')">
 <img id="u-prev" class="prev">
 <label>Au Chagua Emoji</label><select id="u-emoji"><option>🐟</option><option>🦐</option><option>🦀</option><option>🐙</option></select>
@@ -139,7 +139,7 @@ label{font-size:13px;font-weight:bold}
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
 <div id="pg-admin" style="display:none">
-<div class="box" style="background:#222;color:#fff;text-align:center"><b>⚙️ MENEJIMENTI</b></div>
+<div class="box" style="background:#222;color:#fff;text-align:center"><b>⚙️ MENEJIMENTI - ADMIN</b></div>
 <div class="box"><h3>🖼️ BADILISHA LOGO NA JINA</h3>
 <label>Picha ya Logo - Pakia kutoka Laptop / Simu</label>
 <input type="file" id="a-logo-file" accept="image/*" onchange="previewLogo(this)">
@@ -148,6 +148,21 @@ label{font-size:13px;font-weight:bold}
 <label style="margin-top:12px">Au Chagua Emoji ya Logo</label><select id="a-logo"><option>🛒</option><option>🐐</option><option>🐟</option><option>🏪</option></select>
 <label>Jina la Soko</label><input id="a-name" placeholder="SOKO LA MIFUGO NA MAZAO YA UVUVI-TANGA">
 <button type="button" class="btn g" onclick="saveLogo()">HIFADHI LOGO ✅</button></div>
+
+<div class="box" style="border:2px solid #16a34a"><h3>📢 ADMIN - PAKIA BIDHAA SOKONI NA PICHA</h3>
+<p class="small">Hapa Admin anaweka bidhaa zake mwenyewe Sokoni na picha.</p>
+<label>Chagua Soko</label><select id="adm-market"><option value="mifugo">🐐 Soko la Mifugo</option><option value="uvuzi">🐟 Soko la Uvuvi</option></select>
+<label>Picha ya Bidhaa - Pakia kutoka Laptop / Simu</label>
+<input type="file" id="adm-prod-file" accept="image/*" onchange="previewAdmProd(this)">
+<img id="adm-prod-prev" class="prev">
+<label>Jina la Bidhaa</label><input id="adm-prod-name" placeholder="Mbuzi wa Kuchinja / Samaki Sangara">
+<label>Bei</label><input id="adm-prod-price" type="number" placeholder="180000">
+<label>Idadi / Kg</label><input id="adm-prod-qty" placeholder="5 / 10kg">
+<label>Jina lako - Muuzaji</label><input id="adm-prod-seller" placeholder="Admin - Jina lako">
+<label>Simu</label><input id="adm-prod-phone" placeholder="0755000000">
+<label>Wilaya</label><input id="adm-prod-wilaya" placeholder="Tanga Mjini">
+<button type="button" class="btn g" onclick="adminAddProd()">WEKA SOKONI NA PICHA ✅</button></div>
+
 <div class="box"><h3>🏪 PAKIA PICHA ZA MADUKA YAKO</h3>
 <p class="small">Chagua duka, kisha pakia picha yake mpya.</p>
 <label>Chagua Duka</label><select id="adm-shop"></select>
@@ -169,7 +184,7 @@ label{font-size:13px;font-weight:bold}
 
 </div>
 <script>
-var PIN="1234"; var tmpM="", tmpU="", tmpS="";
+var PIN="1234"; var tmpM="", tmpU="", tmpS="", tmpAdm="";
 try{PIN=localStorage.getItem('soko_pin')||"1234";
 var lg=localStorage.getItem('soko_logo'); if(lg){document.getElementById('logo1').innerText=lg;}
 var tt=localStorage.getItem('soko_title'); if(tt){document.getElementById('title1').innerText=tt;document.getElementById('title2').innerText=tt;}
@@ -195,6 +210,8 @@ r.readAsDataURL(f);
 }
 function previewLogo(inp){var f=inp.files&&inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){var im=document.getElementById('a-logo-prev');im.src=e.target.result;im.style.display='block';window._logoImg=e.target.result;};r.readAsDataURL(f);}
 function saveLogoImg(){if(!window._logoImg){alert('Chagua picha kwanza!');return;}try{localStorage.setItem('soko_logo_img',window._logoImg);}catch(e){}document.getElementById('logo1').innerHTML='<img src="'+window._logoImg+'">';alert('Picha ya Logo imewekwa ✅');}
+function previewAdmProd(inp){var f=inp.files&&inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){var im=document.getElementById('adm-prod-prev');im.src=e.target.result;im.style.display='block';tmpAdm=e.target.result;};r.readAsDataURL(f);}
+function adminAddProd(){var mk=document.getElementById('adm-market').value;var n=document.getElementById('adm-prod-name').value;var pr=parseInt(document.getElementById('adm-prod-price').value);var ph=document.getElementById('adm-prod-phone').value;if(!n||!pr||!ph){alert('Weka jina, bei na simu!');return;}if(!tmpAdm){alert('Chagua picha kwanza!');return;}if(mk==='mifugo'){PM.unshift({name:n,price:pr,qty:document.getElementById('adm-prod-qty').value||1,seller:document.getElementById('adm-prod-seller').value||'Admin',phone:ph,wilaya:document.getElementById('adm-prod-wilaya').value||'Tanga Mjini',emoji:'🐐',img:tmpAdm});save('soko_mifugo',PM);}else{PU.unshift({name:n,price:pr,kg:document.getElementById('adm-prod-qty').value||'1kg',seller:document.getElementById('adm-prod-seller').value||'Admin',phone:ph,wilaya:document.getElementById('adm-prod-wilaya').value||'Tanga Mjini',emoji:'🐟',img:tmpAdm});save('soko_uvuzi',PU);}tmpAdm="";document.getElementById('adm-prod-prev').style.display='none';document.getElementById('adm-prod-file').value='';render();alert('Bidhaa ya Admin imewekwa Sokoni na Picha ✅');}
 function fillAdmShops(){var s=document.getElementById('adm-shop');if(!s)return;s.innerHTML='';for(var i=0;i<SH.length;i++){s.innerHTML+='<option value="'+i+'">'+SH[i].name+'</option>';}}
 function saveShopImg(){var idx=parseInt(document.getElementById('adm-shop').value);if(isNaN(idx)){alert('Huna duka!');return;}if(!tmpS){alert('Chagua picha kwanza!');return;}SH[idx].img=tmpS;tmpS="";document.getElementById('adm-shop-prev').style.display='none';save('soko_shops',SH);render();alert('Picha ya duka imewekwa ✅');}
 function picHtml(it){
