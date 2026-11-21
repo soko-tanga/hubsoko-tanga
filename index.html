@@ -7,7 +7,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
 body{background:#f1f5f9;padding-bottom:95px}
-header{background:#16a34a;color:white;padding:12px;text-align:center;position:sticky;top:0;z-index:10;cursor:pointer}
+header{background:#16a34a;color:white;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
+header a{color:white;text-decoration:none;display:block}
 .logo-wrap{display:flex;align-items:center;justify-content:center;gap:10px}
 .logo{width:52px;height:52px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;border:3px solid #facc15;flex-shrink:0}
 .logo-text{text-align:left;line-height:1.1}
@@ -42,8 +43,12 @@ label{font-size:13px;font-weight:bold;color:#334155}
 .uko-ndani-orange{background:#ea580c;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
 .uko-ndani-teal{background:#0d9488;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
 .uko-ndani-purple{background:#7c3aed;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
+/* MFUMO MPYA - HAKUNA JAVASCRIPT KUFUNGUA, NI LINK TU */
 .page{display:none}
-.page.active{display:block}
+#page-home{display:block}
+.page:target{display:block}
+body:has(.page:target) #page-home{display:none}
+body:has(#soko-mifugo:target) #page-home, body:has(#soko-uvuzi:target) #page-home, body:has(#page-shops:target) #page-home{display:none}
 .menu-box{background:white;padding:10px;border-radius:12px;margin-bottom:10px}
 .menu-row{display:flex;gap:6px;margin-bottom:6px}
 .menu-row a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block}
@@ -51,66 +56,26 @@ label{font-size:13px;font-weight:bold;color:#334155}
 </style>
 </head>
 <body>
-<header onclick="secretAdmin()">
-<div class="logo-wrap">
-<div class="logo">🐐🐟</div>
-<div class="logo-text"><h1>SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p></div>
-</div>
-</header>
+<header><a href="#page-home"><div class="logo-wrap"><div class="logo">🐐🐟</div><div class="logo-text"><h1>SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p></div></div></a></header>
 <div class="container">
 
-<div id="page-home" class="page active">
+<div id="page-home" class="page">
 <div class="nembo-banner"><div class="nembo-big">🛒</div><h2 style="margin:8px 0 2px">SOKO LA TANGA</h2><p style="font-size:13px;color:#64748b">🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
 <div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, kila soko lina vitufe vyake.</small></div>
 <h3 class="section-title">🏪 MASOKO YETU</h3>
-<!-- HAKUNA PICHA ZA NJE TENA - EMOJI TU, INAFUNGUKA MARA MOJA -->
-<div class="market-card"><div class="market-top market-top-green" onclick="goTo('soko-mifugo')">🐐🐄🐑🐔</div><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><button class="btn btn-green" onclick="goTo('soko-mifugo')">INGIA SOKONI - MIFUGO →</button></div></div>
-<div class="market-card"><div class="market-top market-top-blue" onclick="goTo('soko-uvuzi')">🐟🦐🦀</div><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><button class="btn btn-blue" onclick="goTo('soko-uvuzi')">INGIA SOKONI - UVUVI →</button></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b style="font-size:17px">MADUKA YETU</b><br><small>Maduka ya Wafugaji na Wavuvi wa Tanga</small><br><button class="btn btn-purple" style="margin-top:10px" onclick="goTo('page-shops')">🏪 MADUKA YETU →</button></div>
+<div class="market-card"><a href="#soko-mifugo" style="text-decoration:none"><div class="market-top market-top-green">🐐🐄🐑🐔</div></a><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><a href="#soko-mifugo" class="btn btn-green">INGIA SOKONI - MIFUGO →</a></div></div>
+<div class="market-card"><a href="#soko-uvuzi" style="text-decoration:none"><div class="market-top market-top-blue">🐟🦐🦀</div></a><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><a href="#soko-uvuzi" class="btn btn-blue">INGIA SOKONI - UVUVI →</a></div></div>
+<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b style="font-size:17px">MADUKA YETU</b><br><small>Maduka ya Wafugaji na Wavuvi wa Tanga</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 MADUKA YETU →</a></div>
 </div>
 
 <div id="soko-mifugo" class="page">
 <div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐</div>
-<div class="menu-box"><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('page-home')">🏠 NYUMBANI</a><a href="javascript:void(0)" onclick="goTo('page-shops')">🏪 MADUKA YETU</a><a href="javascript:void(0)" onclick="goTo('mifugo-uza')">📢 UZA MIFUGO</a></div><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('soko-mifugo')">🛒 NUNUA MIFUGO</a><a href="javascript:void(0)" onclick="goTo('mifugo-oda-form')">🙏 ODA YA KUHITAJI MIFUGO</a></div><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('mifugo-oda-view')">📋 ANGALIA ODA ZA MIFUGO</a></div></div>
-<h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"></div><button class="btn btn-gray" style="margin-top:10px" onclick="goTo('page-home')">← RUDI NYUMBANI</button>
+<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#mifugo-uza">📢 UZA MIFUGO</a></div><div class="menu-row"><a href="#soko-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form">🙏 ODA YA KUHITAJI MIFUGO</a></div><div class="menu-row"><a href="#mifugo-oda-view">📋 ANGALIA ODA ZA MIFUGO</a></div></div>
+<h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
 <div id="mifugo-oda-form" class="page">
 <div class="uko-ndani-orange">🙏 FOMU YA ODA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('soko-mifugo')">← RUDI SOKO LA MIFUGO</a><a href="javascript:void(0)" onclick="goTo('page-home')">🏠 NYUMBANI</a></div></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
 <div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('mifugo');">
-<label>Unahitaji Bidhaa Gani ya Mifugo? *</label><input id="r-need-mifugo" placeholder="mf: Mbuzi 10 wa kuchinja" required>
-<label>Idadi *</label><input id="r-qty-mifugo" placeholder="mf: 10" required>
-<label>Bei Unayotarajia?</label><input id="r-price-mifugo" placeholder="mf: 150000 kwa mmoja">
-<label>Wilaya</label><select id="r-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa *</label><input id="r-katamtaa-mifugo" placeholder="Ngamiani" required>
-<label>Jina Lako *</label><input id="r-name-mifugo" placeholder="Jina lako" required>
-<label>Namba ya Simu *</label><input id="r-phone-mifugo" placeholder="0755000000" required>
-<label>Maelezo</label><textarea id="r-desc-mifugo"></textarea>
-<button type="submit" class="btn btn-orange">TUMA ODA YA MIFUGO 🙏</button>
-</form></div></div>
-
-<div id="mifugo-oda-view" class="page">
-<div class="uko-ndani-teal">📋 ANGALIA ODA ZA MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('soko-mifugo')">← RUDI SOKO LA MIFUGO</a><a href="javascript:void(0)" onclick="goTo('mifugo-oda-form')">🙏 JAZA FOMU MPYA</a></div></div>
-<div id="oda-list-mifugo"></div>
-</div>
-
-<div id="mifugo-uza" class="page">
-<div class="uko-ndani-orange">📢 UZA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('soko-mifugo')">← RUDI SOKO LA MIFUGO</a><a href="javascript:void(0)" onclick="goTo('page-home')">🏠 NYUMBANI</a></div></div>
-<div class="form-box">
-<label>Jina la Bidhaa ya Mifugo</label><input id="f-name-mifugo" placeholder="mf: Mbuzi wa Kuchinja">
-<label>Bei (TSh)</label><input id="f-price-mifugo" type="number" placeholder="180000">
-<label>Idadi</label><input id="f-qty-mifugo" type="number" placeholder="5">
-<label>Wilaya</label><select id="f-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa</label><input id="f-katamtaa-mifugo" placeholder="Ngamiani">
-<label>Jina lako / Duka lako</label><input id="f-seller-mifugo" placeholder="Jina lako">
-<label>Namba ya Simu</label><input id="f-phone-mifugo" placeholder="0755000000">
-<label>Maelezo</label><textarea id="f-desc-mifugo"></textarea>
-<button class="btn btn-green" onclick="addProduct('mifugo')">TANGAZA MIFUGO - UZA SASA ✅</button>
-</div></div>
-
-<div id="soko-uvuzi" class="page">
-<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟</div>
-<div class="menu-box"><div class="menu-row"><a href="javascript:void(0)" onclick="goTo('page-home')">🏠 NYUMBANI</a><a href="javascript:void(0)" onclick="goTo('page-shops')">🏪 MADUKA YETU</a><a href="javascript:void(0)" onclick="goTo('uvuzi-uza')">📢 UZA UVUVI</a></div><div class="menu-row"><a href="javascript:void(0)" onclick
+<label>Unahitaji Bidhaa Gani ya Mifugo? *</label><input
