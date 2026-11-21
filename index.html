@@ -10,7 +10,8 @@ body{background:#f1f5f9;padding-bottom:30px}
 .c{max-width:900px;margin:auto;padding:12px}
 header{background:#16a34a;color:white;padding:14px;text-align:center}
 header h1{font-size:22px;line-height:1.25;padding:0 10px}
-.logo{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:auto;border:3px solid #facc15;cursor:pointer}
+.logo{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:auto;border:3px solid #facc15;cursor:pointer;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .btn{display:block;padding:14px;border-radius:10px;color:#fff;font-weight:bold;text-align:center;text-decoration:none;border:none;width:100%;cursor:pointer}
 .g{background:#16a34a}.b{background:#0284c7}.p{background:#7c3aed}.o{background:#ea580c}.gr{background:#64748b}.r{background:#dc2626}.y{background:#ca8a04}
 .box{background:#fff;padding:14px;border-radius:14px;margin-bottom:12px}
@@ -22,8 +23,8 @@ label{font-size:13px;font-weight:bold}
 .pic img{width:100%;height:100%;object-fit:cover}
 .pic2{background:#dbeafe}
 .small{font-size:12px;color:#555}
-.call{background:#16a34a;color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
-.wa{background:#25D366;color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
+.call{background:#16a34a;color:#fff;padding:10px;border-radius:8px;font-size:20px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
+.wa{background:#25D366;color:#fff;padding:10px;border-radius:8px;font-size:20px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
 .del{background:#fee2e2;color:#dc2626;border:none;padding:6px 10px;border-radius:8px;font-size:12px;margin-top:6px}
 .nav{display:flex;gap:6px;margin-bottom:10px}.nav button{flex:1}
 .nav2{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.nav2 button{flex:1;min-width:70px;padding:10px;font-size:12px}
@@ -31,9 +32,7 @@ label{font-size:13px;font-weight:bold}
 .closeRow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .closeBtn{background:#fee2e2;color:#dc2626;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;cursor:pointer}
 .prev{width:100%;max-height:160px;object-fit:cover;border-radius:10px;display:none;margin:6px 0}
-@media(min-width:700px){
-#pg-mifugo,#pg-uvuzi,#pg-maduka,#pg-admin{max-width:760px;margin:auto}
-}
+@media(min-width:700px){#pg-mifugo,#pg-uvuzi,#pg-maduka,#pg-admin{max-width:760px;margin:auto}}
 </style>
 </head>
 <body>
@@ -51,7 +50,6 @@ label{font-size:13px;font-weight:bold}
 <div style="text-align:center;color:#999;font-size:11px;margin-top:10px">© Soko la mifugo na mazao ya uvuvi-Tanga 2026</div>
 </div>
 
-<!-- MIFUGO -->
 <div id="pg-mifugo" style="display:none">
 <div class="box" style="background:#16a34a;color:#fff;text-align:center"><b>🐐 SOKO LA MIFUGO</b></div>
 <div class="nav"><button type="button" class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button type="button" class="btn p" onclick="go('maduka')">🏪 Maduka</button><button type="button" class="btn b" onclick="go('uvuzi')">🐟 Uvuvi</button></div>
@@ -80,10 +78,9 @@ label{font-size:13px;font-weight:bold}
 <label>Simu</label><input id="om-phone" placeholder="0755000000">
 <button type="button" class="btn o" onclick="odaM()">TUMA ODA 🙏</button>
 <button type="button" class="btn gr" onclick="showM('nunua')" style="margin-top:8px">✕ FUNGA FOMU</button></div></div>
-<div id="m-angalia" style="display:none"><div class="closeRow"><h3>📋 ANGALIA ODA ZA MIFUGO</h3><button type="button" class="closeBtn" onclick="showM('nunua')">✕ FUNGA</button></div><p class="small">Hapa ni ODA za wateja tu - tofauti na WEKA ODA.</p><br><div id="odaM"></div></div>
+<div id="m-angalia" style="display:none"><div class="closeRow"><h3>📋 ANGALIA ODA ZA MIFUGO</h3><button type="button" class="closeBtn" onclick="showM('nunua')">✕ FUNGA</button></div><p class="small">Hapa ni ODA za wateja tu.</p><br><div id="odaM"></div></div>
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
-<!-- UVUVI -->
 <div id="pg-uvuzi" style="display:none">
 <div class="box" style="background:#0284c7;color:#fff;text-align:center"><b>🐟 SOKO LA UVUVI</b></div>
 <div class="nav"><button type="button" class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button type="button" class="btn p" onclick="go('maduka')">🏪 Maduka</button><button type="button" class="btn g" onclick="go('mifugo')">🐐 Mifugo</button></div>
@@ -112,10 +109,9 @@ label{font-size:13px;font-weight:bold}
 <label>Simu</label><input id="ou-phone" placeholder="0755000000">
 <button type="button" class="btn o" onclick="odaU()">TUMA ODA 🙏</button>
 <button type="button" class="btn gr" onclick="showU('nunua')" style="margin-top:8px">✕ FUNGA FOMU</button></div></div>
-<div id="u-angalia" style="display:none"><div class="closeRow"><h3>📋 ANGALIA ODA ZA UVUVI</h3><button type="button" class="closeBtn" onclick="showU('nunua')">✕ FUNGA</button></div><p class="small">Hapa ni ODA za wateja tu - tofauti na WEKA ODA.</p><br><div id="odaU"></div></div>
+<div id="u-angalia" style="display:none"><div class="closeRow"><h3>📋 ANGALIA ODA ZA UVUVI</h3><button type="button" class="closeBtn" onclick="showU('nunua')">✕ FUNGA</button></div><p class="small">Hapa ni ODA za wateja tu.</p><br><div id="odaU"></div></div>
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
-<!-- MADUKA -->
 <div id="pg-maduka" style="display:none">
 <div class="box" style="background:#7c3aed;color:#fff;text-align:center"><b>🏪 MADUKA YETU - AINA ZOTE</b></div>
 <div class="nav"><button type="button" class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button type="button" class="btn g" onclick="go('mifugo')">🐐 Mifugo</button><button type="button" class="btn b" onclick="go('uvuzi')">🐟 Uvuvi</button></div>
@@ -142,13 +138,23 @@ label{font-size:13px;font-weight:bold}
 <div id="mine"></div></div></div>
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
-<!-- ADMIN -->
 <div id="pg-admin" style="display:none">
 <div class="box" style="background:#222;color:#fff;text-align:center"><b>⚙️ MENEJIMENTI</b></div>
 <div class="box"><h3>🖼️ BADILISHA LOGO NA JINA</h3>
-<label>Logo</label><select id="a-logo"><option>🛒</option><option>🐐</option><option>🐟</option><option>🏪</option></select>
+<label>Picha ya Logo - Pakia kutoka Laptop / Simu</label>
+<input type="file" id="a-logo-file" accept="image/*" onchange="previewLogo(this)">
+<img id="a-logo-prev" style="width:80px;height:80px;object-fit:cover;border-radius:50%;display:none;margin:6px auto;border:3px solid #facc15">
+<button type="button" class="btn b" onclick="saveLogoImg()">PAKIA PICHA YA LOGO ✅</button>
+<label style="margin-top:12px">Au Chagua Emoji ya Logo</label><select id="a-logo"><option>🛒</option><option>🐐</option><option>🐟</option><option>🏪</option></select>
 <label>Jina la Soko</label><input id="a-name" placeholder="SOKO LA MIFUGO NA MAZAO YA UVUVI-TANGA">
 <button type="button" class="btn g" onclick="saveLogo()">HIFADHI LOGO ✅</button></div>
+<div class="box"><h3>🏪 PAKIA PICHA ZA MADUKA YAKO</h3>
+<p class="small">Chagua duka, kisha pakia picha yake mpya.</p>
+<label>Chagua Duka</label><select id="adm-shop"></select>
+<label>Picha Mpya ya Duka</label>
+<input type="file" id="adm-shop-file" accept="image/*" onchange="previewImg(this,'adm-shop-prev','S')">
+<img id="adm-shop-prev" class="prev">
+<button type="button" class="btn p" onclick="saveShopImg()">PAKIA PICHA YA DUKA ✅</button></div>
 <div class="box"><h3>🔐 BADILISHA PIN</h3><p>PIN ya sasa: <b id="pinShow">1234</b></p>
 <label>PIN ya Zamani</label><input id="oldPin" type="password">
 <label>PIN Mpya</label><input id="newPin" type="password">
@@ -167,6 +173,7 @@ var PIN="1234"; var tmpM="", tmpU="", tmpS="";
 try{PIN=localStorage.getItem('soko_pin')||"1234";
 var lg=localStorage.getItem('soko_logo'); if(lg){document.getElementById('logo1').innerText=lg;}
 var tt=localStorage.getItem('soko_title'); if(tt){document.getElementById('title1').innerText=tt;document.getElementById('title2').innerText=tt;}
+var li=localStorage.getItem('soko_logo_img'); if(li){document.getElementById('logo1').innerHTML='<img src="'+li+'">';}
 }catch(e){}
 document.getElementById('pinShow').innerText=PIN;
 function go(p){var ids=['home','mifugo','uvuzi','maduka','admin'];for(var i=0;i<ids.length;i++){var el=document.getElementById('pg-'+ids[i]);if(el){el.style.display=(ids[i]===p?'block':'none');}}window.scrollTo(0,0);try{render();}catch(e){}}
@@ -174,7 +181,7 @@ function showM(s){var ids=['nunua','uza','weka','angalia'];for(var i=0;i<ids.len
 function showU(s){var ids=['nunua','uza','weka','angalia'];for(var i=0;i<ids.length;i++){var el=document.getElementById('u-'+ids[i]);if(el){el.style.display=(ids[i]===s?'block':'none');}}window.scrollTo(0,0);}
 function showS(s){var ids=['angalia','sajili','langu'];for(var i=0;i<ids.length;i++){var el=document.getElementById('s-'+ids[i]);if(el){el.style.display=(ids[i]===s?'block':'none');}}window.scrollTo(0,0);try{render();}catch(e){}}
 var cc=0,lt=0;
-function adminCheck(){var n=Date.now();if(n-lt>1500)cc=0;lt=n;cc++;if(cc>=5){cc=0;var p=prompt('Weka PIN:');if(p===PIN){go('admin');showStats();}else if(p!==null){alert('PIN sio sahihi!');}}}
+function adminCheck(){var n=Date.now();if(n-lt>1500)cc=0;lt=n;cc++;if(cc>=5){cc=0;var p=prompt('Weka PIN:');if(p===PIN){go('admin');showStats();fillAdmShops();}else if(p!==null){alert('PIN sio sahihi!');}}}
 function load(k,d){try{var v=localStorage.getItem(k);if(v)return JSON.parse(v);}catch(e){}return d;}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 function previewImg(inp,prevId,who){
@@ -186,6 +193,10 @@ if(who==='M')tmpM=e.target.result; if(who==='U')tmpU=e.target.result; if(who==='
 };
 r.readAsDataURL(f);
 }
+function previewLogo(inp){var f=inp.files&&inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){var im=document.getElementById('a-logo-prev');im.src=e.target.result;im.style.display='block';window._logoImg=e.target.result;};r.readAsDataURL(f);}
+function saveLogoImg(){if(!window._logoImg){alert('Chagua picha kwanza!');return;}try{localStorage.setItem('soko_logo_img',window._logoImg);}catch(e){}document.getElementById('logo1').innerHTML='<img src="'+window._logoImg+'">';alert('Picha ya Logo imewekwa ✅');}
+function fillAdmShops(){var s=document.getElementById('adm-shop');if(!s)return;s.innerHTML='';for(var i=0;i<SH.length;i++){s.innerHTML+='<option value="'+i+'">'+SH[i].name+'</option>';}}
+function saveShopImg(){var idx=parseInt(document.getElementById('adm-shop').value);if(isNaN(idx)){alert('Huna duka!');return;}if(!tmpS){alert('Chagua picha kwanza!');return;}SH[idx].img=tmpS;tmpS="";document.getElementById('adm-shop-prev').style.display='none';save('soko_shops',SH);render();alert('Picha ya duka imewekwa ✅');}
 function picHtml(it){
 if(it.img){return '<div class="pic"><img src="'+it.img+'"></div>';}
 return '<div class="pic">'+(it.emoji||'🐐')+'</div>';
@@ -204,15 +215,15 @@ var F='Zote';
 function filt(f){F=f;try{render();}catch(e){}}
 function waNum(p){return (p||'').replace(/^0/,'255');}
 function render(){
-var h='';for(var i=0;i<PM.length;i++){var p=PM[i];h+='<div class="item">'+picHtml(p)+'<div style="flex:1"><b>'+p.name+'</b><br><span class="small">'+p.seller+' • '+p.wilaya+'</span><br>Bei: <b>'+Number(p.price).toLocaleString()+' TSh</b> • Idadi: <b>'+p.qty+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+p.phone+'">📞 PIGA</a><a class="wa" href="https://wa.me/'+waNum(p.phone)+'">🛒 NUNUA</a></div><button type="button" class="del" onclick="delM('+i+')">🗑️ Futa</button></div></div>';}
+var h='';for(var i=0;i<PM.length;i++){var p=PM[i];h+='<div class="item">'+picHtml(p)+'<div style="flex:1"><b>'+p.name+'</b><br><span class="small">'+p.seller+' • '+p.wilaya+'</span><br>Bei: <b>'+Number(p.price).toLocaleString()+' TSh</b> • Idadi: <b>'+p.qty+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+p.phone+'">📞</a><a class="wa" href="https://wa.me/'+waNum(p.phone)+'">💬</a></div><button type="button" class="del" onclick="delM('+i+')">🗑️ Futa</button></div></div>';}
 document.getElementById('listM').innerHTML=h||'Hakuna bidhaa bado.';
-var o='';for(var j=0;j<OM.length;j++){var r=OM[j];o+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r.need+'</b><br><span class="small">'+r.name+' • Idadi: '+r.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r.phone+'">📞 MPIGIE</a><a class="wa" href="https://wa.me/'+waNum(r.phone)+'">💬 NINAYO</a></div><button type="button" class="del" onclick="delOM('+j+')">🗑️ Futa Oda</button></div>';}
+var o='';for(var j=0;j<OM.length;j++){var r=OM[j];o+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r.need+'</b><br><span class="small">'+r.name+' • Idadi: '+r.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r.phone+'">📞</a><a class="wa" href="https://wa.me/'+waNum(r.phone)+'">💬</a></div><button type="button" class="del" onclick="delOM('+j+')">🗑️ Futa Oda</button></div>';}
 document.getElementById('odaM').innerHTML=o||'Hakuna oda.';
-var h2='';for(var i2=0;i2<PU.length;i2++){var q=PU[i2];h2+='<div class="item">'+picHtmlU(q)+'<div style="flex:1"><b>'+q.name+'</b><br><span class="small">'+q.seller+' • '+q.wilaya+'</span><br>Bei: <b>'+Number(q.price).toLocaleString()+' TSh</b> • Kg: <b>'+q.kg+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+q.phone+'">📞 PIGA</a><a class="wa" href="https://wa.me/'+waNum(q.phone)+'">🛒 NUNUA</a></div><button type="button" class="del" onclick="delU('+i2+')">🗑️ Futa</button></div></div>';}
+var h2='';for(var i2=0;i2<PU.length;i2++){var q=PU[i2];h2+='<div class="item">'+picHtmlU(q)+'<div style="flex:1"><b>'+q.name+'</b><br><span class="small">'+q.seller+' • '+q.wilaya+'</span><br>Bei: <b>'+Number(q.price).toLocaleString()+' TSh</b> • Kg: <b>'+q.kg+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+q.phone+'">📞</a><a class="wa" href="https://wa.me/'+waNum(q.phone)+'">💬</a></div><button type="button" class="del" onclick="delU('+i2+')">🗑️ Futa</button></div></div>';}
 document.getElementById('listU').innerHTML=h2||'Hakuna bidhaa bado.';
-var o2='';for(var j2=0;j2<OU.length;j2++){var r2=OU[j2];o2+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r2.need+'</b><br><span class="small">'+r2.name+' • Kg: '+r2.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r2.phone+'">📞 MPIGIE</a><a class="wa" href="https://wa.me/'+waNum(r2.phone)+'">💬 NINAYO</a></div><button type="button" class="del" onclick="delOU('+j2+')">🗑️ Futa Oda</button></div>';}
+var o2='';for(var j2=0;j2<OU.length;j2++){var r2=OU[j2];o2+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r2.need+'</b><br><span class="small">'+r2.name+' • Kg: '+r2.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r2.phone+'">📞</a><a class="wa" href="https://wa.me/'+waNum(r2.phone)+'">💬</a></div><button type="button" class="del" onclick="delOU('+j2+')">🗑️ Futa Oda</button></div>';}
 document.getElementById('odaU').innerHTML=o2||'Hakuna oda.';
-var s='';for(var k=0;k<SH.length;k++){if(F!=='Zote'&&SH[k].type!==F)continue;var img='';if(SH[k].img){img='<div class="pic" style="width:50px;height:50px"><img src="'+SH[k].img+'"></div>';}s+='<div class="box" style="display:flex;gap:10px">'+img+'<div><b>🏪 '+SH[k].name+'</b> <span class="badge">'+SH[k].type+'</span><br><span class="small">📍 '+SH[k].wilaya+' • 📞 '+SH[k].phone+'</span><br><a href="https://wa.me/'+waNum(SH[k].phone)+'" style="color:#25D366;font-weight:bold;text-decoration:none">💬 WASILIANA</a></div></div>';}
+var s='';for(var k=0;k<SH.length;k++){if(F!=='Zote'&&SH[k].type!==F)continue;var img='';if(SH[k].img){img='<div class="pic" style="width:50px;height:50px"><img src="'+SH[k].img+'"></div>';}s+='<div class="box" style="display:flex;gap:10px">'+img+'<div><b>🏪 '+SH[k].name+'</b> <span class="badge">'+SH[k].type+'</span><br><span class="small">📍 '+SH[k].wilaya+' • 📞 '+SH[k].phone+'</span><br><a href="https://wa.me/'+waNum(SH[k].phone)+'" style="color:#25D366;font-weight:bold;text-decoration:none;font-size:22px">💬</a></div></div>';}
 document.getElementById('listS').innerHTML=s||'Hakuna duka la aina hii.';
 var m=document.getElementById('mine');
 if(!USER){m.innerHTML='<p class="small">Huna duka lililoingia. Ingia hapa au sajili duka jipya kwenye SAJILI DUKA.</p><label>Simu ya Duka</label><input id="lp" placeholder="0755000000"><label>Password</label><input id="lw" type="password"><button type="button" class="btn p" onclick="login()">INGIA DUKANI ✅</button>';}
