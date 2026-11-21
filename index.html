@@ -9,13 +9,13 @@
 body{background:#f1f5f9;padding-bottom:95px}
 header{background:#16a34a;color:white;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
 .top-menu{background:white;display:flex;flex-wrap:wrap;gap:6px;padding:8px;justify-content:center;position:sticky;top:58px;z-index:9;border-bottom:1px solid #eee}
-.top-menu button{flex:1 1 30%;border:1px solid #ddd;background:#f8fafc;padding:10px 5px;border-radius:20px;font-weight:bold;font-size:12px;cursor:pointer;white-space:normal}
+.top-menu button{flex:1 1 30%;border:1px solid #ddd;background:#f8fafc;padding:10px 5px;border-radius:20px;font-weight:bold;font-size:12px;cursor:pointer}
 .container{max-width:480px;margin:auto;padding:12px}
 .search{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;margin:10px 0;font-size:15px}
-.market-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);margin-bottom:16px;cursor:pointer}
-.market-img{width:100%;height:170px;object-fit:cover;display:block}
+.market-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);margin-bottom:16px}
+.market-img{width:100%;height:170px;object-fit:cover;display:block;cursor:pointer}
 .market-body{padding:14px}
-.btn{width:100%;border:none;padding:12px;border-radius:10px;color:white;font-weight:bold;font-size:15px;cursor:pointer}
+.btn{width:100%;border:none;padding:14px;border-radius:10px;color:white;font-weight:bold;font-size:16px;cursor:pointer}
 .btn-green{background:#16a34a}.btn-blue{background:#0284c7}.btn-orange{background:#ea580c}.btn-purple{background:#7c3aed}.btn-red{background:#dc2626}.btn-gray{background:#64748b}.btn-teal{background:#0d9488}
 .product{background:white;border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.08);display:flex;gap:12px}
 .product img{width:95px;height:95px;object-fit:cover;border-radius:10px;background:#eee}
@@ -49,28 +49,25 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <button onclick="goHome()">🏠 NYUMBANI</button>
 <button onclick="goShops()">🏪 MADUKA</button>
 <button onclick="goAdd()">📢 UZA</button>
-<button class="inside-only" onclick="goBuyAll()">🛒 NUNUA</button>
-<button class="inside-only" onclick="goRequest()">🙏 ODA YA KUHITAJI</button>
-<button class="inside-only" onclick="goViewOda()">📋 ANGALIA ODA</button>
+<button class="inside-only" style="display:none" onclick="goBuyAll()">🛒 NUNUA</button>
+<button class="inside-only" style="display:none" onclick="goRequest()">🙏 ODA YA KUHITAJI</button>
+<button class="inside-only" style="display:none" onclick="goViewOda()">📋 ANGALIA ODA</button>
 <button onclick="adminLogin()">⚙️ ADMIN</button>
 </div>
 <div class="container">
 <div id="page-home">
-<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, ingia ndani uone bidhaa.</small></div>
+<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, bonyeza INGIA SOKONI.</small></div>
 <h3 class="section-title">🏪 MASOKO YETU</h3>
-<!-- NJE: INGIA SOKONI TU -->
-<div class="market-card" onclick="openMarket('mifugo')"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img"><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><button class="btn btn-green">INGIA SOKONI →</button></div></div>
-<div class="market-card" onclick="openMarket('uvuzi')"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img"><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><button class="btn btn-blue">INGIA SOKONI →</button></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center"><b>📋 ODA ZA WATEJA ZILIZOOMBWA</b><br><small>Ingia sokoni kwanza, ndo utaona ODA.</small></div>
+<!-- BATANI SASA INA ONCLICK YAKE MWENYEWE - INAFUNGUA -->
+<div class="market-card"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img" onclick="openMarket('mifugo')"><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><button class="btn btn-green" onclick="openMarket('mifugo')">INGIA SOKONI →</button></div></div>
+<div class="market-card"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img" onclick="openMarket('uvuzi')"><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><button class="btn btn-blue" onclick="openMarket('uvuzi')">INGIA SOKONI →</button></div></div>
 </div>
 <div id="page-market" class="hidden"><span class="back" onclick="goHome()">← Rudi Nyumbani</span><h2 id="market-title">Soko</h2>
-<!-- NDANI YA SOKO: Vitufe vyote vinaonekana hapa -->
 <div style="display:flex;gap:6px;margin:10px 0"><button class="btn btn-green" style="flex:1" onclick="goBuyCurrent()">🛒 NUNUA - ONA ZOTE</button><button class="btn btn-orange" style="flex:1" onclick="goRequest(currentMarket)">🙏 ODA YA KUHITAJI</button></div>
 <button class="btn btn-teal" onclick="goViewOda()">📋 ANGALIA ODA - Watu wanahitaji nini?</button>
 <input class="search" placeholder="Tafuta..." oninput="searchMarket(this.value)"><div id="market-products"></div></div>
 <div id="page-request" class="hidden">
 <span class="back" onclick="goHome()">← Rudi</span><h2>🙏 FOMU YA ODA YA KUHITAJI BIDHAA</h2>
-<p style="background:#fffbeb;border:1px solid #fde68a;padding:10px;border-radius:10px;font-size:13px">Jaza fomu hii. Haununuwi hapa. Unaomba bidhaa unayohitaji.</p>
 <div class="form-box"><form onsubmit="event.preventDefault(); submitRequest();">
 <label>1. Soko Gani? *</label><select id="r-market"><option value="mifugo">🐐 Soko la Mifugo</option><option value="uvuzi">🐟 Soko la Uvuvi</option></select>
 <label>2. Unahitaji Bidhaa Gani? *</label><input id="r-need" placeholder="mf: Mbuzi 10 wa kuchinja" required>
@@ -80,13 +77,12 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <label>6. Kata / Mtaa *</label><input id="r-katamtaa" placeholder="mf: Ngamiani" required>
 <label>7. Jina Lako *</label><input id="r-name" placeholder="Jina lako kamili" required>
 <label>8. Namba ya Simu *</label><input id="r-phone" placeholder="0755000000" required>
-<label>9. Maelezo Zaidi / Unaitaka Lini?</label><textarea id="r-desc" placeholder="mf: Nahitaji haraka kesho"></textarea>
+<label>9. Maelezo Zaidi</label><textarea id="r-desc" placeholder="mf: Nahitaji haraka kesho"></textarea>
 <button type="submit" class="btn btn-orange">TUMA ODA YA KUHITAJI 🙏</button>
 </form><button class="btn btn-teal" style="margin-top:8px" onclick="goViewOda()">📋 ANGALIA ODA ZILIZOOMBWA NA WENGINE</button></div>
 </div>
 <div id="page-view-oda" class="hidden">
 <span class="back" onclick="goHome()">← Rudi</span><h2>📋 ANGALIA ODA</h2>
-<p style="font-size:13px;color:#64748b">Hizi ni oda za watu wanaohitaji bidhaa ambazo sokoni huenda hazipo.</p>
 <div style="display:flex;gap:6px;margin:10px 0"><button class="tab-btn active" id="oda-tab-all" onclick="filterOda('')">ZOTE</button><button class="tab-btn" id="oda-tab-mifugo" onclick="filterOda('mifugo')">🐐 MIFUGO</button><button class="tab-btn" id="oda-tab-uvuzi" onclick="filterOda('uvuzi')">🐟 UVUVI</button></div>
 <div id="oda-list"></div>
 <button class="btn btn-orange" onclick="goRequest()">+ JAZA FOMU YA KUOMBA BIDHAA</button>
@@ -127,7 +123,7 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <button class="btn btn-orange" onclick="addProduct()">TANGAZA - UZA SASA ✅</button></div></div>
 <div id="page-admin" class="hidden"><span class="back" onclick="goHome()">← Rudi</span><h2>⚙️ ADMIN</h2><div style="background:#fee2e2;padding:12px;border-radius:10px;margin:10px 0"><b>🚨 RIPOTI:</b><div id="reports-list"></div></div><h3>Oda za Kuhitaji</h3><div id="admin-oda"></div><h3>Bidhaa Zote</h3><div id="admin-products"></div><h3>Maduka Yote</h3><div id="admin-shops"></div><button class="btn btn-red" onclick="adminClearAll()">FUTA VYOTE</button></div>
 </div>
-<div class="bottom-nav" id="bottom-nav"><button onclick="goHome()">🏠 Nyumbani</button><button class="inside-only" onclick="goBuyAll()">🛒 Nunua</button><button class="inside-only" onclick="goRequest()">🙏 Oda ya Kuhitaji</button><button class="inside-only" onclick="goViewOda()">📋 Angalia Oda</button></div>
+<div class="bottom-nav" id="bottom-nav"><button onclick="goHome()">🏠 Nyumbani</button><button class="inside-only" style="display:none" onclick="goBuyAll()">🛒 Nunua</button><button class="inside-only" style="display:none" onclick="goRequest()">🙏 Oda ya Kuhitaji</button><button class="inside-only" style="display:none" onclick="goViewOda()">📋 Angalia Oda</button></div>
 <script>
 var ADMIN_PIN="1234"; var isAdmin=false;
 var products=[
@@ -153,7 +149,6 @@ function haliIcon(h){ return h==='Inapatikana'?'🟢 Inapatikana':h==='Imeisha'?
 function toggleQtyKg(){ var m=document.getElementById('f-market').value; document.getElementById('wrap-qty').classList.toggle('hidden', m!=='mifugo'); document.getElementById('wrap-kg').classList.toggle('hidden', m!=='uvuzi'); }
 function previewImage(input, previewId){ var f=input.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(e){ document.getElementById(previewId).src=e.target.result; document.getElementById(previewId).style.display='block'; if(previewId==='f-preview') tempImg=e.target.result; else tempShopImg=e.target.result; }; r.readAsDataURL(f); }
 function reportBad(idx){ var reason=prompt('Ripoti picha mbaya - Andika sababu:'); if(!reason) return; reports.push({product:products[idx].name, seller:products[idx].seller, reason:reason}); save(); alert('Asante! Ripoti imetumwa kwa Admin.'); }
-// NJE vs NDANI: Kwenye Nyumbani, ficha vitufe vya ndani. Ukiingia sokoni, onyesha vyote
 function updateTopMenu(page){ var inside = (page!=='home'); var els=document.querySelectorAll('.inside-only'); for(var i=0;i<els.length;i++){ els[i].style.display = inside ? '' : 'none'; } }
 function showPage(page){ var pages=['home','market','add','shops','admin','shop-detail','request','view-oda']; for(var i=0;i<pages.length;i++){ var el=document.getElementById('page-'+pages[i]); if(el) el.classList.add('hidden'); } var t=document.getElementById('page-'+page); if(t) t.classList.remove('hidden'); window.scrollTo(0,0); updateTopMenu(page); if(page==='home') renderHome(); if(page==='shops') renderShops(); if(page==='admin') renderAdmin(); if(page==='add') toggleQtyKg(); if(page==='view-oda') renderOda(); }
 function goHome(){ showPage('home'); }
@@ -165,6 +160,4 @@ function goBuyAll(){ openMarket('mifugo'); }
 function goBuyCurrent(){ openMarket(currentMarket); }
 function filterOda(m){ odaFilter=m; document.getElementById('oda-tab-all').classList.toggle('active', m===''); document.getElementById('oda-tab-mifugo').classList.toggle('active', m==='mifugo'); document.getElementById('oda-tab-uvuzi').classList.toggle('active', m==='uvuzi'); renderOda(); }
 function submitRequest(){ var need=document.getElementById('r-need').value; var phone=document.getElementById('r-phone').value; var name=document.getElementById('r-name').value; var qty=document.getElementById('r-qty').value; var katamtaa=document.getElementById('r-katamtaa').value; if(!need||!phone||!name||!qty||!katamtaa){ alert('Tafadhali jaza sehemu zote zenye *'); return; } requests.unshift({need:need, qty:qty, price:document.getElementById('r-price').value, market:document.getElementById('r-market').value, name:name, phone:phone, wilaya:document.getElementById('r-wilaya').value, katamtaa:katamtaa, desc:document.getElementById('r-desc').value, date:"Leo"}); save(); alert('Hongera! FOMU yako ya ODA YA KUHITAJI imetumwa ✅'); document.getElementById('r-need').value=''; document.getElementById('r-qty').value=''; document.getElementById('r-price').value=''; document.getElementById('r-name').value=''; document.getElementById('r-phone').value=''; document.getElementById('r-katamtaa').value=''; document.getElementById('r-desc').value=''; goViewOda(); }
-function renderOda(){ var html=''; for(var i=0;i<requests.length;i++){ var r=requests[i]; if(odaFilter && r.market!==odaFilter) continue; var wa=cleanPhone(r.phone); var msg=encodeURIComponent("Habari "+r.name+"! Nimeona FOMU yako ya ODA SOKO LA TANGA:\n• Unahitaji: "+r.need+"\n• Idadi/Kg: "+(r.qty||'-')+" • Bei unayotarajia: "+(r.price||'-')+"\n• Wilaya: "+r.wilaya+" • "+(r.katamtaa||'')+"\n\nNinayo hii bidhaa, tuwasiliane:"); html+='<div class="oda-card"><span class="badge-oda">🙏 ODA YA KUHITAJI • '+(r.market==='mifugo'?'🐐 MIFUGO':'🐟 UVUVI')+'</span><br><b style="font-size:16px">'+r.need+'</b><br><small>👤 '+r.name+' • 📍 '+r.wilaya+' • '+(r.katamtaa||'-')+'</small><br><small>Idadi/Kg: <b>'+(r.qty||'-')+'</b> • Bei anayotarajia: <b>'+(r.price||'-')+'</b></small><br><small>'+(r.desc||'')+'</small><div style="display:flex;gap:6px;margin-top:10px"><button class="call-btn" onclick="window.location.href=\'tel:'+r.phone+'\'">📞 MPIGIE MTEJA</button><button class="wa-btn" onclick="window.open(\'https://wa.me/'+wa+'?text='+msg+'\',\'_blank\')">💬 NINAYO - MJIBU</button></div>'+(isAdmin?'<br><button class="admin-btn" onclick="requests.splice('+i+',1);save();renderOda()">🗑️ ADMIN FUTA ODA</button>':'')+'</div>'; } document.getElementById('oda-list').innerHTML=html||'Hakuna oda bado. Kuwa wa kwanza kujaza fomu!'; }
-function goAddFromShop(shopIdx){ var s=shops[shopIdx]; if(!s) return; showPage('add'); document.getElementById('f-seller').value=s.name; document.getElementById('f-phone').value=s.phone; document.getElementById('f-wilaya').value=s.wilaya; document.getElementById('f-katamtaa').value=s.katamtaa||''; var msg=document.getElementById('add-from-shop-msg'); msg.classList.remove('hidden'); msg.innerHTML='🏪 Unaongeza bidhaa kwenye duka lako: <b>'+s.name+'</b>'; }
-function productHTML(p, idx){ var wa=cleanPhone(p.phone); var qtyKgText = p.market==='mifugo' ? 'Idadi: <b>'+(p.qty||'-')+'</b>' : 'Kg: <b>'+(p.kg||'-')+'</b>'; return '<div class="product"><img src="'+p.img+'"><div class="product-info"><span class="badge">'+haliIcon(p.hali||'Inapatikana')+'</span><br><b>'+p.name+'</b><br><small>🏪 '+p.seller+'</small><br><small>📍 '+(p.wilaya||'')+' • '+(p.katamtaa
+function renderOda(){ var html=''; for(var i=0;i<requests.length;i++){ var r=requests[i]; if(odaFilter && r.market!==odaFilter) continue; var wa=cleanPhone(r.phone); var msg=encodeURIComponent("Habari "+r.name+"! Nimeona FOMU yako ya ODA SOKO LA TANGA:\n• Unahitaji: "+r.need+"\n• Idadi/Kg: "+(r.qty||'-')+" • Bei unayotarajia: "+(r.price||'-')+"\n• Wilaya: "+r.wilaya+" • "+(r.katamtaa||'')+"\n\nNinayo hii bidhaa, tuwasiliane
