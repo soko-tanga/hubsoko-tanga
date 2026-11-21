@@ -44,6 +44,8 @@ label{font-size:13px;font-weight:bold;color:#334155}
 .uko-ndani-purple{background:#7c3aed;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
 .page{display:none}
 .page.active{display:block}
+/* UKINGIA KWA LINK PEKEE BILA JS - IONEKANE */
+.page:target{display:block !important}
 .menu-box{background:white;padding:10px;border-radius:12px;margin-bottom:10px}
 .menu-row{display:flex;gap:6px;margin-bottom:6px}
 .menu-row a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block}
@@ -70,7 +72,7 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <div id="soko-mifugo" class="page">
 <div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐</div>
 <div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#mifugo-uza">📢 UZA MIFUGO</a></div><div class="menu-row"><a href="#soko-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form">🙏 ODA YA KUHITAJI MIFUGO</a></div><div class="menu-row"><a href="#mifugo-oda-view">📋 ANGALIA ODA ZA MIFUGO</a></div></div>
-<h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
+<h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"><div class="product"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400"><div class="product-info"><b>Mbuzi wa Kuchinja</b><br><small>🏪 Juma Mifugo Bora</small><br><small>📍 Tanga Mjini • Ngamiani</small><br>Bei: <span class="price">180,000 TSh</span> • Idadi: <b>5</b><div style="display:flex;gap:6px;margin-top:10px"><a class="call-btn" href="tel:0755000000">📞 PIGA SIMU</a><a class="wa-btn" href="https://wa.me/255755000000" target="_blank">💬 WHATSAPP</a></div></div></div></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
 <div id="mifugo-oda-form" class="page">
@@ -85,43 +87,4 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <label>Jina Lako *</label><input id="r-name-mifugo" placeholder="Jina lako" required>
 <label>Namba ya Simu *</label><input id="r-phone-mifugo" placeholder="0755000000" required>
 <label>Maelezo</label><textarea id="r-desc-mifugo"></textarea>
-<button type="submit" class="btn btn-orange">TUMA ODA YA MIFUGO 🙏</button>
-</form></div></div>
-
-<div id="mifugo-oda-view" class="page">
-<div class="uko-ndani-teal">📋 ANGALIA ODA ZA MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#mifugo-oda-form">🙏 JAZA FOMU MPYA</a></div></div>
-<div id="oda-list-mifugo"></div>
-</div>
-
-<div id="mifugo-uza" class="page">
-<div class="uko-ndani-orange">📢 UZA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
-<div class="form-box">
-<label>Jina la Bidhaa ya Mifugo</label><input id="f-name-mifugo" placeholder="mf: Mbuzi wa Kuchinja">
-<label>Bei (TSh)</label><input id="f-price-mifugo" type="number" placeholder="180000">
-<label>Idadi</label><input id="f-qty-mifugo" type="number" placeholder="5">
-<label>Wilaya</label><select id="f-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa</label><input id="f-katamtaa-mifugo" placeholder="Ngamiani">
-<label>Jina lako / Duka lako</label><input id="f-seller-mifugo" placeholder="Jina lako">
-<label>Namba ya Simu</label><input id="f-phone-mifugo" placeholder="0755000000">
-<label>Maelezo</label><textarea id="f-desc-mifugo"></textarea>
-<button class="btn btn-green" onclick="addProduct('mifugo')">TANGAZA MIFUGO - UZA SASA ✅</button>
-</div></div>
-
-<div id="soko-uvuzi" class="page">
-<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟</div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#uvuzi-uza">📢 UZA UVUVI</a></div><div class="menu-row"><a href="#soko-uvuzi">🛒 NUNUA UVUVI</a><a href="#uvuzi-oda-form">🙏 ODA YA KUHITAJI UVUVI</a></div><div class="menu-row"><a href="#uvuzi-oda-view">📋 ANGALIA ODA ZA UVUVI</a></div></div>
-<h2>🐟 SOKO LA MAZAO YA UVUVI</h2><div id="uvuzi-list" style="margin-top:10px"></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
-</div>
-
-<div id="uvuzi-oda-form" class="page">
-<div class="uko-ndani-orange">🙏 FOMU YA ODA - UVUVI TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
-<div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('uvuzi');">
-<label>Unahitaji Bidhaa Gani ya Uvuvi? *</label><input id="r-need-uvuzi" placeholder="mf: Samaki Sangara 50kg" required>
-<label>Kg *</label><input id="r-qty-uvuzi" placeholder="mf: 50kg" required>
-<label>Bei kwa Kg?</label><input id="r-price-uvuzi" placeholder="mf: 13000 kwa Kg">
-<label>Wilaya</label><select id="r-wilaya-uvuzi"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa *</label><input id="r-katamtaa-uvuzi" placeholder="Pangani Mjini" required>
-<label>Jina Lako *</label>
+<button type="submit" class="btn btn-orange">TUMA ODA YA MIFUGO 🙏</button
