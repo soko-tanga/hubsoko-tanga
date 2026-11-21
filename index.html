@@ -34,7 +34,6 @@ input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radiu
 .badge{display:inline-block;background:#dcfce7;color:#166534;font-size:11px;padding:3px 8px;border-radius:20px;font-weight:bold}
 .badge-oda{display:inline-block;background:#fef3c7;color:#92400e;font-size:11px;padding:3px 8px;border-radius:20px;font-weight:bold}
 label{font-size:13px;font-weight:bold;color:#334155}
-.admin-btn{background:#dc2626;color:white;border:none;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:bold;cursor:pointer}
 .oda-card{background:white;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.08);border-left:5px solid #f59e0b}
 .form-box{background:white;padding:16px;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
 .uko-ndani{background:#16a34a;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
@@ -44,8 +43,6 @@ label{font-size:13px;font-weight:bold;color:#334155}
 .uko-ndani-purple{background:#7c3aed;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
 .page{display:none}
 .page.active{display:block}
-/* UKINGIA KWA LINK PEKEE BILA JS - IONEKANE */
-.page:target{display:block !important}
 .menu-box{background:white;padding:10px;border-radius:12px;margin-bottom:10px}
 .menu-row{display:flex;gap:6px;margin-bottom:6px}
 .menu-row a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block}
@@ -56,35 +53,12 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <header onclick="secretAdmin()">
 <div class="logo-wrap">
 <div class="logo">🐐🐟</div>
-<div class="logo-text"><h1>SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p><small id="login-status"></small></div>
+<div class="logo-text"><h1>SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p></div>
 </div>
 </header>
 <div class="container">
+
+<!-- NYUMBANI -->
 <div id="page-home" class="page active">
 <div class="nembo-banner"><div class="nembo-big">🛒</div><h2 style="margin:8px 0 2px">SOKO LA TANGA</h2><p style="font-size:13px;color:#64748b">🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
-<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, kila soko lina vitufe vyake.</small></div>
-<h3 class="section-title">🏪 MASOKO YETU</h3>
-<div class="market-card"><a href="#soko-mifugo"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><a href="#soko-mifugo" class="btn btn-green">INGIA SOKONI - MIFUGO →</a></div></div>
-<div class="market-card"><a href="#soko-uvuzi"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><a href="#soko-uvuzi" class="btn btn-blue">INGIA SOKONI - UVUVI →</a></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b style="font-size:17px">MADUKA YETU</b><br><small>Maduka ya Wafugaji na Wavuvi wa Tanga</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 MADUKA YETU →</a></div>
-</div>
-
-<div id="soko-mifugo" class="page">
-<div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐</div>
-<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA YETU</a><a href="#mifugo-uza">📢 UZA MIFUGO</a></div><div class="menu-row"><a href="#soko-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form">🙏 ODA YA KUHITAJI MIFUGO</a></div><div class="menu-row"><a href="#mifugo-oda-view">📋 ANGALIA ODA ZA MIFUGO</a></div></div>
-<h2>🐐 SOKO LA MIFUGO</h2><div id="mifugo-list" style="margin-top:10px"><div class="product"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400"><div class="product-info"><b>Mbuzi wa Kuchinja</b><br><small>🏪 Juma Mifugo Bora</small><br><small>📍 Tanga Mjini • Ngamiani</small><br>Bei: <span class="price">180,000 TSh</span> • Idadi: <b>5</b><div style="display:flex;gap:6px;margin-top:10px"><a class="call-btn" href="tel:0755000000">📞 PIGA SIMU</a><a class="wa-btn" href="https://wa.me/255755000000" target="_blank">💬 WHATSAPP</a></div></div></div></div><a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
-</div>
-
-<div id="mifugo-oda-form" class="page">
-<div class="uko-ndani-orange">🙏 FOMU YA ODA - MIFUGO TU</div>
-<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
-<div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('mifugo');">
-<label>Unahitaji Bidhaa Gani ya Mifugo? *</label><input id="r-need-mifugo" placeholder="mf: Mbuzi 10 wa kuchinja" required>
-<label>Idadi *</label><input id="r-qty-mifugo" placeholder="mf: 10" required>
-<label>Bei Unayotarajia?</label><input id="r-price-mifugo" placeholder="mf: 150000 kwa mmoja">
-<label>Wilaya</label><select id="r-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa *</label><input id="r-katamtaa-mifugo" placeholder="Ngamiani" required>
-<label>Jina Lako *</label><input id="r-name-mifugo" placeholder="Jina lako" required>
-<label>Namba ya Simu *</label><input id="r-phone-mifugo" placeholder="0755000000" required>
-<label>Maelezo</label><textarea id="r-desc-mifugo"></textarea>
-<button type="submit" class="btn btn-orange">TUMA ODA YA MIFUGO 🙏</button
+<div style="background:#fff
