@@ -8,14 +8,13 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
 body{background:#f1f5f9;padding-bottom:95px}
 header{background:#16a34a;color:white;padding:14px;text-align:center;position:sticky;top:0;z-index:10}
-.top-menu-inside{background:white;display:flex;flex-wrap:wrap;gap:6px;padding:8px;justify-content:center;border-bottom:1px solid #eee;margin-bottom:10px;border-radius:12px}
-.top-menu-inside a{flex:1 1 30%;border:1px solid #ddd;background:#f8fafc;padding:10px 5px;border-radius:20px;font-weight:bold;font-size:12px;cursor:pointer;text-decoration:none;color:#000;text-align:center;display:block}
 .container{max-width:480px;margin:auto;padding:12px}
 .market-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);margin-bottom:16px}
 .market-img{width:100%;height:170px;object-fit:cover;display:block}
 .market-body{padding:14px}
-.btn{display:block;width:100%;border:none;padding:14px;border-radius:10px;color:white;font-weight:bold;font-size:16px;cursor:pointer;text-decoration:none;text-align:center}
+.btn{display:block;width:100%;border:none;padding:14px;border-radius:10px;color:white;font-weight:bold;font-size:15px;cursor:pointer;text-decoration:none;text-align:center}
 .btn-green{background:#16a34a}.btn-blue{background:#0284c7}.btn-orange{background:#ea580c}.btn-purple{background:#7c3aed}.btn-red{background:#dc2626}.btn-gray{background:#64748b}.btn-teal{background:#0d9488}
+.btn-small{padding:11px;font-size:13px}
 .product{background:white;border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.08);display:flex;gap:12px}
 .product img{width:95px;height:95px;object-fit:cover;border-radius:10px;background:#eee}
 .product-info{flex:1}.price{color:#16a34a;font-weight:bold;font-size:16px}
@@ -32,92 +31,155 @@ input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radiu
 .tab-btn.active{background:#16a34a;color:white}
 label{font-size:13px;font-weight:bold;color:#334155}
 .admin-btn{background:#dc2626;color:white;border:none;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:bold;cursor:pointer}
-.preview-img{width:100%;height:150px;object-fit:cover;border-radius:10px;display:none;margin:6px 0}
-.link-btn{background:none;border:none;color:#7c3aed;font-weight:bold;text-decoration:underline;cursor:pointer;font-size:14px;padding:8px}
 .oda-card{background:white;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.08);border-left:5px solid #f59e0b}
 .form-box{background:white;padding:16px;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
-.uko-ndani{background:#16a34a;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px;font-size:15px}
-.uko-ndani-blue{background:#0284c7;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px;font-size:15px}
+.uko-ndani{background:#16a34a;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
+.uko-ndani-blue{background:#0284c7;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
+.uko-ndani-orange{background:#ea580c;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
+.uko-ndani-teal{background:#0d9488;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
+.uko-ndani-purple{background:#7c3aed;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold;margin-bottom:10px}
 .page{display:none}
 .page.active{display:block}
+.menu-box{background:white;padding:10px;border-radius:12px;margin-bottom:10px}
+.menu-row{display:flex;gap:6px;margin-bottom:6px}
+.menu-row a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block}
 </style>
 </head>
 <body>
 <header><h1>🛒 SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p><small id="login-status"></small></header>
 <div class="container">
 
-<!-- ===== NJE: NYUMBANI - HAKUNA VITUFE VYA JUU HAPA ===== -->
+<!-- ===== NYUMBANI - HAKUNA VITUFE VYA JUU ===== -->
 <div id="page-home" class="page active">
-<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, bonyeza INGIA SOKONI.</small></div>
+<div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:12px;text-align:center;margin-bottom:12px"><b>👋 KARIBU SOKO LA TANGA</b><br><small>Chagua soko, kila soko lina vitufe vyake.</small></div>
 <h3 class="section-title">🏪 MASOKO YETU</h3>
-<div class="market-card"><a href="#soko-mifugo"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi</p><a href="#soko-mifugo" class="btn btn-green">INGIA SOKONI →</a></div></div>
-<div class="market-card"><a href="#soko-uvuzi"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg</p><a href="#soko-uvuzi" class="btn btn-blue">INGIA SOKONI →</a></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center"><b>🏪 MADUKA</b><br><small>Unataka kuona maduka? Ingia sokoni kwanza au bonyeza hapa.</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 ANGALIA MADUKA →</a></div>
+<div class="market-card"><a href="#soko-mifugo"><img src="https://images.unsplash.com/photo-1524024973431-2ad916746881?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - kwa Idadi<br><small>Vitufe vyake viko ndani yake</small></p><a href="#soko-mifugo" class="btn btn-green">INGIA SOKONI - MIFUGO →</a></div></div>
+<div class="market-card"><a href="#soko-uvuzi"><img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80" class="market-img"></a><div class="market-body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - kwa Kg<br><small>Vitufe vyake viko ndani yake</small></p><a href="#soko-uvuzi" class="btn btn-blue">INGIA SOKONI - UVUVI →</a></div></div>
+<div style="background:white;padding:14px;border-radius:14px;text-align:center"><b>🏪 MADUKA - YANAJITEGEMEA</b><br><small>Maduka yana mfumo wake tofauti na masoko</small><br><a href="#page-shops" class="btn btn-purple" style="margin-top:10px">🏪 INGIA MADUKANI →</a></div>
 </div>
 
-<!-- ===== NDANI: SOKO LA MIFUGO ===== -->
+<!-- ===== 🐐 SOKO LA MIFUGO - VITUFE VYAKE VYENYEWE ===== -->
 <div id="soko-mifugo" class="page">
-<div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐<br><small>Uko ndani sasa - hapa ndo unaona bidhaa, unaomba na unaangalia oda</small></div>
-<!-- VITUFE VYA JUU SASA VIPO HAPA NDANI -->
-<div class="top-menu-inside">
-<a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA</a><a href="#page-add">📢 UZA</a><a href="#soko-mifugo">🛒 NUNUA</a><a href="#page-request">🙏 ODA YA KUHITAJI</a><a href="#page-view-oda">📋 ANGALIA ODA</a><a href="#page-admin">⚙️ ADMIN</a>
+<div class="uko-ndani">📍 UKO NDANI YA SOKO LA MIFUGO 🐐<br><small>Vitufe hivi ni vya Mifugo tu, havihusiani na Uvuvi</small></div>
+<div class="menu-box">
+<div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA</a><a href="#mifugo-uza">📢 UZA MIFUGO</a></div>
+<div class="menu-row"><a href="#soko-mifugo">🛒 NUNUA MIFUGO</a><a href="#mifugo-oda-form">🙏 ODA YA KUHITAJI MIFUGO</a></div>
+<div class="menu-row"><a href="#mifugo-oda-view">📋 ANGALIA ODA ZA MIFUGO</a><a href="#page-admin">⚙️ ADMIN</a></div>
 </div>
 <h2>🐐 SOKO LA MIFUGO</h2>
-<div style="display:flex;gap:6px;margin:10px 0"><a href="#soko-mifugo" class="btn btn-green" style="flex:1">🛒 NUNUA - ONA ZOTE</a><a href="#page-request" class="btn btn-orange" style="flex:1">🙏 ODA YA KUHITAJI</a></div>
-<a href="#page-view-oda" class="btn btn-teal">📋 ANGALIA ODA - Watu wanahitaji nini?</a>
-<div id="mifugo-list" style="margin-top:12px"></div>
+<div id="mifugo-list" style="margin-top:10px"></div>
 <a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
-<!-- ===== NDANI: SOKO LA UVUVI ===== -->
+<!-- ===== 🐐 FOMU YA ODA - MIFUGO PEKEE - IMETENGANA NA KUANGALIA ODA ===== -->
+<div id="mifugo-oda-form" class="page">
+<div class="uko-ndani-orange">🙏 FOMU YA ODA - MIFUGO TU<br><small>Hii ni fomu ya kuomba, sio kuangalia oda</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('mifugo');">
+<label>Unahitaji Bidhaa Gani ya Mifugo? *</label><input id="r-need-mifugo" placeholder="mf: Mbuzi 10 wa kuchinja" required>
+<label>Idadi Unayohitaji *</label><input id="r-qty-mifugo" placeholder="mf: 10" required>
+<label>Bei Unayotarajia?</label><input id="r-price-mifugo" placeholder="mf: 150000 kwa mmoja">
+<label>Wilaya</label><select id="r-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
+<label>Kata / Mtaa *</label><input id="r-katamtaa-mifugo" placeholder="Ngamiani" required>
+<label>Jina Lako *</label><input id="r-name-mifugo" placeholder="Jina lako" required>
+<label>Namba ya Simu *</label><input id="r-phone-mifugo" placeholder="0755000000" required>
+<label>Maelezo</label><textarea id="r-desc-mifugo" placeholder="Nahitaji haraka kesho"></textarea>
+<button type="submit" class="btn btn-orange">TUMA ODA YA MIFUGO 🙏</button>
+</form>
+<p style="font-size:12px;color:#64748b;text-align:center;margin-top:8px">Baada ya kutuma, oda yako itaenda kwenye ANGALIA ODA ZA MIFUGO - sio hapa.</p>
+</div></div>
+
+<!-- ===== 🐐 ANGALIA ODA - MIFUGO PEKEE - IMETENGANA NA FOMU ===== -->
+<div id="mifugo-oda-view" class="page">
+<div class="uko-ndani-teal">📋 ANGALIA ODA ZA MIFUGO TU<br><small>Hapa unaona oda za Mifugo tu, sio za Uvuvi. Hii sio fomu.</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#mifugo-oda-form">🙏 JAZA FOMU MPYA</a></div></div>
+<div id="oda-list-mifugo"></div>
+</div>
+
+<!-- ===== 🐐 UZA MIFUGO - INAJITEGEMEA ===== -->
+<div id="mifugo-uza" class="page">
+<div class="uko-ndani-orange">📢 UZA - MIFUGO TU</div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-mifugo">← RUDI SOKO LA MIFUGO</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="form-box">
+<label>Jina la Bidhaa ya Mifugo</label><input id="f-name-mifugo" placeholder="mf: Mbuzi wa Kuchinja">
+<label>Bei (TSh)</label><input id="f-price-mifugo" type="number" placeholder="180000">
+<label>Idadi</label><input id="f-qty-mifugo" type="number" placeholder="5">
+<label>Wilaya</label><select id="f-wilaya-mifugo"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
+<label>Kata / Mtaa</label><input id="f-katamtaa-mifugo" placeholder="Ngamiani">
+<label>Jina lako / Duka lako</label><input id="f-seller-mifugo" placeholder="Jina lako">
+<label>Namba ya Simu</label><input id="f-phone-mifugo" placeholder="0755000000">
+<label>Maelezo</label><textarea id="f-desc-mifugo"></textarea>
+<button class="btn btn-orange" onclick="addProduct('mifugo')">TANGAZA MIFUGO - UZA SASA ✅</button>
+</div></div>
+
+<!-- ===== 🐟 SOKO LA UVUVI - VITUFE VYAKE VYENYEWE ===== -->
 <div id="soko-uvuzi" class="page">
-<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟<br><small>Uko ndani sasa - hapa ndo unaona samaki, unaomba na unaangalia oda</small></div>
-<div class="top-menu-inside">
-<a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA</a><a href="#page-add">📢 UZA</a><a href="#soko-uvuzi">🛒 NUNUA</a><a href="#page-request">🙏 ODA YA KUHITAJI</a><a href="#page-view-oda">📋 ANGALIA ODA</a><a href="#page-admin">⚙️ ADMIN</a>
+<div class="uko-ndani-blue">📍 UKO NDANI YA SOKO LA MAZAO YA UVUVI 🐟<br><small>Vitufe hivi ni vya Uvuvi tu, havihusiani na Mifugo</small></div>
+<div class="menu-box">
+<div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#page-shops">🏪 MADUKA</a><a href="#uvuzi-uza">📢 UZA UVUVI</a></div>
+<div class="menu-row"><a href="#soko-uvuzi">🛒 NUNUA UVUVI</a><a href="#uvuzi-oda-form">🙏 ODA YA KUHITAJI UVUVI</a></div>
+<div class="menu-row"><a href="#uvuzi-oda-view">📋 ANGALIA ODA ZA UVUVI</a><a href="#page-admin">⚙️ ADMIN</a></div>
 </div>
 <h2>🐟 SOKO LA MAZAO YA UVUVI</h2>
-<div style="display:flex;gap:6px;margin:10px 0"><a href="#soko-uvuzi" class="btn btn-blue" style="flex:1">🛒 NUNUA - ONA ZOTE</a><a href="#page-request" class="btn btn-orange" style="flex:1">🙏 ODA YA KUHITAJI</a></div>
-<a href="#page-view-oda" class="btn btn-teal">📋 ANGALIA ODA - Watu wanahitaji nini?</a>
-<div id="uvuzi-list" style="margin-top:12px"></div>
+<div id="uvuzi-list" style="margin-top:10px"></div>
 <a href="#page-home" class="btn btn-gray" style="margin-top:10px">← RUDI NYUMBANI</a>
 </div>
 
-<!-- FOMU YA ODA -->
-<div id="page-request" class="page">
-<div class="uko-ndani" style="background:#ea580c">🙏 UKO KWENYE FOMU YA ODA YA KUHITAJI</div>
-<div class="top-menu-inside"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-view-oda">📋 ANGALIA ODA</a></div>
-<h2>🙏 FOMU YA ODA YA KUHITAJI BIDHAA</h2>
-<div class="form-box"><form onsubmit="event.preventDefault(); submitRequest();">
-<label>1. Soko Gani? *</label><select id="r-market"><option value="mifugo">🐐 Soko la Mifugo</option><option value="uvuzi">🐟 Soko la Uvuvi</option></select>
-<label>2. Unahitaji Bidhaa Gani? *</label><input id="r-need" placeholder="mf: Mbuzi 10 wa kuchinja" required>
-<label>3. Idadi au Kg *</label><input id="r-qty" placeholder="mf: 10 au 50kg" required>
-<label>4. Bei Unayotarajia?</label><input id="r-price" placeholder="mf: 150000 kwa mmoja">
-<label>5. Wilaya *</label><select id="r-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>6. Kata / Mtaa *</label><input id="r-katamtaa" placeholder="mf: Ngamiani" required>
-<label>7. Jina Lako *</label><input id="r-name" placeholder="Jina lako" required>
-<label>8. Namba ya Simu *</label><input id="r-phone" placeholder="0755000000" required>
-<label>9. Maelezo</label><textarea id="r-desc" placeholder="mf: Nahitaji haraka kesho"></textarea>
-<button type="submit" class="btn btn-orange">TUMA ODA YA KUHITAJI 🙏</button>
-</form><a href="#page-view-oda" class="btn btn-teal" style="margin-top:8px">📋 ANGALIA ODA ZILIZOOMBWA</a></div>
+<!-- ===== 🐟 FOMU YA ODA - UVUVI PEKEE - IMETENGANA ===== -->
+<div id="uvuzi-oda-form" class="page">
+<div class="uko-ndani-orange">🙏 FOMU YA ODA - UVUVI TU<br><small>Hii ni fomu ya kuomba, sio kuangalia oda</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="form-box"><form onsubmit="event.preventDefault(); submitRequest('uvuzi');">
+<label>Unahitaji Bidhaa Gani ya Uvuvi? *</label><input id="r-need-uvuzi" placeholder="mf: Samaki Sangara 50kg" required>
+<label>Kg Unayohitaji *</label><input id="r-qty-uvuzi" placeholder="mf: 50kg" required>
+<label>Bei Unayotarajia kwa Kg?</label><input id="r-price-uvuzi" placeholder="mf: 13000 kwa Kg">
+<label>Wilaya</label><select id="r-wilaya-uvuzi"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
+<label>Kata / Mtaa *</label><input id="r-katamtaa-uvuzi" placeholder="Pangani Mjini" required>
+<label>Jina Lako *</label><input id="r-name-uvuzi" placeholder="Jina lako" required>
+<label>Namba ya Simu *</label><input id="r-phone-uvuzi" placeholder="0755000000" required>
+<label>Maelezo</label><textarea id="r-desc-uvuzi" placeholder="Nahitaji haraka kesho"></textarea>
+<button type="submit" class="btn btn-blue">TUMA ODA YA UVUVI 🙏</button>
+</form></div></div>
+
+<!-- ===== 🐟 ANGALIA ODA - UVUVI PEKEE - IMETENGANA ===== -->
+<div id="uvuzi-oda-view" class="page">
+<div class="uko-ndani-teal">📋 ANGALIA ODA ZA UVUVI TU<br><small>Hapa unaona oda za Uvuvi tu, sio za Mifugo. Hii sio fomu.</small></div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#uvuzi-oda-form">🙏 JAZA FOMU MPYA</a></div></div>
+<div id="oda-list-uvuzi"></div>
 </div>
 
-<!-- ANGALIA ODA -->
-<div id="page-view-oda" class="page">
-<div class="uko-ndani" style="background:#0d9488">📋 UKO KWENYE ANGALIA ODA</div>
-<div class="top-menu-inside"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-request">🙏 ODA YA KUHITAJI</a></div>
-<h2>📋 ANGALIA ODA</h2><p style="font-size:13px;color:#64748b">Oda za watu wanaohitaji bidhaa ambazo sokoni huenda hazipo.</p>
-<div id="oda-list" style="margin-top:10px"></div>
-<a href="#page-request" class="btn btn-orange">+ JAZA FOMU YA KUOMBA BIDHAA</a>
-</div>
+<!-- ===== 🐟 UZA UVUVI ===== -->
+<div id="uvuzi-uza" class="page">
+<div class="uko-ndani-orange">📢 UZA - UVUVI TU</div>
+<div class="menu-box"><div class="menu-row"><a href="#soko-uvuzi">← RUDI SOKO LA UVUVI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="form-box">
+<label>Jina la Bidhaa ya Uvuvi</label><input id="f-name-uvuzi" placeholder="mf: Samaki Sangara">
+<label>Bei kwa Kg (TSh)</label><input id="f-price-uvuzi" type="number" placeholder="15000">
+<label>Kg</label><input id="f-kg-uvuzi" placeholder="10kg">
+<label>Wilaya</label><select id="f-wilaya-uvuzi"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
+<label>Kata / Mtaa</label><input id="f-katamtaa-uvuzi" placeholder="Pangani Mjini">
+<label>Jina lako / Duka lako</label><input id="f-seller-uvuzi" placeholder="Jina lako">
+<label>Namba ya Simu</label><input id="f-phone-uvuzi" placeholder="0755000000">
+<label>Maelezo</label><textarea id="f-desc-uvuzi"></textarea>
+<button class="btn btn-blue" onclick="addProduct('uvuzi')">TANGAZA UVUVI - UZA SASA ✅</button>
+</div></div>
 
-<!-- MADUKA -->
+<!-- ===== 🏪 MADUKA - YANAJITEGEMEA KABISA ===== -->
 <div id="page-shops" class="page">
-<div class="uko-ndani" style="background:#7c3aed">🏪 UKO KWENYE MADUKA</div>
-<div class="top-menu-inside"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-add">📢 UZA</a></div>
+<div class="uko-ndani-purple">🏪 UKO KWENYE MADUKA<br><small>Maduka yanajitegemea - hayahusiani na Soko la Mifugo wala Uvuvi</small></div>
+<div class="menu-box">
+<div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a></div>
+<div class="menu-row"><a href="#page-shops">🏪 ANGALIA MADUKA</a><a href="#shops-register">📝 SAJILI DUKA</a><a href="#shops-mine">🏪 DUKA LANGU</a></div>
+</div>
 <h2>🏪 MADUKA</h2>
-<div style="display:flex;gap:6px;margin:10px 0"><button class="tab-btn active" id="tab1" onclick="shopTab('all')">ANGALIA MADUKA</button><button class="tab-btn" id="tab2" onclick="shopTab('register')">SAJILI DUKA</button><button class="tab-btn" id="tab3" onclick="shopTab('mine')">DUKA LANGU</button></div>
-<div id="shop-all"><div id="shops-list"></div></div>
-<div id="shop-register" class="hidden"><div class="form-box"><h3>📝 FOMU YA KUSAJILI DUKA</h3>
+<div id="shops-list"></div>
+<a href="#page-home" class="btn btn-gray">← RUDI NYUMBANI</a>
+</div>
+
+<div id="shops-register" class="page">
+<div class="uko-ndani-purple">📝 SAJILI DUKA - MADUKA TU</div>
+<div class="menu-box"><div class="menu-row"><a href="#page-shops">← RUDI MADUKANI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div class="form-box">
 <label>Jina la Duka</label><input id="s-name" placeholder="mf: Juma Mifugo Bora">
 <label>Jina la Mmiliki</label><input id="s-owner" placeholder="mf: Juma">
 <label>Namba ya Simu</label><input id="s-phone" placeholder="0755000000">
@@ -126,40 +188,25 @@ label{font-size:13px;font-weight:bold;color:#334155}
 <label>Wilaya</label><select id="s-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
 <label>Kata / Mtaa</label><input id="s-katamtaa" placeholder="Ngamiani">
 <label>Unauza nini?</label><textarea id="s-desc"></textarea>
-<button class="btn btn-purple" onclick="registerShop()">SAJILI DUKA LANGU ✅</button></div></div>
-<div id="shop-mine" class="hidden"><div id="my-shop-view"></div></div>
-</div>
-
-<!-- UZA -->
-<div id="page-add" class="page">
-<div class="uko-ndani" style="background:#ea580c">📢 UKO KWENYE KUZA / KUTANGAZA</div>
-<div class="top-menu-inside"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-shops">🏪 MADUKA</a></div>
-<h2>📢 UZA - Tangaza Bidhaa</h2>
-<div class="form-box">
-<label>Soko</label><select id="f-market" onchange="toggleQtyKg()"><option value="mifugo">🐐 Soko la Mifugo - Idadi tu</option><option value="uvuzi">🐟 Soko la Uvuvi - Kg tu</option></select>
-<label>Jina la Bidhaa</label><input id="f-name" placeholder="mf: Mbuzi wa Kuchinja">
-<label>Bei (TSh)</label><input id="f-price" type="number" placeholder="180000">
-<div id="wrap-qty"><label>Idadi - Mifugo tu</label><input id="f-qty" type="number" placeholder="5"></div>
-<div id="wrap-kg" class="hidden"><label>Kg - Uvuvi tu</label><input id="f-kg" placeholder="10kg"></div>
-<label>Wilaya</label><select id="f-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select>
-<label>Kata / Mtaa</label><input id="f-katamtaa" placeholder="Ngamiani">
-<label>Jina lako / Duka lako</label><input id="f-seller" placeholder="Jina lako">
-<label>Namba ya Simu</label><input id="f-phone" placeholder="0755000000">
-<label>Hali</label><select id="f-hali"><option>Inapatikana</option><option>Inasubiri</option><option>Imeisha</option></select>
-<label>Maelezo</label><textarea id="f-desc"></textarea>
-<button class="btn btn-orange" onclick="addProduct()">TANGAZA - UZA SASA ✅</button>
+<button class="btn btn-purple" onclick="registerShop()">SAJILI DUKA LANGU ✅</button>
 </div></div>
+
+<div id="shops-mine" class="page">
+<div class="uko-ndani-purple">🏪 DUKA LANGU - MADUKA TU</div>
+<div class="menu-box"><div class="menu-row"><a href="#page-shops">← RUDI MADUKANI</a><a href="#page-home">🏠 NYUMBANI</a></div></div>
+<div id="my-shop-view"></div>
+</div>
 
 <!-- ADMIN -->
 <div id="page-admin" class="page">
 <div class="uko-ndani" style="background:#dc2626">⚙️ UKO KWENYE ADMIN</div>
-<div class="top-menu-inside"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a></div>
+<div class="menu-box"><div class="menu-row"><a href="#page-home">🏠 NYUMBANI</a><a href="#soko-mifugo">🐐 MIFUGO</a><a href="#soko-uvuzi">🐟 UVUVI</a><a href="#page-shops">🏪 MADUKA</a></div></div>
 <h2>⚙️ ADMIN</h2><div id="admin-products"></div><div id="admin-oda"></div><div id="admin-shops"></div>
 <button class="btn btn-red" onclick="adminClearAll()">FUTA VYOTE</button>
 </div>
 
 </div>
-<div class="bottom-nav" id="bottom-nav" style="display:none"><a href="#page-home">🏠 Nyumbani</a><a href="#soko-mifugo">🛒 Nunua</a><a href="#page-request">🙏 Oda ya Kuhitaji</a><a href="#page-view-oda">📋 Angalia Oda</a></div>
+<div class="bottom-nav" id="bottom-nav" style="display:none"><a href="#page-home">🏠 Nyumbani</a><a href="#soko-mifugo">🐐 Mifugo</a><a href="#soko-uvuzi">🐟 Uvuvi</a><a href="#page-shops">🏪 Maduka</a></div>
 <script>
 var products=[
 {name:"Mbuzi wa Kuchinja", price:180000, qty:5, kg:"", wilaya:"Tanga Mjini", katamtaa:"Ngamiani", market:"mifugo", seller:"Juma Mifugo Bora", phone:"0755000000", hali:"Inapatikana", desc:"Mbuzi mnene", img:"https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400"},
@@ -167,7 +214,7 @@ var products=[
 {name:"Dagaa", price:8000, qty:"", kg:"20kg", wilaya:"Muheza", katamtaa:"Muheza Mjini", market:"uvuzi", seller:"Dagaa Fresh", phone:"0755000004", hali:"Inapatikana", desc:"Dagaa mkavu safi", img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400"}
 ];
 try{ var sp=localStorage.getItem('soko_v113_products'); if(sp){ products=JSON.parse(sp); } }catch(e){}
-var shops=[{name:"Juma Mifugo Bora", owner:"Juma", phone:"0755000000", pass:"1234", type:"Mifugo", wilaya:"Tanga Mjini", katamtaa:"Ngamiani", desc:"Mbuzi, Ng'ombe", img:""}];
+var shops=[{name:"Juma Mifugo Bora", owner:"Juma", phone:"0755000000", pass:"1234", type:"Mifugo", wilaya:"Tanga Mjini", katamtaa:"Ngamiani", desc:"Mbuzi, Ng'ombe"}];
 try{ var ss=localStorage.getItem('soko_v113_shops'); if(ss){ shops=JSON.parse(ss); } }catch(e){}
 var requests=[{need:"Mbuzi 10 wa kuchinja", qty:"10", price:"150000 kwa mmoja", market:"mifugo", name:"Asha", phone:"0755111222", wilaya:"Tanga Mjini", katamtaa:"Ngamiani", desc:"Nahitaji haraka kesho"},{need:"Samaki Sangara 50kg", qty:"50kg", price:"13000 kwa Kg", market:"uvuzi", name:"Baraka", phone:"0755333444", wilaya:"Pangani", katamtaa:"Pangani Mjini", desc:"Kwa hoteli"}];
 try{ var rq=localStorage.getItem('soko_v114_requests'); if(rq){ requests=JSON.parse(rq); } }catch(e){}
@@ -175,21 +222,19 @@ var currentUser=null; try{ var su=localStorage.getItem('soko_v113_user'); if(su)
 function save(){ try{ localStorage.setItem('soko_v113_products', JSON.stringify(products)); localStorage.setItem('soko_v113_shops', JSON.stringify(shops)); localStorage.setItem('soko_v114_requests', JSON.stringify(requests)); }catch(e){} }
 function fmt(n){ return Number(n||0).toLocaleString('en-US') + ' TSh'; }
 function cleanPhone(p){ var s=(p||'').replace(/[^0-9]/g,''); if(s.indexOf('0')===0) s='255'+s.slice(1); return s; }
-function toggleQtyKg(){ var m=document.getElementById('f-market').value; document.getElementById('wrap-qty').classList.toggle('hidden', m!=='mifugo'); document.getElementById('wrap-kg').classList.toggle('hidden', m!=='uvuzi'); }
 function productHTML(p){ var wa=cleanPhone(p.phone); var qtyKgText = p.market==='mifugo' ? 'Idadi: <b>'+(p.qty||'-')+'</b>' : 'Kg: <b>'+(p.kg||'-')+'</b>'; return '<div class="product"><img src="'+p.img+'"><div class="product-info"><span class="badge">🟢 '+(p.hali||'Inapatikana')+'</span><br><b>'+p.name+'</b><br><small>🏪 '+p.seller+'</small><br><small>📍 '+(p.wilaya||'')+' • '+(p.katamtaa||'-')+'</small><br><small>'+(p.desc||'')+'</small><div>Bei: <span class="price">'+fmt(p.price)+'</span> • '+qtyKgText+'</div><div style="display:flex;gap:6px;margin-top:10px"><a class="call-btn" href="tel:'+p.phone+'">📞 PIGA SIMU</a><a class="wa-btn" href="https://wa.me/'+wa+'" target="_blank">💬 WHATSAPP</a></div></div></div>'; }
-function renderMarkets(){ var mHtml='', uHtml=''; for(var i=0;i<products.length;i++){ if(products[i].market==='mifugo') mHtml+=productHTML(products[i]); if(products[i].market==='uvuzi') uHtml+=productHTML(products[i]); } document.getElementById('mifugo-list').innerHTML=mHtml||'Hakuna tangazo bado.'; document.getElementById('uvuzi-list').innerHTML=uHtml||'Hakuna tangazo bado.'; }
-function renderOda(){ var html=''; for(var i=0;i<requests.length;i++){ var r=requests[i]; var wa=cleanPhone(r.phone); html+='<div class="oda-card"><span class="badge-oda">🙏 ODA YA KUHITAJI • '+(r.market==='mifugo'?'🐐 MIFUGO':'🐟 UVUVI')+'</span><br><b>'+r.need+'</b><br><small>👤 '+r.name+' • 📍 '+r.wilaya+' • '+(r.katamtaa||'-')+'</small><br><small>Idadi/Kg: <b>'+(r.qty||'-')+'</b> • Bei: <b>'+(r.price||'-')+'</b></small><br><small>'+(r.desc||'')+'</small><div style="display:flex;gap:6px;margin-top:10px"><a class="call-btn" href="tel:'+r.phone+'">📞 MPIGIE MTEJA</a><a class="wa-btn" href="https://wa.me/'+wa+'" target="_blank">💬 NINAYO - MJIBU</a></div></div>'; } document.getElementById('oda-list').innerHTML=html||'Hakuna oda bado.'; }
-function submitRequest(){ var need=document.getElementById('r-need').value; var phone=document.getElementById('r-phone').value; var name=document.getElementById('r-name').value; var qty=document.getElementById('r-qty').value; var katamtaa=document.getElementById('r-katamtaa').value; if(!need||!phone||!name||!qty||!katamtaa){ alert('Jaza sehemu zenye *'); return; } requests.unshift({need:need, qty:qty, price:document.getElementById('r-price').value, market:document.getElementById('r-market').value, name:name, phone:phone, wilaya:document.getElementById('r-wilaya').value, katamtaa:katamtaa, desc:document.getElementById('r-desc').value}); save(); alert('Hongera! ODA imetumwa ✅'); location.hash='#page-view-oda'; renderOda(); }
+function renderMarkets(){ var mHtml='', uHtml=''; for(var i=0;i<products.length;i++){ if(products[i].market==='mifugo') mHtml+=productHTML(products[i]); if(products[i].market==='uvuzi') uHtml+=productHTML(products[i]); } document.getElementById('mifugo-list').innerHTML=mHtml||'Hakuna tangazo la Mifugo bado.'; document.getElementById('uvuzi-list').innerHTML=uHtml||'Hakuna tangazo la Uvuvi bado.'; }
+function odaHTML(r){ var wa=cleanPhone(r.phone); return '<div class="oda-card"><span class="badge-oda">🙏 ODA YA KUHITAJI • '+(r.market==='mifugo'?'🐐 MIFUGO':'🐟 UVUVI')+'</span><br><b>'+r.need+'</b><br><small>👤 '+r.name+' • 📍 '+r.wilaya+' • '+(r.katamtaa||'-')+'</small><br><small>Idadi/Kg: <b>'+(r.qty||'-')+'</b> • Bei: <b>'+(r.price||'-')+'</b></small><br><small>'+(r.desc||'')+'</small><div style="display:flex;gap:6px;margin-top:10px"><a class="call-btn" href="tel:'+r.phone+'">📞 MPIGIE MTEJA</a><a class="wa-btn" href="https://wa.me/'+wa+'" target="_blank">💬 NINAYO - MJIBU</a></div></div>'; }
+function renderOda(){ var mHtml='', uHtml=''; for(var i=0;i<requests.length;i++){ if(requests[i].market==='mifugo') mHtml+=odaHTML(requests[i]); if(requests[i].market==='uvuzi') uHtml+=odaHTML(requests[i]); } document.getElementById('oda-list-mifugo').innerHTML=mHtml||'Hakuna oda za Mifugo bado.'; document.getElementById('oda-list-uvuzi').innerHTML=uHtml||'Hakuna oda za Uvuvi bado.'; }
+function submitRequest(market){ var need=document.getElementById('r-need-'+market).value; var qty=document.getElementById('r-qty-'+market).value; var price=document.getElementById('r-price-'+market).value; var wilaya=document.getElementById('r-wilaya-'+market).value; var katamtaa=document.getElementById('r-katamtaa-'+market).value; var name=document.getElementById('r-name-'+market).value; var phone=document.getElementById('r-phone-'+market).value; var desc=document.getElementById('r-desc-'+market).value; if(!need||!qty||!name||!phone||!katamtaa){ alert('Jaza sehemu zenye *'); return; } requests.unshift({need:need, qty:qty, price:price, market:market, name:name, phone:phone, wilaya:wilaya, katamtaa:katamtaa, desc:desc}); save(); renderOda(); alert('Hongera! ODA ya '+(market==='mifugo'?'MIFUGO':'UVUVI')+' imetumwa ✅'); location.hash = market==='mifugo' ? '#mifugo-oda-view' : '#uvuzi-oda-view'; }
+function addProduct(market){ var name=document.getElementById('f-name-'+market).value; var price=parseInt(document.getElementById('f-price-'+market).value); var phone=document.getElementById('f-phone-'+market).value; var seller=document.getElementById('f-seller-'+market).value; var wilaya=document.getElementById('f-wilaya-'+market).value; var katamtaa=document.getElementById('f-katamtaa-'+market).value; var desc=document.getElementById('f-desc-'+market).value; if(!name||!price||!phone){ alert('Weka jina, bei na simu!'); return; } var qty='', kg=''; if(market==='mifugo') qty=document.getElementById('f-qty-mifugo').value||1; else kg=document.getElementById('f-kg-uvuzi').value||''; products.unshift({name:name, price:price, qty:qty, kg:kg, wilaya:wilaya, katamtaa:katamtaa, market:market, seller:seller||'Mfanyabiashara', phone:phone, hali:"Inapatikana", desc:desc, img:market==='mifugo'?'https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400':'https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400'}); save(); renderMarkets(); alert('Hongera! Bidhaa ya '+(market==='mifugo'?'MIFUGO':'UVUVI')+' imeongezwa ✅'); location.hash = market==='mifugo' ? '#soko-mifugo' : '#soko-uvuzi'; }
 function renderShops(){ var html=''; for(var i=0;i<shops.length;i++){ var s=shops[i]; var count=0; for(var k=0;k<products.length;k++){ if(products[k].phone===s.phone) count++; } html+='<div style="background:white;border-radius:14px;padding:12px;margin-bottom:10px"><b>🏪 '+s.name+'</b><br><small>'+(s.type||'')+' • 📍 '+(s.wilaya||'')+'</small><br><b>📦 Bidhaa '+count+'</b></div>'; } document.getElementById('shops-list').innerHTML=html||'Hakuna duka.'; }
-function shopTab(tab){ document.getElementById('shop-all').classList.add('hidden'); document.getElementById('shop-register').classList.add('hidden'); document.getElementById('shop-mine').classList.add('hidden'); if(tab==='all'){ document.getElementById('shop-all').classList.remove('hidden'); renderShops(); } if(tab==='register'){ document.getElementById('shop-register').classList.remove('hidden'); } if(tab==='mine'){ document.getElementById('shop-mine').classList.remove('hidden'); renderMyShop(); } }
-function registerShop(){ var name=document.getElementById('s-name').value; var phone=document.getElementById('s-phone').value; var pass=document.getElementById('s-pass').value; var pass2=document.getElementById('s-pass2').value; if(!name||!phone){ alert('Weka jina na simu!'); return; } if(!pass||pass.length<4){ alert('Password angalau 4'); return; } if(pass!==pass2){ alert('Password hazifanani'); return; } shops.unshift({name:name, owner:document.getElementById('s-owner').value||'Mmiliki', phone:phone, pass:pass, type:"Mifugo", wilaya:document.getElementById('s-wilaya').value, katamtaa:document.getElementById('s-katamtaa').value, desc:document.getElementById('s-desc').value, img:""}); currentUser={phone:phone, name:document.getElementById('s-owner').value||name}; try{ localStorage.setItem('soko_v113_user', JSON.stringify(currentUser)); }catch(e){} save(); alert('Hongera! Duka limesajiliwa ✅'); shopTab('mine'); }
-function renderMyShop(){ if(!currentUser){ document.getElementById('my-shop-view').innerHTML='<div style="background:white;padding:16px;border-radius:14px"><h3>🏪 DUKA LANGU - Ingia</h3><label>Namba ya Simu</label><input id="login-phone" placeholder="0755000000"><label>Password</label><input id="login-pass" type="password"><button class="btn btn-purple" onclick="loginShop()">INGIA DUKANI ✅</button></div>'; return; } var s=null; for(var i=0;i<shops.length;i++){ if(shops[i].phone===currentUser.phone) s=shops[i]; } if(!s){ document.getElementById('my-shop-view').innerHTML='<p>Huna duka.</p>'; return; } document.getElementById('my-shop-view').innerHTML='<div style="background:white;padding:14px;border-radius:14px"><h3>🏪 '+s.name+'</h3><p>'+s.owner+' • '+s.phone+'</p><a href="#page-view-oda" class="btn btn-teal">📋 ANGALIA ODA SASA →</a><br><button class="btn btn-gray" onclick="logoutShop()">🚪 TOKA</button></div>'; }
+function registerShop(){ var name=document.getElementById('s-name').value; var phone=document.getElementById('s-phone').value; var pass=document.getElementById('s-pass').value; var pass2=document.getElementById('s-pass2').value; if(!name||!phone){ alert('Weka jina na simu!'); return; } if(!pass||pass.length<4){ alert('Password angalau 4'); return; } if(pass!==pass2){ alert('Password hazifanani'); return; } shops.unshift({name:name, owner:document.getElementById('s-owner').value||'Mmiliki', phone:phone, pass:pass, type:"Mifugo", wilaya:document.getElementById('s-wilaya').value, katamtaa:document.getElementById('s-katamtaa').value, desc:document.getElementById('s-desc').value}); currentUser={phone:phone, name:document.getElementById('s-owner').value||name}; try{ localStorage.setItem('soko_v113_user', JSON.stringify(currentUser)); }catch(e){} save(); alert('Hongera! Duka limesajiliwa ✅'); location.hash='#shops-mine'; }
+function renderMyShop(){ if(!currentUser){ document.getElementById('my-shop-view').innerHTML='<div style="background:white;padding:16px;border-radius:14px"><h3>🏪 DUKA LANGU - Ingia</h3><label>Namba ya Simu</label><input id="login-phone" placeholder="0755000000"><label>Password</label><input id="login-pass" type="password"><button class="btn btn-purple" onclick="loginShop()">INGIA DUKANI ✅</button></div>'; return; } var s=null; for(var i=0;i<shops.length;i++){ if(shops[i].phone===currentUser.phone) s=shops[i]; } if(!s){ document.getElementById('my-shop-view').innerHTML='<p>Huna duka.</p>'; return; } document.getElementById('my-shop-view').innerHTML='<div style="background:white;padding:14px;border-radius:14px"><h3>🏪 '+s.name+'</h3><p>'+s.owner+' • '+s.phone+'</p><a href="#page-shops" class="btn btn-purple">🏪 ANGALIA MADUKA</a><br><button class="btn btn-gray" onclick="logoutShop()">🚪 TOKA</button></div>'; }
 function loginShop(){ var phone=document.getElementById('login-phone').value; var pass=document.getElementById('login-pass').value; var found=null; for(var i=0;i<shops.length;i++){ if(shops[i].phone===phone) found=shops[i]; } if(!found){ alert('Hakuna duka!'); return; } if((found.pass||'1234')!==pass){ alert('Password sio sahihi!'); return; } currentUser={phone:phone, name:found.owner}; try{ localStorage.setItem('soko_v113_user', JSON.stringify(currentUser)); }catch(e){} renderMyShop(); }
 function logoutShop(){ currentUser=null; try{ localStorage.removeItem('soko_v113_user'); }catch(e){} renderMyShop(); }
-function addProduct(){ var name=document.getElementById('f-name').value; var price=parseInt(document.getElementById('f-price').value); var phone=document.getElementById('f-phone').value; var market=document.getElementById('f-market').value; if(!name||!price||!phone){ alert('Weka jina, bei na simu!'); return; } var qty='', kg=''; if(market==='mifugo') qty=document.getElementById('f-qty').value||1; else kg=document.getElementById('f-kg').value||''; products.unshift({name:name, price:price, qty:qty, kg:kg, wilaya:document.getElementById('f-wilaya').value, katamtaa:document.getElementById('f-katamtaa').value, market:market, seller:document.getElementById('f-seller').value||'Mfanyabiashara', phone:phone, hali:document.getElementById('f-hali').value, desc:document.getElementById('f-desc').value, img:market==='mifugo'?'https://images.unsplash.com/photo-1524024973431-2ad916746881?w=400':'https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=400'}); save(); renderMarkets(); alert('Hongera! Bidhaa imeongezwa ✅'); location.hash='#page-home'; }
 function adminClearAll(){ if(!confirm('Futa VYOTE?')) return; products=[]; shops=[]; requests=[]; save(); renderMarkets(); renderOda(); }
-// BADILISHA UKURASA KWA HASH - NJE HAKUNA VITUFE, NDANI VIPO
-function showByHash(){ var h=(location.hash||'#page-home').replace('#',''); if(!h) h='page-home'; var pages=document.querySelectorAll('.page'); for(var i=0;i<pages.length;i++){ pages[i].classList.remove('active'); } var target=document.getElementById(h); if(target) target.classList.add('active'); else document.getElementById('page-home').classList.add('active'); var bottom=document.getElementById('bottom-nav'); if(bottom) bottom.style.display = (h==='page-home') ? 'none' : 'flex'; window.scrollTo(0,0); if(h==='soko-mifugo'||h==='soko-uvuzi') renderMarkets(); if(h==='page-view-oda') renderOda(); if(h==='page-shops') renderShops(); }
+function showByHash(){ var h=(location.hash||'#page-home').replace('#',''); if(!h) h='page-home'; var pages=document.querySelectorAll('.page'); for(var i=0;i<pages.length;i++){ pages[i].classList.remove('active'); } var target=document.getElementById(h); if(target) target.classList.add('active'); else document.getElementById('page-home').classList.add('active'); var bottom=document.getElementById('bottom-nav'); if(bottom) bottom.style.display = (h==='page-home') ? 'none' : 'flex'; window.scrollTo(0,0); if(h==='soko-mifugo'||h==='soko-uvuzi') renderMarkets(); if(h==='mifugo-oda-view'||h==='uvuzi-oda-view') renderOda(); if(h==='page-shops') renderShops(); if(h==='shops-mine') renderMyShop(); }
 window.addEventListener('hashchange', showByHash);
 renderMarkets(); renderOda(); renderShops(); showByHash();
 </script>
