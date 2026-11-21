@@ -1,107 +1,198 @@
 <!DOCTYPE html>
-<html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Soko la Tanga</title>
-<style>*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}body{background:#f1f5f9;padding-bottom:20px}.container{max-width:480px;margin:auto;padding:12px}header{background:#16a34a;color:white;padding:12px;text-align:center;cursor:pointer}.logo{width:60px;height:60px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;border:3px solid #facc15;margin:auto}.card{background:white;border-radius:16px;overflow:hidden;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.1)}.top{height:110px;display:flex;align-items:center;justify-content:center;font-size:65px}.body{padding:14px}.btn{display:block;padding:14px;border-radius:10px;color:white;font-weight:bold;text-align:center;text-decoration:none;border:none;width:100%;cursor:pointer}.green{background:#16a34a}.blue{background:#0284c7}.purple{background:#7c3aed}.orange{background:#ea580c}.gray{background:#64748b}.red{background:#dc2626}.menu{background:white;padding:10px;border-radius:12px;margin-bottom:10px}.menu a{flex:1;background:#f8fafc;border:1px solid #ddd;padding:10px 4px;border-radius:10px;font-weight:bold;font-size:12px;text-decoration:none;color:#000;text-align:center;display:block;cursor:pointer}.row{display:flex;gap:6px;margin-bottom:6px}.product{background:white;border-radius:14px;padding:12px;margin-bottom:12px;display:flex;gap:12px}.img{width:95px;height:95px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:45px;background:#dcfce7;flex-shrink:0}.img2{background:#dbeafe}input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}label{font-size:13px;font-weight:bold}.box{background:white;padding:16px;border-radius:14px;margin-bottom:12px}.call{background:#16a34a;color:white;padding:9px;border-radius:8px;font-weight:bold;font-size:13px;flex:1;text-align:center;text-decoration:none;display:block}.wa{background:#25D366;color:white;padding:9px;border-radius:8px;font-weight:bold;font-size:13px;flex:1;text-align:center;text-decoration:none;display:block}.oda{background:white;border-radius:14px;padding:14px;margin-bottom:12px;border-left:5px solid #f59e0b}.del{background:#fee2e2;color:#dc2626;border:none;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer;margin-top:6px}.shop{background:white;border-radius:14px;padding:12px;margin-bottom:10px;border-left:5px solid #7c3aed}.badge{display:inline-block;background:#ede9fe;color:#7c3aed;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}.page{display:none}.page.active{display:block}.pin{background:#fffbeb;border:2px solid #facc15;padding:14px;border-radius:12px;margin-bottom:12px}</style></head>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soko la Tanga</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
+body{background:#f1f5f9;padding-bottom:30px}
+.c{max-width:480px;margin:auto;padding:12px}
+header{background:#16a34a;color:white;padding:14px;text-align:center}
+.logo{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:auto;border:3px solid #facc15}
+.btn{display:block;padding:14px;border-radius:10px;color:#fff;font-weight:bold;text-align:center;text-decoration:none;border:none;width:100%;cursor:pointer}
+.g{background:#16a34a}.b{background:#0284c7}.p{background:#7c3aed}.o{background:#ea580c}.gr{background:#64748b}.r{background:#dc2626}
+.box{background:#fff;padding:14px;border-radius:14px;margin-bottom:12px}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:6px 0}
+label{font-size:13px;font-weight:bold}
+.item{background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;display:flex;gap:10px}
+.pic{width:70px;height:70px;border-radius:10px;background:#dcfce7;display:flex;align-items:center;justify-content:center;font-size:35px;flex-shrink:0}
+.pic2{background:#dbeafe}
+.small{font-size:12px;color:#555}
+.call{background:#16a34a;color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
+.wa{background:#25D366;color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;flex:1;text-align:center;text-decoration:none;display:block}
+.del{background:#fee2e2;color:#dc2626;border:none;padding:6px 10px;border-radius:8px;font-size:12px;margin-top:6px}
+.nav{display:flex;gap:6px;margin-bottom:10px}.nav button{flex:1}
+.badge{background:#ede9fe;color:#7c3aed;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:bold}
+</style>
+</head>
 <body>
-<header onclick="secretAdmin()"><div class="logo" id="logo">🛒</div><h1 id="siteTitle">SOKO LA TANGA</h1><p>Jukwaa la Wafugaji & Wavuvi • Tanga</p><small>Bonyeza nembo mara 5 kwa Admin</small></header>
-<div class="container">
+<header>
+<div class="logo" id="logo1">🛒</div>
+<h1 id="title1">SOKO LA TANGA</h1>
+<p>Jukwaa la Wafugaji & Wavuvi • Tanga</p>
+</header>
 
+<div class="c">
 <!-- NYUMBANI -->
-<div id="page-home" class="page active">
-<div style="background:white;border-radius:16px;padding:14px;text-align:center;border:2px solid #16a34a;margin-bottom:12px"><div style="width:80px;height:80px;background:#16a34a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;margin:auto;border:4px solid #facc15" id="logo2">🛒</div><h2 id="siteTitle2">SOKO LA TANGA</h2><p>🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
-<h3>🏪 MASOKO YETU</h3><br>
-<div class="card"><div class="top" style="background:#dcfce7;cursor:pointer" onclick="go('mifugo')">🐐🐄🐑🐔</div><div class="body"><h3>🐐 SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku - Uza • Nunua • Weka Oda</p><br><button class="btn green" onclick="go('mifugo')">INGIA SOKONI - MIFUGO →</button></div></div>
-<div class="card"><div class="top" style="background:#dbeafe;cursor:pointer" onclick="go('uvuzi')">🐟🦐🦀</div><div class="body"><h3>🐟 SOKO LA MAZAO YA UVUVI</h3><p>Samaki, Dagaa, Kamba - Uza • Nunua • Weka Oda</p><br><button class="btn blue" onclick="go('uvuzi')">INGIA SOKONI - UVUVI →</button></div></div>
-<div style="background:white;padding:14px;border-radius:14px;text-align:center;border:2px solid #7c3aed"><div style="font-size:36px">🏪</div><b>MADUKA YETU</b><br><small>Maduka ya Aina Zote - Mifugo, Uvuvi, Chakula, Dawa, Vifaa</small><br><button class="btn purple" onclick="go('maduka')" style="margin-top:10px">🏪 MADUKA YETU → SAJILI DUKA LAKO</button></div>
+<div id="pg-home" style="display:block">
+<div class="box" style="text-align:center;border:2px solid #16a34a"><div class="logo" id="logo2">🛒</div><h2 id="title2">SOKO LA TANGA</h2><p>🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
+<div class="card"><div style="font-size:50px;text-align:center">🐐🐄🐑</div><h3>SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku</p><br><button class="btn g" onclick="go('mifugo')">INGIA - MIFUGO →</button></div>
+<div class="card"><div style="font-size:50px;text-align:center">🐟🦐🦀</div><h3>SOKO LA UVUVI</h3><p>Samaki, Dagaa, Kamba</p><br><button class="btn b" onclick="go('uvuzi')">INGIA - UVUVI →</button></div>
+<div class="card" style="border:2px solid #7c3aed;text-align:center"><div style="font-size:40px">🏪</div><b>MADUKA YETU</b><br><small>Maduka ya Aina Zote</small><br><button class="btn p" onclick="go('maduka')" style="margin-top:10px">MADUKA YETU →</button></div>
 </div>
 
 <!-- MIFUGO -->
-<div id="page-mifugo" class="page">
-<div style="background:#16a34a;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold">📍 UKO NDANI YA SOKO LA MIFUGO 🐐</div>
-<div class="menu"><div class="row"><a onclick="go('home')">🏠 NYUMBANI</a><a onclick="go('maduka')">🏪 MADUKA YETU</a><a onclick="go('uvuzi')">🐟 UVUVI</a></div></div>
-<div style="display:flex;gap:6px;margin-bottom:10px"><button class="btn green" style="flex:1" onclick="document.getElementById('uza-m').scrollIntoView()">📢 UZA</button><button class="btn blue" style="flex:1">🛒 NUNUA</button><button class="btn orange" style="flex:1" onclick="document.getElementById('oda-m').scrollIntoView()">🙏 WEKA ODA</button></div>
-<h2>🛒 NUNUA MIFUGO</h2><br><div id="list-m"></div>
-<div class="box" id="uza-m"><h3>📢 UZA MIFUGO</h3><label>Chagua Picha</label><select id="f-emoji-m"><option value="🐐">🐐 Mbuzi</option><option value="🐄">🐄 Ng'ombe</option><option value="🐑">🐑 Kondoo</option><option value="🐔">🐔 Kuku</option><option value="🐖">🐖 Nguruwe</option><option value="🐰">🐰 Sungura</option></select><label>Jina la Bidhaa</label><input id="f-name-m" placeholder="Mbuzi wa Kuchinja"><label>Bei</label><input id="f-price-m" type="number" placeholder="180000"><label>Idadi</label><input id="f-qty-m" type="number" placeholder="5"><label>Wilaya</label><select id="f-wilaya-m"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select><label>Kata</label><input id="f-kata-m" placeholder="Ngamiani"><label>Jina lako</label><input id="f-seller-m" placeholder="Jina lako"><label>Simu</label><input id="f-phone-m" placeholder="0755000000"><button class="btn green" onclick="uzaM()">TANGAZA MIFUGO ✅</button></div>
-<div class="box" id="oda-m"><h3>🙏 WEKA ODA - BIDHAA AMBAYO HAIPO</h3><label>Unahitaji nini? *</label><input id="r-need-m" placeholder="Mbuzi 10"><label>Idadi *</label><input id="r-qty-m" placeholder="10"><label>Bei</label><input id="r-price-m" placeholder="150000 kwa mmoja"><label>Jina lako *</label><input id="r-name-m" placeholder="Jina lako"><label>Simu *</label><input id="r-phone-m" placeholder="0755000000"><label>Kata *</label><input id="r-kata-m" placeholder="Ngamiani"><button class="btn orange" onclick="tumaOdaM()">TUMA ODA YA MIFUGO 🙏</button></div>
-<h3>📋 ANGALIA ODA ZA MIFUGO</h3><br><div id="oda-list-m"></div><br><button class="btn gray" onclick="go('home')">← RUDI NYUMBANI</button>
-</div>
+<div id="pg-mifugo" style="display:none">
+<div class="box" style="background:#16a34a;color:#fff;text-align:center"><b>🐐 SOKO LA MIFUGO</b></div>
+<div class="nav"><button class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button class="btn p" onclick="go('maduka')">🏪 Maduka</button><button class="btn b" onclick="go('uvuzi')">🐟 Uvuvi</button></div>
+<h3>🛒 NUNUA MIFUGO</h3><br><div id="listM"></div>
+<div class="box"><h3>📢 UZA MIFUGO</h3>
+<label>Picha</label><select id="m-emoji"><option>🐐</option><option>🐄</option><option>🐑</option><option>🐔</option><option>🐖</option></select>
+<label>Jina</label><input id="m-name" placeholder="Mbuzi wa Kuchinja">
+<label>Bei</label><input id="m-price" type="number" placeholder="180000">
+<label>Idadi</label><input id="m-qty" placeholder="5">
+<label>Wilaya</label><select id="m-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Pangani</option><option>Mkinga</option></select>
+<label>Jina lako</label><input id="m-seller" placeholder="Jina lako">
+<label>Simu</label><input id="m-phone" placeholder="0755000000">
+<button class="btn g" onclick="uzaM()">UZA SASA ✅</button></div>
+<div class="box"><h3>🙏 WEKA ODA - BIDHAA HAIPO</h3>
+<label>Unahitaji nini?</label><input id="om-need" placeholder="Mbuzi 10">
+<label>Idadi</label><input id="om-qty" placeholder="10">
+<label>Jina lako</label><input id="om-name" placeholder="Jina lako">
+<label>Simu</label><input id="om-phone" placeholder="0755000000">
+<button class="btn o" onclick="odaM()">TUMA ODA 🙏</button></div>
+<h3>📋 ANGALIA ODA</h3><br><div id="odaM"></div><br>
+<button class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
 <!-- UVUVI -->
-<div id="page-uvuzi" class="page">
-<div style="background:#0284c7;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold">📍 UKO NDANI YA SOKO LA UVUVI 🐟</div>
-<div class="menu"><div class="row"><a onclick="go('home')">🏠 NYUMBANI</a><a onclick="go('maduka')">🏪 MADUKA YETU</a><a onclick="go('mifugo')">🐐 MIFUGO</a></div></div>
-<div style="display:flex;gap:6px;margin-bottom:10px"><button class="btn blue" style="flex:1" onclick="document.getElementById('uza-u').scrollIntoView()">📢 UZA</button><button class="btn green" style="flex:1">🛒 NUNUA</button><button class="btn orange" style="flex:1" onclick="document.getElementById('oda-u').scrollIntoView()">🙏 WEKA ODA</button></div>
-<h2>🛒 NUNUA MAZAO YA UVUVI</h2><br><div id="list-u"></div>
-<div class="box" id="uza-u"><h3>📢 UZA UVUVI</h3><label>Chagua Picha</label><select id="f-emoji-u"><option value="🐟">🐟 Samaki</option><option value="🦐">🦐 Kamba</option><option value="🦀">🦀 Kaa</option><option value="🐙">🐙 Pweza</option><option value="🐠">🐠 Sangara</option></select><label>Jina la Bidhaa</label><input id="f-name-u" placeholder="Samaki Sangara"><label>Bei kwa Kg</label><input id="f-price-u" type="number" placeholder="15000"><label>Kg</label><input id="f-kg-u" placeholder="10kg"><label>Wilaya</label><select id="f-wilaya-u"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select><label>Kata</label><input id="f-kata-u" placeholder="Pangani Mjini"><label>Jina lako</label><input id="f-seller-u" placeholder="Jina lako"><label>Simu</label><input id="f-phone-u" placeholder="0755000000"><button class="btn blue" onclick="uzaU()">TANGAZA UVUVI ✅</button></div>
-<div class="box" id="oda-u"><h3>🙏 WEKA ODA - BIDHAA AMBAYO HAIPO</h3><label>Unahitaji nini? *</label><input id="r-need-u" placeholder="Samaki Sangara 50kg"><label>Kg *</label><input id="r-qty-u" placeholder="50kg"><label>Bei kwa Kg</label><input id="r-price-u" placeholder="13000 kwa Kg"><label>Jina lako *</label><input id="r-name-u" placeholder="Jina lako"><label>Simu *</label><input id="r-phone-u" placeholder="0755000000"><label>Kata *</label><input id="r-kata-u" placeholder="Pangani Mjini"><button class="btn orange" onclick="tumaOdaU()">TUMA ODA YA UVUVI 🙏</button></div>
-<h3>📋 ANGALIA ODA ZA UVUVI</h3><br><div id="oda-list-u"></div><br><button class="btn gray" onclick="go('home')">← RUDI NYUMBANI</button>
-</div>
+<div id="pg-uvuzi" style="display:none">
+<div class="box" style="background:#0284c7;color:#fff;text-align:center"><b>🐟 SOKO LA UVUVI</b></div>
+<div class="nav"><button class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button class="btn p" onclick="go('maduka')">🏪 Maduka</button><button class="btn g" onclick="go('mifugo')">🐐 Mifugo</button></div>
+<h3>🛒 NUNUA UVUVI</h3><br><div id="listU"></div>
+<div class="box"><h3>📢 UZA UVUVI</h3>
+<label>Picha</label><select id="u-emoji"><option>🐟</option><option>🦐</option><option>🦀</option><option>🐙</option></select>
+<label>Jina</label><input id="u-name" placeholder="Samaki Sangara">
+<label>Bei kwa Kg</label><input id="u-price" type="number" placeholder="15000">
+<label>Kg</label><input id="u-kg" placeholder="10kg">
+<label>Wilaya</label><select id="u-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Pangani</option><option>Korogwe</option></select>
+<label>Jina lako</label><input id="u-seller" placeholder="Jina lako">
+<label>Simu</label><input id="u-phone" placeholder="0755000000">
+<button class="btn b" onclick="uzaU()">UZA SASA ✅</button></div>
+<div class="box"><h3>🙏 WEKA ODA - BIDHAA HAIPO</h3>
+<label>Unahitaji nini?</label><input id="ou-need" placeholder="Samaki 50kg">
+<label>Kg</label><input id="ou-qty" placeholder="50kg">
+<label>Jina lako</label><input id="ou-name" placeholder="Jina lako">
+<label>Simu</label><input id="ou-phone" placeholder="0755000000">
+<button class="btn o" onclick="odaU()">TUMA ODA 🙏</button></div>
+<h3>📋 ANGALIA ODA</h3><br><div id="odaU"></div><br>
+<button class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
 <!-- MADUKA -->
-<div id="page-maduka" class="page">
-<div style="background:#7c3aed;color:white;padding:12px;border-radius:12px;text-align:center;font-weight:bold">🏪 UKO KWENYE MADUKA YETU - AINA ZOTE</div>
-<div class="menu"><div class="row"><a onclick="go('home')">🏠 NYUMBANI</a><a onclick="go('mifugo')">🐐 MIFUGO</a><a onclick="go('uvuzi')">🐟 UVUVI</a></div></div>
-<div style="display:flex;gap:6px;margin-bottom:10px"><button class="btn purple" onclick="showFilter('Zote')" style="flex:1">Zote</button><button class="btn gray" onclick="showFilter('Mifugo')" style="flex:1">🐐 Mifugo</button><button class="btn gray" onclick="showFilter('Uvuvi')" style="flex:1">🐟 Uvuvi</button></div>
-<div style="display:flex;gap:6px;margin-bottom:10px"><button class="btn gray" onclick="showFilter('Chakula')" style="flex:1">🍲 Chakula</button><button class="btn gray" onclick="showFilter('Dawa')" style="flex:1">💊 Dawa</button><button class="btn gray" onclick="showFilter('Vifaa')" style="flex:1">🛠️ Vifaa</button></div>
-<h2>🏪 MADUKA YETU</h2><br><div id="list-shop"></div>
-<div class="box"><h3>📝 SAJILI DUKA LAKO - AINA YOYOTE</h3><label>Aina ya Duka *</label><select id="s-type"><option>Mifugo</option><option>Uvuvi</option><option>Chakula</option><option>Dawa</option><option>Vifaa</option><option>Nyingine</option></select><label>Jina la Duka *</label><input id="s-name" placeholder="Juma Mifugo Bora"><label>Jina la Mmiliki</label><input id="s-owner" placeholder="Juma"><label>Simu *</label><input id="s-phone" placeholder="0755000000"><label>🔐 Password *</label><input id="s-pass" type="password" placeholder="1234"><label>🔐 Rudia Password *</label><input id="s-pass2" type="password" placeholder="Rudia"><label>Wilaya</label><select id="s-wilaya"><option>Tanga Mjini</option><option>Muheza</option><option>Korogwe</option><option>Handeni</option><option>Kilindi</option><option>Lushoto</option><option>Pangani</option><option>Mkinga</option></select><label>Kata</label><input id="s-kata" placeholder="Ngamiani"><label>Unauza nini?</label><textarea id="s-desc" placeholder="Mbuzi, Ng'ombe..."></textarea><button class="btn purple" onclick="sajili()">SAJILI DUKA LANGU ✅</button></div>
-<div class="box"><h3>🏪 DUKA LANGU - KWA WALIOSAJILI</h3><div id="mine"></div></div>
-<br><button class="btn gray" onclick="go('home')">← RUDI NYUMBANI</button>
-</div>
+<div id="pg-maduka" style="display:none">
+<div class="box" style="background:#7c3aed;color:#fff;text-align:center"><b>🏪 MADUKA YETU - AINA ZOTE</b></div>
+<div class="nav"><button class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button class="btn g" onclick="go('mifugo')">🐐 Mifugo</button><button class="btn b" onclick="go('uvuzi')">🐟 Uvuvi</button></div>
+<div class="nav"><button class="btn gr" onclick="filt('Zote')">Zote</button><button class="btn gr" onclick="filt('Mifugo')">Mifugo</button><button class="btn gr" onclick="filt('Uvuvi')">Uvuvi</button></div>
+<div class="nav"><button class="btn gr" onclick="filt('Chakula')">Chakula</button><button class="btn gr" onclick="filt('Dawa')">Dawa</button><button class="btn gr" onclick="filt('Vifaa')">Vifaa</button></div>
+<div id="listS"></div>
+<div class="box"><h3>📝 SAJILI DUKA - AINA YOYOTE</h3>
+<label>Aina</label><select id="s-type"><option>Mifugo</option><option>Uvuvi</option><option>Chakula</option><option>Dawa</option><option>Vifaa</option><option>Nyingine</option></select>
+<label>Jina la Duka</label><input id="s-name" placeholder="Juma Mifugo Bora">
+<label>Simu</label><input id="s-phone" placeholder="0755000000">
+<label>Password</label><input id="s-pass" type="password" placeholder="1234">
+<label>Rudia Password</label><input id="s-pass2" type="password" placeholder="Rudia">
+<label>Wilaya</label><input id="s-wilaya" placeholder="Tanga Mjini">
+<button class="btn p" onclick="sajili()">SAJILI DUKA ✅</button></div>
+<div class="box"><h3>🏪 DUKA LANGU</h3><div id="mine"></div></div>
+<br><button class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
-<!-- ADMIN -->
-<div id="page-admin" class="page">
-<div class="pin"><h3>🔐 BADILISHA PIN YA ADMIN</h3><p>PIN ya sasa: <b id="pin-show">1234</b></p><label>PIN ya Zamani *</label><input id="old-pin" type="password" placeholder="Weka PIN ya zamani"><label>PIN Mpya *</label><input id="new-pin" type="password" placeholder="Weka PIN mpya"><label>Rudia PIN Mpya *</label><input id="new-pin2" type="password" placeholder="Rudia PIN mpya"><button class="btn red" onclick="badili()">🔐 BADILISHA PIN SASA</button></div>
-<div class="box"><h3>🖼️ BADILISHA PICHA NA LOGO YA SOKO</h3><label>Logo ya Soko (Emoji)</label><select id="logo-emoji"><option value="🛒">🛒 Mkokoteni</option><option value="🐐">🐐 Mbuzi</option><option value="🐟">🐟 Samaki</option><option value="🏪">🏪 Duka</option><option value="🌾">🌾 Mazao</option></select><label>Jina la Soko</label><input id="site-name" placeholder="SOKO LA TANGA"><button class="btn green" onclick="badiliLogo()">💾 HIFADHI LOGO NA JINA</button><br><button class="btn gray" onclick="rudishaLogo()">↩️ RUDISHA LOGO YA ZAMANI</button></div>
-<div class="box"><h3>📊 SOKO LAKO</h3><p id="stats">Inapakia...</p><button class="btn red" onclick="futaMifugo()">🗑️ FUTA BIDHAA ZOTE ZA MIFUGO</button><br><button class="btn red" onclick="futaUvuvi()">🗑️ FUTA BIDHAA ZOTE ZA UVUVI</button><br><button class="btn red" onclick="futaOda()">🗑️ FUTA ODA ZOTE</button><br><button class="btn red" onclick="futaMaduka()">🗑️ FUTA MADUKA YOTE</button><br><button class="btn red" onclick="futaVyote()">🗑️ FUTA VYOTE KABISA</button><br><button class="btn gray" onclick="rudisha()">↩️ RUDISHA PIN KUWA 1234</button></div>
-<br><button class="btn purple" onclick="go('home')">🏠 RUDI NYUMBANI</button>
-</div>
+<!-- ADMIN - IMEFICHWA -->
+<div id="pg-admin" style="display:none">
+<div class="box" style="background:#222;color:#fff;text-align:center"><b>⚙️ MENEJIMENTI</b></div>
+<div class="box"><h3>🖼️ BADILISHA LOGO NA JINA</h3>
+<label>Logo</label><select id="a-logo"><option>🛒</option><option>🐐</option><option>🐟</option><option>🏪</option></select>
+<label>Jina la Soko</label><input id="a-name" placeholder="SOKO LA TANGA">
+<button class="btn g" onclick="saveLogo()">HIFADHI LOGO ✅</button></div>
+<div class="box"><h3>🔐 BADILISHA PIN</h3><p>PIN ya sasa: <b id="pinShow">1234</b></p>
+<label>PIN ya Zamani</label><input id="oldPin" type="password">
+<label>PIN Mpya</label><input id="newPin" type="password">
+<button class="btn r" onclick="savePin()">BADILISHA PIN ✅</button></div>
+<div class="box"><h3>🗑️ FUTA</h3><p id="stats"></p>
+<button class="btn r" onclick="wipe('mifugo')">FUTA MIFUGO YOTE</button><br>
+<button class="btn r" onclick="wipe('uvuzi')">FUTA UVUVI WOTE</button><br>
+<button class="btn r" onclick="wipe('oda')">FUTA ODA ZOTE</button><br>
+<button class="btn r" onclick="wipe('maduka')">FUTA MADUKA YOTE</button><br>
+<button class="btn r" onclick="wipe('all')">FUTA VYOTE</button></div>
+<br><button class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
 </div>
+<!-- NUKTA NDOGO YA SIRI CHINI KABISA - USIIONDOE, WEWE TU UNAIJUA -->
+<div style="text-align:center;padding:20px 0 5px 0"><span onclick="adminCheck()" style="color:#e5e7eb;font-size:10px;cursor:pointer">•</span><div style="color:#999;font-size:11px;margin-top:6px">© Soko la Tanga 2026</div></div>
+
 <script>
-var ADMIN_PIN="1234"; try{var s=localStorage.getItem('soko_admin_pin'); if(s) ADMIN_PIN=s; var lg=localStorage.getItem('soko_logo'); if(lg){document.getElementById('logo').innerText=lg; document.getElementById('logo2').innerText=lg; document.getElementById('logo-emoji').value=lg;} var tt=localStorage.getItem('soko_title'); if(tt){document.getElementById('siteTitle').innerText=tt; document.getElementById('siteTitle2').innerText=tt; document.getElementById('site-name').value=tt;}}catch(e){}
-document.getElementById('pin-show').innerText=ADMIN_PIN;
-function go(p){var els=document.querySelectorAll('.page'); for(var i=0;i<els.length;i++) els[i].classList.remove('active'); document.getElementById('page-'+p).classList.add('active'); window.scrollTo(0,0); renderAll();}
-var c=0,last=0; function secretAdmin(){var n=Date.now(); if(n-last>1500) c=0; last=n; c++; if(c>=5){c=0; var p=prompt('ADMIN SIRI - Weka PIN:'); if(p===ADMIN_PIN){go('admin'); stats();} else if(p!==null){alert('PIN sio sahihi!');}}}
-var productsM=[{name:"Mbuzi wa Kuchinja",price:180000,qty:5,seller:"Juma Mifugo Bora",phone:"0755000000",wilaya:"Tanga Mjini",kata:"Ngamiani",emoji:"🐐"},{name:"Ng'ombe",price:850000,qty:2,seller:"Korogwe Mifugo",phone:"0755000001",wilaya:"Korogwe",kata:"Korogwe Mjini",emoji:"🐄"},{name:"Kondoo",price:120000,qty:8,seller:"Mifugo Bora",phone:"0755000002",wilaya:"Muheza",kata:"Muheza Mjini",emoji:"🐑"}];
-try{var sm=localStorage.getItem('soko_mifugo'); if(sm) productsM=JSON.parse(sm);}catch(e){}
-var odasM=[{need:"Mbuzi 10 wa kuchinja",qty:"10",price:"150000 kwa mmoja",name:"Asha",phone:"0755111222",kata:"Ngamiani"}];
-try{var om=localStorage.getItem('soko_oda_mifugo'); if(om) odasM=JSON.parse(om);}catch(e){}
-var productsU=[{name:"Samaki Sangara",price:15000,kg:"10kg",seller:"Mvuvi Hassan",phone:"0755000003",wilaya:"Pangani",kata:"Pangani Mjini",emoji:"🐟"},{name:"Dagaa",price:8000,kg:"20kg",seller:"Dagaa Fresh",phone:"0755000004",wilaya:"Muheza",kata:"Muheza Mjini",emoji:"🐟"},{name:"Kamba",price:25000,kg:"5kg",seller:"Kamba Bora",phone:"0755000005",wilaya:"Tanga Mjini",kata:"Ngamiani",emoji:"🦐"}];
-try{var su=localStorage.getItem('soko_uvuzi'); if(su) productsU=JSON.parse(su);}catch(e){}
-var odasU=[{need:"Samaki Sangara 50kg",qty:"50kg",price:"13000 kwa Kg",name:"Baraka",phone:"0755333444",kata:"Pangani Mjini"}];
-try{var ou=localStorage.getItem('soko_oda_uvuzi'); if(ou) odasU=JSON.parse(ou);}catch(e){}
-var shops=[{name:"Juma Mifugo Bora",owner:"Juma",phone:"0755000000",pass:"1234",type:"Mifugo",wilaya:"Tanga Mjini",kata:"Ngamiani",desc:"Mbuzi, Ng'ombe"}];
-try{var ss=localStorage.getItem('soko_shops'); if(ss) shops=JSON.parse(ss);}catch(e){}
-var user=null; try{var uu=localStorage.getItem('soko_user'); if(uu) user=JSON.parse(uu);}catch(e){}
-var filter='Zote'; function showFilter(f){filter=f; renderAll();}
-function renderAll(){
-var h=''; for(var i=0;i<productsM.length;i++){var p=productsM[i]; var wa=(p.phone||'').replace(/^0/,'255'); var msg=encodeURIComponent('Habari, nataka NUNUA '+p.name+' - Bei '+p.price+' TSh, Idadi '+p.qty); h+='<div class="product"><div class="img">'+(p.emoji||'🐐')+'</div><div style="flex:1"><b>'+p.name+'</b><br><small>🏪 '+p.seller+' • 📍 '+(p.wilaya||'')+' • '+(p.kata||'')+'</small><br>Bei: <b style="color:#16a34a">'+Number(p.price||0).toLocaleString()+' TSh</b> • Idadi: <b>'+p.qty+'</b><div style="display:flex;gap:6px;margin-top:10px"><a class="call" href="tel:'+p.phone+'">📞 PIGA SIMU</a><a class="wa" href="https://wa.me/'+wa+'?text='+msg+'">🛒 NUNUA</a></div><button class="del" onclick="futaBidhaaM('+i+')">🗑️ Futa Bidhaa Hii</button></div></div>';} document.getElementById('list-m').innerHTML=h||'Hakuna bidhaa bado. Weka Oda 👇';
-var oh=''; for(var j=0;j<odasM.length;j++){var r=odasM[j]; var wa2=(r.phone||'').replace(/^0/,'255'); oh+='<div class="oda"><b>🙏 '+r.need+'</b><br><small>👤 '+r.name+' • 📍 '+(r.kata||'')+'</small><br><small>Idadi: <b>'+r.qty+'</b> • Bei: <b>'+(r.price||'')+'</b></small><div style="display:flex;gap:6px;margin-top:10px"><a class="call" href="tel:'+r.phone+'">📞 MPIGIE MTEJA</a><a class="wa" href="https://wa.me/'+wa2+'">💬 NINAYO - MJIBU</a></div><button class="del" onclick="futaOdaM('+j+')">🗑️ Futa Oda Hii</button></div>';} document.getElementById('oda-list-m').innerHTML=oh||'Hakuna oda bado.';
-var h2=''; for(var i2=0;i2<productsU.length;i2++){var pu=productsU[i2]; var wau=(pu.phone||'').replace(/^0/,'255'); var msgu=encodeURIComponent('Habari, nataka NUNUA '+pu.name+' - Bei '+pu.price+' TSh kwa Kg, Kg '+pu.kg); h2+='<div class="product"><div class="img img2">'+(pu.emoji||'🐟')+'</div><div style="flex:1"><b>'+pu.name+'</b><br><small>🏪 '+pu.seller+' • 📍 '+(pu.wilaya||'')+' • '+(pu.kata||'')+'</small><br>Bei: <b style="color:#0284c7">'+Number(pu.price||0).toLocaleString()+' TSh</b> • Kg: <b>'+pu.kg+'</b><div style="display:flex;gap:6px;margin-top:10px"><a class="call" href="tel:'+pu.phone+'">📞 PIGA SIMU</a><a class="wa" href="https://wa.me/'+wau+'?text='+msgu+'">🛒 NUNUA</a></div><button class="del" onclick="futaBidhaaU('+i2+')">🗑️ Futa Bidhaa Hii</button></div></div>';} document.getElementById('list-u').innerHTML=h2||'Hakuna bidhaa bado. Weka Oda 👇';
-var oh2=''; for(var j2=0;j2<odasU.length;j2++){var ru=odasU[j2]; var wa2u=(ru.phone||'').replace(/^0/,'255'); oh2+='<div class="oda"><b>🙏 '+ru.need+'</b><br><small>👤 '+ru.name+' • 📍 '+(ru.kata||'')+'</small><br><small>Kg: <b>'+ru.qty+'</b> • Bei: <b>'+(ru.price||'')+'</b></small><div style="display:flex;gap:6px;margin-top:10px"><a class="call" href="tel:'+ru.phone+'">📞 MPIGIE MTEJA</a><a class="wa" href="https://wa.me/'+wa2u+'">💬 NINAYO - MJIBU</a></div><button class="del" onclick="futaOdaU('+j2+')">🗑️ Futa Oda Hii</button></div>';} document.getElementById('oda-list-u').innerHTML=oh2||'Hakuna oda bado.';
-var hs=''; for(var k=0;k<shops.length;k++){if(filter!=='Zote' && shops[k].type!==filter) continue; var wash=(shops[k].phone||'').replace(/^0/,'255'); hs+='<div class="shop"><b>🏪 '+shops[k].name+'</b> <span class="badge">'+(shops[k].type||'')+'</span><br><small>👤 '+(shops[k].owner||'')+' • 📍 '+(shops[k].wilaya||'')+' • '+(shops[k].kata||'')+'</small><br><small>'+(shops[k].desc||'')+'</small><br><small>📞 '+shops[k].phone+'</small><br><a href="https://wa.me/'+wash+'" style="color:#25D366;font-weight:bold;text-decoration:none">💬 WASILIANA NA DUKA</a></div>';} document.getElementById('list-shop').innerHTML=hs||'Hakuna duka la aina hii bado.';
-var m=document.getElementById('mine'); if(!user){m.innerHTML='<label>Simu ya Duka</label><input id="login-phone" placeholder="0755000000"><label>Password</label><input id="login-pass" type="password"><button class="btn purple" onclick="login()">INGIA DUKANI ✅</button>'; return;} var f=null, idx=-1; for(var kk=0;kk<shops.length;kk++){if(shops[kk].phone===user.phone){f=shops[kk]; idx=kk;}} if(!f){m.innerHTML='Huna duka.'; return;} m.innerHTML='<div style="background:#f5f3ff;padding:12px;border-radius:10px"><b>🏪 '+f.name+'</b> <span class="badge">'+(f.type||'')+'</span><br><small>👤 '+f.owner+' • 📞 '+f.phone+'</small><br><small>📍 '+f.wilaya+' • '+f.kata+'</small><br><small>'+(f.desc||'')+'</small><br><br><button class="btn red" onclick="futaDuka('+idx+')">🗑️ FUTA DUKA LANGU</button><br><button class="btn gray" onclick="toka()">🚪 TOKA</button></div>';}
-function uzaM(){var n=document.getElementById('f-name-m').value; var pr=parseInt(document.getElementById('f-price-m').value); var ph=document.getElementById('f-phone-m').value; if(!n||!pr||!ph){alert('Weka jina, bei na simu!'); return;} productsM.unshift({name:n,price:pr,qty:document.getElementById('f-qty-m').value||1,seller:document.getElementById('f-seller-m').value||'Mfanyabiashara',phone:ph,wilaya:document.getElementById('f-wilaya-m').value,kata:document.getElementById('f-kata-m').value,emoji:document.getElementById('f-emoji-m').value}); try{localStorage.setItem('soko_mifugo',JSON.stringify(productsM));}catch(e){} renderAll(); alert('Hongera! Imeongezwa ✅');}
-function tumaOdaM(){var n=document.getElementById('r-need-m').value; var q=document.getElementById('r-qty-m').value; var nm=document.getElementById('r-name-m').value; var ph=document.getElementById('r-phone-m').value; if(!n||!q||!nm||!ph){alert('Jaza sehemu zenye *'); return;} odasM.unshift({need:n,qty:q,price:document.getElementById('r-price-m').value,name:nm,phone:ph,kata:document.getElementById('r-kata-m').value}); try{localStorage.setItem('soko_oda_mifugo',JSON.stringify(odasM));}catch(e){} renderAll(); alert('Hongera! ODA imetumwa ✅');}
-function uzaU(){var n=document.getElementById('f-name-u').value; var pr=parseInt(document.getElementById('f-price-u').value); var ph=document.getElementById('f-phone-u').value; if(!n||!pr||!ph){alert('Weka jina, bei na simu!'); return;} productsU.unshift({name:n,price:pr,kg:document.getElementById('f-kg-u').value||'1kg',seller:document.getElementById('f-seller-u').value||'Mfanyabiashara',phone:ph,wilaya:document.getElementById('f-wilaya-u').value,kata:document.getElementById('f-kata-u').value,emoji:document.getElementById('f-emoji-u').value}); try{localStorage.setItem('soko_uvuzi',JSON.stringify(productsU));}catch(e){} renderAll(); alert('Hongera! Imeongezwa ✅');}
-function tumaOdaU(){var n=document.getElementById('r-need-u').value; var q=document.getElementById('r-qty-u').value; var nm=document.getElementById('r-name-u').value; var ph=document.getElementById('r-phone-u').value; if(!n||!q||!nm||!ph){alert('Jaza sehemu zenye *'); return;} odasU.unshift({need:n,qty:q,price:document.getElementById('r-price-u').value,name:nm,phone:ph,kata:document.getElementById('r-kata-u').value}); try{localStorage.setItem('soko_oda_uvuzi',JSON.stringify(odasU));}catch(e){} renderAll(); alert('Hongera! ODA imetumwa ✅');}
-function futaBidhaaM(i){if(!confirm('Futa bidhaa hii?')) return; productsM.splice(i,1); try{localStorage.setItem('soko_mifugo',JSON.stringify(productsM));}catch(e){} renderAll();}
-function futaOdaM(i){if(!confirm('Futa oda hii?')) return; odasM.splice(i,1); try{localStorage.setItem('soko_oda_mifugo',JSON.stringify(odasM));}catch(e){} renderAll();}
-function futaBidhaaU(i){if(!confirm('Futa bidhaa hii?')) return; productsU.splice(i,1); try{localStorage.setItem('soko_uvuzi',JSON.stringify(productsU));}catch(e){} renderAll();}
-function futaOdaU(i){if(!confirm('Futa oda hii?')) return; odasU.splice(i,1); try{localStorage.setItem('soko_oda_uvuzi',JSON.stringify(odasU));}catch(e){} renderAll();}
-function sajili(){var n=document.getElementById('s-name').value; var p=document.getElementById('s-phone').value; var pw=document.getElementById('s-pass').value; var pw2=document.getElementById('s-pass2').value; if(!n||!p){alert('Weka jina na simu!'); return;} if(!pw||pw.length<4){alert('Password angalau 4'); return;} if(pw!==pw2){alert('Password hazifanani'); return;} shops.unshift({name:n,owner:document.getElementById('s-owner').value||'Mmiliki',phone:p,pass:pw,type:document.getElementById('s-type').value,wilaya:document.getElementById('s-wilaya').value,kata:document.getElementById('s-kata').value,desc:document.getElementById('s-desc').value}); user={phone:p,name:document.getElementById('s-owner').value||n}; try{localStorage.setItem('soko_shops',JSON.stringify(shops)); localStorage.setItem('soko_user',JSON.stringify(user));}catch(e){} renderAll(); alert('Hongera! Duka limesajiliwa ✅');}
-function login(){var ph=document.getElementById('login-phone').value; var pw=document.getElementById('login-pass').value; var f=null; for(var i=0;i<shops.length;i++){if(shops[i].phone===ph) f=shops[i];} if(!f){alert('Hakuna duka na simu hii!'); return;} if((f.pass||'1234')!==pw){alert('Password sio sahihi!'); return;} user={phone:ph,name:f.owner}; try{localStorage.setItem('soko_user',JSON.stringify(user));}catch(e){} renderAll();}
-function toka(){user=null; try{localStorage.removeItem('soko_user');}catch(e){} renderAll();}
-function futaDuka(idx){if(!confirm('Futa duka lako kabisa?')) return; shops.splice(idx,1); user=null; try{localStorage.setItem('soko_shops',JSON.stringify(shops)); localStorage.removeItem('soko_user');}catch(e){} renderAll();}
-function badili(){var o=document.getElementById('old-pin').value; var n=document.getElementById('new-pin').value; var n2=document.getElementById('new-pin2').value; if(!o||!n||!n2){alert('Jaza sehemu zote 3!'); return;} if(o!==ADMIN_PIN){alert('PIN ya zamani sio sahihi!'); return;} if(n.length<4){alert('PIN mpya angalau 4!'); return;} if(n!==n2){alert('PIN mpya hazifanani!'); return;} ADMIN_PIN=n; try{localStorage.setItem('soko_admin_pin',n);}catch(e){} document.getElementById('pin-show').innerText=n; document.getElementById('old-pin').value=''; document.getElementById('new-pin').value=''; document.getElementById('new-pin2').value=''; alert('Hongera! PIN imebadilishwa ✅ PIN mpya: '+n);}
-function badiliLogo(){var lg=document.getElementById('logo-emoji').value; var nm=document.getElementById('site-name').value||'SOKO LA TANGA'; try{localStorage.setItem('soko_logo',lg); localStorage.setItem('soko_title',nm);}catch(e){} document.getElementById('logo').innerText=lg; document.getElementById('logo2').innerText=lg; document.getElementById('siteTitle').innerText=nm; document.getElementById('siteTitle2').innerText=nm; alert('Hongera! Logo na Jina vimebadilishwa ✅');}
-function rudishaLogo(){try{localStorage.removeItem('soko_logo'); localStorage.removeItem('soko_title');}catch(e){} document.getElementById('logo').innerText='🛒'; document.getElementById('logo2').innerText='🛒'; document.getElementById('siteTitle').innerText='SOKO LA TANGA'; document.getElementById('siteTitle2').innerText='SOKO LA TANGA'; alert('Logo imerudishwa ✅');}
-function rudisha(){if(!confirm('Rudisha PIN kuwa 1234?')) return; ADMIN_PIN="1234"; try{localStorage.setItem('soko_admin_pin',"1234");}catch(e){} document.getElementById('pin-show').innerText="1234"; alert('PIN imerudishwa kuwa 1234 ✅');}
-function futaMifugo(){if(!confirm('Futa bidhaa zote za Mifugo?')) return; productsM=[]; try{localStorage.removeItem('soko_mifugo');}catch(e){} renderAll(); stats();}
-function futaUvuvi(){if(!confirm('Futa bidhaa zote za Uvuvi?')) return; productsU=[]; try{localStorage.removeItem('soko_uvuzi');}catch(e){} renderAll(); stats();}
-function futaOda(){if(!confirm('Futa Oda zote?')) return; odasM=[]; odasU=[]; try{localStorage.removeItem('soko_oda_mifugo'); localStorage.removeItem('soko_oda_uvuzi');}catch(e){} renderAll(); stats();}
-function futaMaduka(){if(!confirm('Futa Maduka yote?')) return; shops=[]; user=null; try{localStorage.removeItem('soko_shops'); localStorage.removeItem('soko_user');}catch(e){} renderAll(); stats();}
-function futaVyote(){if(!confirm('Futa VYOTE?')) return; productsM=[]; productsU=[]; odasM=[]; odasU=[]; shops=[]; user=null; try{localStorage.removeItem('soko_mifugo'); localStorage.removeItem('soko_uvuzi'); localStorage.removeItem('soko_shops'); localStorage.removeItem('soko_oda_mifugo'); localStorage.removeItem('soko_oda_uvuzi'); localStorage.removeItem('soko_user');}catch(e){} renderAll(); stats();}
-function stats(){document.getElementById('stats').innerHTML='🐐 Bidhaa za Mifugo: <b>'+productsM.length+'</b><br>🐟 Bidhaa za Uvuvi: <b>'+productsU.length+'</b><br>🏪 Maduka: <b>'+shops.length+'</b><br>🙏 Oda za Mifugo: <b>'+odasM.length+'</b><br>🙏 Oda za Uvuvi: <b>'+odasU.length+'</b>';}
-renderAll();
-</script></body></html>
+var PIN="1234";
+try{PIN=localStorage.getItem('soko_pin')||"1234";
+var lg=localStorage.getItem('soko_logo'); if(lg){document.getElementById('logo1').innerText=lg;document.getElementById('logo2').innerText=lg;}
+var tt=localStorage.getItem('soko_title'); if(tt){document.getElementById('title1').innerText=tt;document.getElementById('title2').innerText=tt;}
+}catch(e){}
+document.getElementById('pinShow').innerText=PIN;
+function go(p){
+document.getElementById('pg-home').style.display='none';
+document.getElementById('pg-mifugo').style.display='none';
+document.getElementById('pg-uvuzi').style.display='none';
+document.getElementById('pg-maduka').style.display='none';
+document.getElementById('pg-admin').style.display='none';
+document.getElementById('pg-'+p).style.display='block';
+window.scrollTo(0,0);
+render();
+}
+var cc=0,lt=0;
+function adminCheck(){var n=Date.now();if(n-lt>1500)cc=0;lt=n;cc++;if(cc>=5){cc=0;var p=prompt('Weka PIN:');if(p===PIN){go('admin');showStats();}else if(p!==null){alert('PIN sio sahihi!');}}}
+function load(k,d){try{var v=localStorage.getItem(k);if(v)return JSON.parse(v);}catch(e){}return d;}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+var PM=load('soko_mifugo',[{name:"Mbuzi wa Kuchinja",price:180000,qty:5,seller:"Juma Mifugo",phone:"0755000000",wilaya:"Tanga Mjini",emoji:"🐐"},{name:"Ng'ombe",price:850000,qty:2,seller:"Korogwe Mifugo",phone:"0755000001",wilaya:"Korogwe",emoji:"🐄"}]);
+var OM=load('soko_oda_mifugo',[{need:"Mbuzi 10",qty:"10",name:"Asha",phone:"0755111222"}]);
+var PU=load('soko_uvuzi',[{name:"Samaki Sangara",price:15000,kg:"10kg",seller:"Mvuvi Hassan",phone:"0755000003",wilaya:"Pangani",emoji:"🐟"},{name:"Kamba",price:25000,kg:"5kg",seller:"Kamba Bora",phone:"0755000005",wilaya:"Tanga Mjini",emoji:"🦐"}]);
+var OU=load('soko_oda_uvuzi',[{need:"Samaki 50kg",qty:"50kg",name:"Baraka",phone:"0755333444"}]);
+var SH=load('soko_shops',[{name:"Juma Mifugo Bora",phone:"0755000000",pass:"1234",type:"Mifugo",wilaya:"Tanga Mjini"}]);
+var USER=load('soko_user',null);
+var F='Zote';
+function filt(f){F=f;render();}
+function waNum(p){return (p||'').replace(/^0/,'255');}
+function render(){
+var h='';for(var i=0;i<PM.length;i++){var p=PM[i];h+='<div class="item"><div class="pic">'+p.emoji+'</div><div style="flex:1"><b>'+p.name+'</b><br><span class="small">'+p.seller+' • '+p.wilaya+'</span><br>Bei: <b>'+Number(p.price).toLocaleString()+' TSh</b> • Idadi: <b>'+p.qty+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+p.phone+'">📞 PIGA</a><a class="wa" href="https://wa.me/'+waNum(p.phone)+'">🛒 NUNUA</a></div><button class="del" onclick="delM('+i+')">🗑️ Futa</button></div></div>';}
+document.getElementById('listM').innerHTML=h||'Hakuna bidhaa bado.';
+var o='';for(var j=0;j<OM.length;j++){var r=OM[j];o+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r.need+'</b><br><span class="small">'+r.name+' • Idadi: '+r.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r.phone+'">📞 MPIGIE</a><a class="wa" href="https://wa.me/'+waNum(r.phone)+'">💬 NINAYO</a></div><button class="del" onclick="delOM('+j+')">🗑️ Futa Oda</button></div>';}
+document.getElementById('odaM').innerHTML=o||'Hakuna oda.';
+var h2='';for(var i2=0;i2<PU.length;i2++){var q=PU[i2];h2+='<div class="item"><div class="pic pic2">'+q.emoji+'</div><div style="flex:1"><b>'+q.name+'</b><br><span class="small">'+q.seller+' • '+q.wilaya+'</span><br>Bei: <b>'+Number(q.price).toLocaleString()+' TSh</b> • Kg: <b>'+q.kg+'</b><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+q.phone+'">📞 PIGA</a><a class="wa" href="https://wa.me/'+waNum(q.phone)+'">🛒 NUNUA</a></div><button class="del" onclick="delU('+i2+')">🗑️ Futa</button></div></div>';}
+document.getElementById('listU').innerHTML=h2||'Hakuna bidhaa bado.';
+var o2='';for(var j2=0;j2<OU.length;j2++){var r2=OU[j2];o2+='<div class="box" style="border-left:5px solid #f59e0b"><b>🙏 '+r2.need+'</b><br><span class="small">'+r2.name+' • Kg: '+r2.qty+'</span><div style="display:flex;gap:6px;margin-top:8px"><a class="call" href="tel:'+r2.phone+'">📞 MPIGIE</a><a class="wa" href="https://wa.me/'+waNum(r2.phone)+'">💬 NINAYO</a></div><button class="del" onclick="delOU('+j2+')">🗑️ Futa Oda</button></div>';}
+document.getElementById('odaU').innerHTML=o2||'Hakuna oda.';
+var s='';for(var k=0;k<SH.length;k++){if(F!=='Zote'&&SH[k].type!==F)continue;s+='<div class="box"><b>🏪 '+SH[k].name+'</b> <span class="badge">'+SH[k].type+'</span><br><span class="small">📍 '+SH[k].wilaya+' • 📞 '+SH[k].phone+'</span><br><a href="https://wa.me/'+waNum(SH[k].phone)+'" style="color:#25D366;font-weight:bold;text-decoration:none">💬 WASILIANA</a></div>';}
+document.getElementById('listS').innerHTML=s||'Hakuna duka la aina hii.';
+var m=document.getElementById('mine');
+if(!USER){m.innerHTML='<label>Simu ya Duka</label><input id="lp" placeholder="0755000000"><label>Password</label><input id="lw" type="password"><button class="btn p" onclick="login()">INGIA DUKANI ✅</button>';}
+else{var f=null,idx=-1;for(var kk=0;kk<SH.length;kk++){if(SH[kk].phone===USER.phone){f=SH[kk];idx=kk;}}
+if(!f){m.innerHTML='Huna duka.';}else{m.innerHTML='<b>🏪 '+f.name+'</b> <span class="badge">'+f.type+'</span><br><span class="small">'+f.wilaya+' • '+f.phone+'</span><br><br><button class="btn r" onclick="delShop('+idx+')">🗑️ FUTA DUKA LANGU</button><br><button class="btn gr" onclick="logout()">🚪 TOKA</button>';}}
+}
+function uzaM(){var n=document.getElementById('m-name').value;var pr=parseInt(document.getElementById('m-price').value);var ph=document.getElementById('m-phone').value;if(!n||!pr||!ph){alert('Weka jina, bei na simu!');return;}PM.unshift({name:n,price:pr,qty:document.getElementById('m-qty').value||1,seller:document.getElementById('m-seller').value||'Mfanyabiashara',phone:ph,wilaya:document.getElementById('m-wilaya').value,emoji:document.getElementById('m-emoji').value});save('soko_mifugo',PM);render();alert('Imeongezwa ✅');}
+function odaM(){var n=document.getElementById('om-need').value;var q=document.getElementById('om-qty').value;var nm=document.getElementById('om-name').value;var ph=document.getElementById('om-phone').value;if(!n||!q||!nm||!ph){alert('Jaza zote!');return;}OM.unshift({need:n,qty:q,name:nm,phone:ph});save('soko_oda_mifugo',OM);render();alert('ODA imetumwa ✅');}
+function uzaU(){var n=document.getElementById('u-name').value;var pr=parseInt(document.getElementById('u-price').value);var ph=document.getElementById('u-phone').value;if(!n||!pr||!ph){alert('Weka jina, bei na simu!');return;}PU.unshift({name:n,price:pr,kg:document.getElementById('u-kg').value||'1kg',seller:document.getElementById('u-seller').value||'Mfanyabiashara',phone:ph,wilaya:document.getElementById('u-wilaya').value,emoji:document.getElementById('u-emoji').value});save('soko_uvuzi',PU);render();alert('Imeongezwa ✅');}
+function odaU(){var n=document.getElementById('ou-need').value;var q=document.getElementById('ou-qty').value;var nm=document.getElementById('ou-name').value;var ph=document.getElementById('ou-phone').value;if(!n||!q||!nm||!ph){alert('Jaza zote!');return;}OU.unshift({need:n,qty:q,name:nm,phone:ph});save('soko_oda_uvuzi',OU);render();alert('ODA imetumwa ✅');}
+function delM(i){if(!confirm('Futa bidhaa hii?'))return;PM.splice(i,1);save('soko_mifugo',PM);render();}
+function delOM(i){if(!confirm('Futa oda hii?'))return;OM.splice(i,1);save('soko_oda_mifugo',OM);render();}
+function delU(i){if(!confirm('Futa bidhaa hii?'))return;PU.splice(i,1);save('soko_uvuzi',PU);render();}
+function delOU(i){if(!confirm('Futa oda hii?'))return;OU.splice(i,1);save('soko_oda_uvuzi',OU);render();}
+function sajili(){var n=document.getElementById('s-name').value;var p=document.getElementById('s-phone').value;var pw=document.getElementById('s-pass').value;var pw2=document.getElementById('s-pass2').value;if(!n||!p){alert('Weka jina na simu!');return;}if(pw!==pw2){alert('Password hazifanani!');return;}SH.unshift({name:n,phone:p,pass:pw,type:document.getElementById('s-type').value,wilaya:document.getElementById('s-wilaya').value||'Tanga'});USER={phone:p};save('soko_shops',SH);save('soko_user',USER);render();alert('Duka limesajiliwa ✅');}
+function login(){var ph=document.getElementById('lp').value;var pw=document.getElementById('lw').value;var f=null;for(var i=0;i<SH.length;i++){if(SH[i].phone===ph)f=SH[i];}if(!f){alert('Hakuna duka na simu hii!');return;}if((f.pass||'1234')!==pw){alert('Password sio sahihi!');return;}USER={phone:ph};save('soko_user',USER);render();}
+function logout(){USER=null;try{localStorage.removeItem('soko_user');}catch(e){}render();}
+function delShop(idx){if(!confirm('Futa duka lako?'))return;SH.splice(idx,1);USER=null;save('soko_shops',SH);try{localStorage.removeItem('soko_user');}catch(e){}render();}
+function saveLogo(){var lg=document.getElementById('a-logo').value;var nm=document.getElementById('a-name').value||'SOKO LA TANGA';try{localStorage.setItem('soko_logo',lg);localStorage.setItem('soko_title',nm);}catch(e){}document.getElementById('logo1').innerText=lg;document.getElementById('logo2').innerText=lg;document.getElementById('title1').innerText=nm;document.getElementById('title2').innerText=nm;alert('Logo imebadilishwa ✅');}
+function savePin(){var o=document.getElementById('oldPin').value;var n=document.getElementById('newPin').value;if(o!==PIN){alert('PIN ya zamani sio sahihi!');return;}if(!n||n.length<4){alert('PIN mpya angalau 4');return;}PIN=n;try{localStorage.setItem('soko_pin',n);}catch(e){}document.getElementById('pinShow').innerText=n;alert('PIN imebadilishwa ✅');}
+function showStats(){document.getElementById('stats').innerHTML='Mifugo: '+PM.length+' • Uvuvi: '+PU.length+' • Maduka: '+SH.length+' • Oda Mifugo: '+OM.length+' • Oda Uvuvi: '+OU.length;}
+function wipe(t){if(!confirm('Futa?'))return;if(t==='mifugo'||t==='all'){PM=[];try{localStorage.removeItem('soko_mifugo');}catch(e){}}if(t==='uvuzi'||t==='all'){PU=[];try{localStorage.removeItem('soko_uvuzi');}catch(e){}}if(t==='oda'||t==='all'){OM=[];OU=[];try{localStorage.removeItem('soko_oda_mifugo');localStorage.removeItem('soko_oda_uvuzi');}catch(e){}}if(t==='maduka'||t==='all'){SH=[];USER=null;try{localStorage.removeItem('soko_shops');localStorage.removeItem('soko_user');}catch(e){}}render();showStats();alert('Imefutwa ✅');}
+render();
+</script>
+</body>
+</html>
