@@ -7,8 +7,9 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
 body{background:#f1f5f9;padding-bottom:30px}
-.c{max-width:480px;margin:auto;padding:12px}
+.c{max-width:900px;margin:auto;padding:12px}
 header{background:#16a34a;color:white;padding:14px;text-align:center}
+header h1{font-size:22px;line-height:1.25;padding:0 10px}
 .logo{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin:auto;border:3px solid #facc15;cursor:pointer}
 .btn{display:block;padding:14px;border-radius:10px;color:#fff;font-weight:bold;text-align:center;text-decoration:none;border:none;width:100%;cursor:pointer}
 .g{background:#16a34a}.b{background:#0284c7}.p{background:#7c3aed}.o{background:#ea580c}.gr{background:#64748b}.r{background:#dc2626}.y{background:#ca8a04}
@@ -30,6 +31,12 @@ label{font-size:13px;font-weight:bold}
 .closeRow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .closeBtn{background:#fee2e2;color:#dc2626;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;cursor:pointer}
 .prev{width:100%;max-height:160px;object-fit:cover;border-radius:10px;display:none;margin:6px 0}
+@media(min-width:700px){
+#pg-home.home-grid{display:grid !important;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+#pg-home.home-grid > div:first-child{grid-column:1 / -1}
+#pg-home.home-grid > div:last-child{grid-column:1 / -1}
+#pg-mifugo,#pg-uvuzi,#pg-maduka{max-width:760px;margin:auto}
+}
 </style>
 </head>
 <body>
@@ -40,11 +47,11 @@ label{font-size:13px;font-weight:bold}
 </header>
 <div class="c">
 
-<div id="pg-home" style="display:block">
+<div id="pg-home" class="home-grid" style="display:block">
 <div class="box" style="text-align:center;border:2px solid #16a34a"><div class="logo">🛒</div><h2 id="title2">SOKO LA MIFUGO NA MAZAO YA UVUVI-TANGA</h2><p>🐐 Mifugo • 🐟 Uvuvi • 🏪 Maduka Yetu</p></div>
 <div class="card"><div style="font-size:50px;text-align:center">🐐🐄🐑</div><h3>SOKO LA MIFUGO</h3><p>Mbuzi, Ng'ombe, Kondoo, Kuku</p><br><button type="button" class="btn g" onclick="go('mifugo')">INGIA - MIFUGO →</button></div>
 <div class="card"><div style="font-size:50px;text-align:center">🐟🦐🦀</div><h3>SOKO LA UVUVI</h3><p>Samaki, Dagaa, Kamba</p><br><button type="button" class="btn b" onclick="go('uvuzi')">INGIA - UVUVI →</button></div>
-<div class="card" style="border:2px solid #7c3aed;text-align:center"><div style="font-size:40px">🏪</div><b>MADUKA YETU</b><br><small>Maduka ya Aina Zote</small><br><button type="button" class="btn p" onclick="go('maduka')" style="margin-top:10px">MADUKA YETU →</button></div>
+<div class="card" style="border:2px solid #7c3aed;text-align:center;grid-column:1 / -1"><div style="font-size:40px">🏪</div><b>MADUKA YETU</b><br><small>Maduka ya Aina Zote</small><br><button type="button" class="btn p" onclick="go('maduka')" style="margin-top:10px">MADUKA YETU →</button></div>
 <div style="text-align:center;color:#999;font-size:11px;margin-top:10px">© Soko la mifugo na mazao ya uvuvi-Tanga 2026</div>
 </div>
 
@@ -112,17 +119,15 @@ label{font-size:13px;font-weight:bold}
 <div id="u-angalia" style="display:none"><div class="closeRow"><h3>📋 ANGALIA ODA ZA UVUVI</h3><button type="button" class="closeBtn" onclick="showU('nunua')">✕ FUNGA</button></div><p class="small">Hapa ni ODA za wateja tu - tofauti na WEKA ODA.</p><br><div id="odaU"></div></div>
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
-<!-- MADUKA - IMETENGANISHWA -->
+<!-- MADUKA -->
 <div id="pg-maduka" style="display:none">
 <div class="box" style="background:#7c3aed;color:#fff;text-align:center"><b>🏪 MADUKA YETU - AINA ZOTE</b></div>
 <div class="nav"><button type="button" class="btn gr" onclick="go('home')">🏠 Nyumbani</button><button type="button" class="btn g" onclick="go('mifugo')">🐐 Mifugo</button><button type="button" class="btn b" onclick="go('uvuzi')">🐟 Uvuvi</button></div>
 <div class="nav2"><button type="button" class="btn b" onclick="showS('angalia')">🏪 ANGALIA MADUKA</button><button type="button" class="btn p" onclick="showS('sajili')">📝 SAJILI DUKA</button><button type="button" class="btn g" onclick="showS('langu')">🏪 DUKA LANGU</button></div>
-
 <div id="s-angalia">
 <div class="nav"><button type="button" class="btn gr" onclick="filt('Zote')">Zote</button><button type="button" class="btn gr" onclick="filt('Mifugo')">Mifugo</button><button type="button" class="btn gr" onclick="filt('Uvuvi')">Uvuvi</button></div>
 <div class="nav"><button type="button" class="btn gr" onclick="filt('Chakula')">Chakula</button><button type="button" class="btn gr" onclick="filt('Dawa')">Dawa</button><button type="button" class="btn gr" onclick="filt('Vifaa')">Vifaa</button></div>
 <div id="listS"></div></div>
-
 <div id="s-sajili" style="display:none"><div class="box">
 <div class="closeRow"><h3>📝 SAJILI DUKA - AINA YOYOTE</h3><button type="button" class="closeBtn" onclick="showS('angalia')">✕ FUNGA</button></div>
 <label>Picha / Logo ya Duka - Chagua </label>
@@ -136,11 +141,9 @@ label{font-size:13px;font-weight:bold}
 <label>Wilaya</label><input id="s-wilaya" placeholder="Tanga Mjini">
 <button type="button" class="btn p" onclick="sajili()">SAJILI DUKA ✅</button>
 <button type="button" class="btn gr" onclick="showS('angalia')" style="margin-top:8px">✕ FUNGA FOMU</button></div></div>
-
 <div id="s-langu" style="display:none"><div class="box">
 <div class="closeRow"><h3>🏪 DUKA LANGU</h3><button type="button" class="closeBtn" onclick="showS('angalia')">✕ FUNGA</button></div>
 <div id="mine"></div></div></div>
-
 <br><button type="button" class="btn gr" onclick="go('home')">← RUDI NYUMBANI</button></div>
 
 <!-- ADMIN -->
@@ -148,7 +151,7 @@ label{font-size:13px;font-weight:bold}
 <div class="box" style="background:#222;color:#fff;text-align:center"><b>⚙️ MENEJIMENTI</b></div>
 <div class="box"><h3>🖼️ BADILISHA LOGO NA JINA</h3>
 <label>Logo</label><select id="a-logo"><option>🛒</option><option>🐐</option><option>🐟</option><option>🏪</option></select>
-<label>Jina la Soko</label><input id="a-name" placeholder="SOKO LA TANGA">
+<label>Jina la Soko</label><input id="a-name" placeholder="SOKO LA MIFUGO NA MAZAO YA UVUVI-TANGA">
 <button type="button" class="btn g" onclick="saveLogo()">HIFADHI LOGO ✅</button></div>
 <div class="box"><h3>🔐 BADILISHA PIN</h3><p>PIN ya sasa: <b id="pinShow">1234</b></p>
 <label>PIN ya Zamani</label><input id="oldPin" type="password">
@@ -170,7 +173,7 @@ var lg=localStorage.getItem('soko_logo'); if(lg){document.getElementById('logo1'
 var tt=localStorage.getItem('soko_title'); if(tt){document.getElementById('title1').innerText=tt;document.getElementById('title2').innerText=tt;}
 }catch(e){}
 document.getElementById('pinShow').innerText=PIN;
-function go(p){var ids=['home','mifugo','uvuzi','maduka','admin'];for(var i=0;i<ids.length;i++){var el=document.getElementById('pg-'+ids[i]);if(el){el.style.display=(ids[i]===p?'block':'none');}}window.scrollTo(0,0);try{render();}catch(e){}}
+function go(p){var ids=['home','mifugo','uvuzi','maduka','admin'];for(var i=0;i<ids.length;i++){var el=document.getElementById('pg-'+ids[i]);if(el){if(ids[i]===p){el.style.display=(p==='home'&&window.innerWidth>=700?'grid':'block');}else{el.style.display='none';}}}window.scrollTo(0,0);try{render();}catch(e){}}
 function showM(s){var ids=['nunua','uza','weka','angalia'];for(var i=0;i<ids.length;i++){var el=document.getElementById('m-'+ids[i]);if(el){el.style.display=(ids[i]===s?'block':'none');}}window.scrollTo(0,0);}
 function showU(s){var ids=['nunua','uza','weka','angalia'];for(var i=0;i<ids.length;i++){var el=document.getElementById('u-'+ids[i]);if(el){el.style.display=(ids[i]===s?'block':'none');}}window.scrollTo(0,0);}
 function showS(s){var ids=['angalia','sajili','langu'];for(var i=0;i<ids.length;i++){var el=document.getElementById('s-'+ids[i]);if(el){el.style.display=(ids[i]===s?'block':'none');}}window.scrollTo(0,0);try{render();}catch(e){}}
@@ -232,7 +235,7 @@ function sajili(){var n=document.getElementById('s-name').value;var p=document.g
 function login(){var ph=document.getElementById('lp').value;var pw=document.getElementById('lw').value;var f=null;for(var i=0;i<SH.length;i++){if(SH[i].phone===ph)f=SH[i];}if(!f){alert('Hakuna duka na simu hii!');return;}if((f.pass||'1234')!==pw){alert('Password sio sahihi!');return;}USER={phone:ph};save('soko_user',USER);render();}
 function logout(){USER=null;try{localStorage.removeItem('soko_user');}catch(e){}render();}
 function delShop(idx){if(!confirm('Futa duka lako?'))return;SH.splice(idx,1);USER=null;save('soko_shops',SH);try{localStorage.removeItem('soko_user');}catch(e){}render();showS('angalia');}
-function saveLogo(){var lg=document.getElementById('a-logo').value;var nm=document.getElementById('a-name').value||'SOKO LA TANGA';try{localStorage.setItem('soko_logo',lg);localStorage.setItem('soko_title',nm);}catch(e){}document.getElementById('logo1').innerText=lg;document.getElementById('title1').innerText=nm;document.getElementById('title2').innerText=nm;alert('Logo imebadilishwa ✅');}
+function saveLogo(){var lg=document.getElementById('a-logo').value;var nm=document.getElementById('a-name').value||'SOKO LA MIFUGO NA MAZAO YA UVUVI-TANGA';try{localStorage.setItem('soko_logo',lg);localStorage.setItem('soko_title',nm);}catch(e){}document.getElementById('logo1').innerText=lg;document.getElementById('title1').innerText=nm;document.getElementById('title2').innerText=nm;alert('Logo imebadilishwa ✅');}
 function savePin(){var o=document.getElementById('oldPin').value;var n=document.getElementById('newPin').value;if(o!==PIN){alert('PIN ya zamani sio sahihi!');return;}if(!n||n.length<4){alert('PIN mpya angalau 4');return;}PIN=n;try{localStorage.setItem('soko_pin',n);}catch(e){}document.getElementById('pinShow').innerText=n;alert('PIN imebadilishwa ✅');}
 function showStats(){document.getElementById('stats').innerHTML='Mifugo: '+PM.length+' • Uvuvi: '+PU.length+' • Maduka: '+SH.length+' • Oda Mifugo: '+OM.length+' • Oda Uvuvi: '+OU.length;}
 function wipe(t){if(!confirm('Futa?'))return;if(t==='mifugo'||t==='all'){PM=[];try{localStorage.removeItem('soko_mifugo');}catch(e){}}if(t==='uvuzi'||t==='all'){PU=[];try{localStorage.removeItem('soko_uvuzi');}catch(e){}}if(t==='oda'||t==='all'){OM=[];OU=[];try{localStorage.removeItem('soko_oda_mifugo');localStorage.removeItem('soko_oda_uvuzi');}catch(e){}}if(t==='maduka'||t==='all'){SH=[];USER=null;try{localStorage.removeItem('soko_shops');localStorage.removeItem('soko_user');}catch(e){}}render();showStats();alert('Imefutwa ✅');}
